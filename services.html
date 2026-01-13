@@ -40,9 +40,7 @@
             }
             .page-header h1 { color: white; margin-bottom: 10px; }
 
-            /* --- SERVICE CARDS --- */
-            /* Made the whole card a clickable block by wrapping content in <a> tag logic if needed later, 
-               but for now just styling the div to look good without the bottom link */
+            /* --- SERVICE CARDS STYLING --- */
             .service-link-wrapper {
                 text-decoration: none !important;
                 color: inherit !important;
@@ -50,34 +48,57 @@
                 height: 100%;
             }
 
-            .single-services-box { 
+            /* Main Clickable Card Style */
+            .main-service-box {
+                background: #fff;
+                padding: 50px 40px;
+                border-radius: 25px;
+                box-shadow: 0 15px 40px rgba(50, 196, 141, 0.15); /* Greenish shadow */
+                border: 2px solid var(--brand-green); /* Green border to highlight */
+                text-align: center;
+                transition: .3s;
+                cursor: pointer;
+            }
+            .main-service-box:hover {
+                transform: translateY(-5px);
+                background-color: #f9fffb; /* Very light green tint on hover */
+                box-shadow: 0 20px 50px rgba(50, 196, 141, 0.3);
+            }
+
+            /* Informational Card Style (Non-clickable) */
+            .info-card-box { 
                 background: #fff; 
-                padding: 40px 30px; 
+                padding: 30px 25px; 
                 margin-bottom: 30px; 
                 border-radius: 20px; 
-                box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
-                transition: .3s; 
-                text-align: center; 
+                box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+                text-align: left; 
                 border: 1px solid #f0f0f0;
                 height: 100%; 
                 display: flex;
-                flex-direction: column;
-                justify-content: center;
-                cursor: pointer; /* Indicates clickable */
+                align-items: center; /* Align icon and text side-by-side */
             }
-            .single-services-box:hover { 
-                transform: translateY(-5px); 
-                border-color: var(--brand-green); 
-                box-shadow: 0 15px 40px rgba(50, 196, 141, 0.2); 
-            }
-            .icon-box {
-                width: 80px; height: 80px; 
+            /* Removed hover transform for info cards so they feel static */
+            
+            .icon-box-main {
+                width: 100px; height: 100px; 
                 background: #e8f5e9; 
                 border-radius: 50%; 
                 display: flex; align-items: center; justify-content: center;
-                margin: 0 auto 20px; 
+                margin: 0 auto 25px; 
                 color: var(--brand-green); 
-                font-size: 32px;
+                font-size: 40px;
+            }
+
+            .icon-box-small {
+                width: 60px; height: 60px;
+                background: #e3f2fd;
+                border-radius: 50%;
+                display: flex; align-items: center; justify-content: center;
+                color: var(--brand-blue);
+                font-size: 24px;
+                margin-right: 20px;
+                flex-shrink: 0;
             }
 
             /* --- FOOTER --- */
@@ -133,70 +154,85 @@
 
         <section class="page-header">
             <div class="container">
-                <h1 class="font-weight-bold">การรักษาด้วย Plasma 1</h1>
-                <p class="lead mb-0">ทางเลือกใหม่ของการรักษาข้อเสื่อมและอาการปวดโดยไม่ต้องผ่าตัด</p>
+                <h1 class="font-weight-bold">บริการของเรา</h1>
+                <p class="lead mb-0">นวัตกรรมการรักษาโดยไม่ต้องผ่าตัด</p>
             </div>
         </section>
 
         <section class="py-5">
             <div class="container py-4">
-                <div class="row text-center mb-5">
-                    <div class="col-lg-8 mx-auto">
-                        <h2 class="font-weight-bold" style="color: var(--brand-blue);">ครอบคลุมการรักษา</h2>
-                        <p class="text-muted lead">
-                            เทคโนโลยี Plasma 1 (PRGF) สามารถนำมาใช้ฟื้นฟูอาการบาดเจ็บของข้อต่อและเส้นเอ็นต่างๆ ได้อย่างมีประสิทธิภาพ ไม่จำกัดเพียงแค่ข้อเข่า
-                        </p>
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8">
+                        <a href="service-plasma.html" class="service-link-wrapper">
+                            <div class="main-service-box">
+                                <div class="icon-box-main"><i class="fas fa-dna"></i></div>
+                                <h2 class="font-weight-bold mb-3" style="color: var(--brand-green);">การรักษาด้วย Plasma 1 (PRGF)</h2>
+                                <p class="text-muted lead mb-4">
+                                    เทคโนโลยีชีวภาพที่ช่วยซ่อมแซมเนื้อเยื่อและลดการอักเสบตามธรรมชาติ 
+                                    ทางเลือกที่มีประสิทธิภาพสำหรับผู้ที่มีปัญหาข้อเสื่อมโดยไม่ต้องผ่าตัด
+                                </p>
+                                <span class="btn btn-outline-success font-weight-bold px-4 py-2" style="border-radius: 50px;">
+                                    อ่านรายละเอียดบริการ <i class="fas fa-arrow-right ml-2"></i>
+                                </span>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
                 <div class="row">
-                    
+                    <div class="col-12 text-center mb-4">
+                        <h3 class="font-weight-bold" style="color: var(--brand-blue);">อาการที่สามารถรักษาได้</h3>
+                        <p class="text-muted">เทคโนโลยี Plasma 1 สามารถช่วยบรรเทาอาการบาดเจ็บของข้อต่อต่างๆ ได้อย่างมีประสิทธิภาพ</p>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-lg-6 mb-4">
-                        <a href="service-plasma.html" class="service-link-wrapper">
-                            <div class="single-services-box">
-                                <div class="icon-box"><i class="fas fa-bone"></i></div>
-                                <h4>ข้อเข่าเสื่อม (Knee Osteoarthritis)</h4>
-                                <p class="text-muted mb-0">
-                                    ช่วยลดอาการปวดและอักเสบในผู้ป่วยข้อเข่าเสื่อมทุกระยะ ชะลอความเสื่อมของผิวข้อ และช่วยยืดระยะเวลาหรือหลีกเลี่ยงการผ่าตัดเปลี่ยนข้อเข่า
+                        <div class="info-card-box">
+                            <div class="icon-box-small"><i class="fas fa-bone"></i></div>
+                            <div>
+                                <h5 class="font-weight-bold mb-2">ข้อเข่าเสื่อม (Knee Osteoarthritis)</h5>
+                                <p class="text-muted mb-0 small">
+                                    ช่วยลดอาการปวดและอักเสบในผู้ป่วยข้อเข่าเสื่อมทุกระยะ ชะลอความเสื่อมของผิวข้อ
                                 </p>
                             </div>
-                        </a>
+                        </div>
                     </div>
 
                     <div class="col-lg-6 mb-4">
-                        <a href="service-plasma.html" class="service-link-wrapper">
-                            <div class="single-services-box">
-                                <div class="icon-box"><i class="fas fa-layer-group"></i></div>
-                                <h4>หมอนรองกระดูกและกระดูกอ่อน (Meniscus & Cartilage)</h4>
-                                <p class="text-muted mb-0">
-                                    ฟื้นฟูการบาดเจ็บของหมอนรองกระดูกเข่าและผิวกระดูกอ่อน ช่วยกระตุ้นกระบวนการซ่อมแซมเนื้อเยื่อตามธรรมชาติ ให้กลับมาใช้งานได้ดีขึ้น
+                        <div class="info-card-box">
+                            <div class="icon-box-small"><i class="fas fa-layer-group"></i></div>
+                            <div>
+                                <h5 class="font-weight-bold mb-2">หมอนรองกระดูก (Meniscus & Cartilage)</h5>
+                                <p class="text-muted mb-0 small">
+                                    ฟื้นฟูการบาดเจ็บของหมอนรองกระดูกเข่าและผิวกระดูกอ่อน กระตุ้นการซ่อมแซมเนื้อเยื่อ
                                 </p>
                             </div>
-                        </a>
+                        </div>
                     </div>
 
                     <div class="col-lg-6 mb-4">
-                        <a href="service-plasma.html" class="service-link-wrapper">
-                            <div class="single-services-box">
-                                <div class="icon-box"><i class="fas fa-user-injured"></i></div>
-                                <h4>อาการปวดไหล่และเอ็นไหล่อักเสบ (Shoulder Pain)</h4>
-                                <p class="text-muted mb-0">
-                                    รักษาอาการเอ็นหัวไหล่อักเสบเรื้อรัง หรือการฉีกขาดเล็กน้อยของเส้นเอ็น (Rotator Cuff) ช่วยลดปวดและเพิ่มองศาการเคลื่อนไหวของไหล่
+                        <div class="info-card-box">
+                            <div class="icon-box-small"><i class="fas fa-user-injured"></i></div>
+                            <div>
+                                <h5 class="font-weight-bold mb-2">ปวดไหล่และเอ็นไหล่อักเสบ</h5>
+                                <p class="text-muted mb-0 small">
+                                    รักษาอาการเอ็นหัวไหล่อักเสบเรื้อรัง หรือการฉีกขาดเล็กน้อยของเส้นเอ็น ช่วยเพิ่มองศาการเคลื่อนไหว
                                 </p>
                             </div>
-                        </a>
+                        </div>
                     </div>
 
                     <div class="col-lg-6 mb-4">
-                        <a href="service-plasma.html" class="service-link-wrapper">
-                            <div class="single-services-box">
-                                <div class="icon-box"><i class="fas fa-universal-access"></i></div>
-                                <h4>ข้อสะโพกเสื่อม (Hip Pain)</h4>
-                                <p class="text-muted mb-0">
-                                    บรรเทาอาการปวดจากข้อสะโพกเสื่อม หรือการอักเสบของเส้นเอ็นรอบสะโพก ช่วยให้การเดินและการใช้ชีวิตประจำวันคล่องตัวขึ้น
+                        <div class="info-card-box">
+                            <div class="icon-box-small"><i class="fas fa-universal-access"></i></div>
+                            <div>
+                                <h5 class="font-weight-bold mb-2">ข้อสะโพกเสื่อม (Hip Pain)</h5>
+                                <p class="text-muted mb-0 small">
+                                    บรรเทาอาการปวดจากข้อสะโพกเสื่อม หรือการอักเสบของเส้นเอ็นรอบสะโพก
                                 </p>
                             </div>
-                        </a>
+                        </div>
                     </div>
 
                 </div>

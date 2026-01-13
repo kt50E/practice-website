@@ -50,12 +50,13 @@
                 font-family: 'Sarabun', sans-serif;
             }
             
-            /* --- UPDATED HERO SECTION (FOR CAROUSEL) --- */
+            /* --- UPDATED HERO SECTION (FIXED HEIGHT) --- */
             /* Main container defines the height */
             .hero-section-carousel {
                 position: relative;
-                height: 90vh; 
-                min-height: 600px;
+                height: 60vh; /* CHANGED: Reduced from 90vh to 60vh */
+                min-height: 450px; /* CHANGED: Reduced from 600px to 450px */
+                background-color: #f0f0f0; 
             }
             /* Ensure bootstrap carousel items take full height */
             .carousel-inner, .carousel-item {
@@ -81,7 +82,7 @@
             }
             /* Move indicators up slightly so they don't overlap the bounce arrow */
             .carousel-indicators {
-                bottom: 60px;
+                bottom: 30px; /* Adjusted bottom spacing */
             }
             .carousel-indicators li {
                 width: 12px; height: 12px; border-radius: 50%; margin: 0 6px; background-color: rgba(255,255,255,0.5);
@@ -217,7 +218,8 @@
                             <li class="nav-item"><a href="index.html" class="nav-link">หน้าแรก</a></li>
                             <li class="nav-item"><a href="about.html" class="nav-link">เกี่ยวกับเรา</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">บริการของเรา</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link" style="color: var(--brand-blue) !important;"><i class="fas fa-map-marker-alt"></i> แผนที่คลินิก</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">สาระน่ารู้</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" style="color: var(--brand-blue) !important;"><i class="fas fa-phone"></i> ติดต่อเรา</a></li>
                         </ul>
                     </div>
                 </nav>

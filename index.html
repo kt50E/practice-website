@@ -7,22 +7,50 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Sarabun:wght@300;400;600;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
         
         <style>
-            /* --- GLOBAL SETTINGS --- */
+            /* --- 1. BRAND COLOR PALETTE (Fresh & Clinical) --- */
+            :root {
+                --bg-white: #ffffff;       
+                --bg-light-blue: #f4f9fc;  /* Very pale clinical blue background */
+                --text-dark: #333333;      
+                --brand-green: #32c48d;    /* Minty green from the button */
+                --brand-green-dark: #28a375; 
+                --brand-blue: #0099cc;     /* Clean medical blue */
+                --brand-blue-dark: #007399;
+            }
+
             body { 
                 font-family: 'Sarabun', sans-serif; 
-                background-color: #fdfdfd; 
+                background-color: var(--bg-white); 
+                color: var(--text-dark);
             }
-            h1, h2, h3, h4, .btn { font-family: 'Inter', sans-serif; }
+
+            /* --- TYPOGRAPHY --- */
+            h1, h2, h3, h4, .navbar-brand { 
+                font-family: 'Playfair Display', serif; 
+                color: var(--text-dark);
+            }
             
             /* --- NAVBAR --- */
-            .top-header { background-color: #f8f9fa; font-size: 14px; border-bottom: 1px solid #eee; }
-            .navbar-area { background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-            .nav-link { font-weight: 600; color: #444 !important; }
+            .top-header { 
+                background-color: #f8f9fa; 
+                font-size: 14px; 
+                border-bottom: 1px solid #eee; 
+                color: #666;
+            }
+            .navbar-area { 
+                background: #fff; 
+                box-shadow: 0 4px 20px rgba(0, 153, 204, 0.1); /* Subtle blue shadow */
+            }
+            .nav-link { 
+                font-weight: 500; 
+                color: #555 !important; 
+                font-family: 'Sarabun', sans-serif;
+            }
             
-            /* --- HERO SECTION --- */
+            /* --- HERO SECTION (BRIGHTENED) --- */
             .hero-section {
                 position: relative;
                 height: 90vh; 
@@ -37,69 +65,97 @@
             .hero-overlay {
                 position: absolute;
                 top: 0; left: 0; width: 100%; height: 100%;
-                background-color: rgba(17, 24, 39, 0.75); 
+                /* Bright Blue-Green Gradient Overlay instead of dark */
+                background: linear-gradient(135deg, rgba(0, 153, 204, 0.85) 0%, rgba(50, 196, 141, 0.75) 100%);
             }
             .hero-badge {
-                background-color: rgba(37, 99, 235, 0.3); 
-                border: 1px solid #60a5fa;
-                color: #dbeafe;
-                padding: 5px 15px;
+                background-color: rgba(255, 255, 255, 0.2); 
+                border: 1px solid rgba(255, 255, 255, 0.5);
+                color: #ffffff;
+                padding: 6px 20px;
                 border-radius: 50px;
-                font-size: 0.85rem;
+                font-family: 'Sarabun', sans-serif;
+                font-size: 0.9rem;
                 letter-spacing: 1px;
                 text-transform: uppercase;
                 display: inline-block;
-                margin-bottom: 20px;
+                margin-bottom: 25px;
             }
             
-            /* --- BUTTONS --- */
+            /* --- BUTTONS (Using Brand Green) --- */
             .btn-hero-primary {
-                background-color: #2563eb; 
+                background-color: var(--brand-green); 
                 color: white;
-                padding: 15px 35px;
-                border-radius: 8px;
-                font-weight: 600;
-                transition: transform 0.2s;
+                padding: 15px 40px;
+                border-radius: 50px;
+                font-weight: 500;
+                font-family: 'Sarabun', sans-serif;
+                transition: all 0.3s ease;
+                border: 2px solid var(--brand-green);
             }
             .btn-hero-primary:hover { 
-                background-color: #1d4ed8; 
+                background-color: var(--brand-green-dark); 
+                border-color: var(--brand-green-dark);
                 color: white; 
                 transform: translateY(-2px);
                 text-decoration: none;
+                box-shadow: 0 10px 20px rgba(50, 196, 141, 0.4);
             }
+            
             .btn-hero-outline {
                 background-color: transparent;
-                border: 2px solid white;
+                border: 2px solid rgba(255,255,255,1);
                 color: white;
-                padding: 15px 35px;
-                border-radius: 8px;
-                font-weight: 600;
-                transition: 0.2s;
+                padding: 15px 40px;
+                border-radius: 50px;
+                font-weight: 500;
+                font-family: 'Sarabun', sans-serif;
+                transition: 0.3s;
             }
             .btn-hero-outline:hover {
                 background-color: white;
-                color: #111827;
+                color: var(--brand-blue);
+                border-color: white;
                 text-decoration: none;
             }
 
             /* --- SERVICES & DOCTOR --- */
             .single-services-box { 
-                background: #fff; padding: 40px 30px; margin-bottom: 30px; 
-                border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-                transition: .3s; text-align: center; border: 1px solid #f0f0f0;
+                background: #fff; 
+                padding: 45px 35px; 
+                margin-bottom: 30px; 
+                border-radius: 25px; 
+                box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
+                transition: .3s; 
+                text-align: center; 
+                border: 1px solid transparent;
             }
-            .single-services-box:hover { transform: translateY(-10px); border-color: #2563eb; }
+            .single-services-box:hover { 
+                transform: translateY(-8px); 
+                border-color: var(--brand-blue);
+                box-shadow: 0 15px 40px rgba(0, 153, 204, 0.15); 
+            }
             .icon-box {
-                width: 80px; height: 80px; background: #e3f2fd; border-radius: 50%;
+                width: 90px; height: 90px; 
+                background: #e3f2fd; /* Light Bootstrap Blue */
+                border-radius: 50%; 
                 display: flex; align-items: center; justify-content: center;
-                margin: 0 auto 20px; color: #2563eb; font-size: 32px;
+                margin: 0 auto 25px; 
+                color: var(--brand-blue); /* Brand Blue Icon */
+                font-size: 36px;
             }
-            .doctor-card { background: #fff; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+            .doctor-card { 
+                background: #fff; 
+                border-radius: 30px;
+                box-shadow: 0 15px 40px rgba(0,0,0,0.06); 
+                border: 1px solid #e3f2fd;
+            }
             
             /* --- FOOTER --- */
-            .footer-area { background-color: #1a252f; color: #bbb; padding-top: 60px; }
-            .footer-area h4 { color: #fff; margin-bottom: 25px; }
-            .footer-area a { color: #bbb; }
+            .footer-area { background-color: #2c3e50; color: #d0d0d0; padding-top: 70px; }
+            .footer-area h4 { color: #ffffff; margin-bottom: 25px; font-family: 'Playfair Display', serif; }
+            .footer-area a { color: #acb7b9; transition: 0.3s; }
+            .footer-area a:hover { color: var(--brand-green); text-decoration: none; }
         </style>
 
         <title>Thanaplus Life Center</title>
@@ -112,12 +168,12 @@
                 <div class="row align-items-center">
                     <div class="col-lg-8 text-lg-left text-center">
                         <ul class="list-inline mb-0">
-                            <li class="list-inline-item mr-4"><i class="fab fa-line text-success"></i> @thana_plus</li>
-                            <li class="list-inline-item"><i class="fas fa-phone text-primary"></i> 098-143-3999</li>
+                            <li class="list-inline-item mr-4"><i class="fab fa-line" style="color: var(--brand-green);"></i> @thana_plus</li>
+                            <li class="list-inline-item"><i class="fas fa-phone" style="color: var(--brand-green);"></i> 098-143-3999</li>
                         </ul>
                     </div>
                     <div class="col-lg-4 text-lg-right text-center d-none d-lg-block">
-                        <span class="text-muted"><i class="far fa-clock"></i> อ.-ศ. 15:30-17:30 น. | ส.-อา. 11:30-15:00 น.</span>
+                        <span style="color: #777;"><i class="far fa-clock"></i> อ.-ศ. 15:30-17:30 น. | ส.-อา. 11:30-15:00 น.</span>
                     </div>
                 </div>
             </div>
@@ -136,9 +192,11 @@
                     <div class="collapse navbar-collapse" id="mainNav">
                         <ul class="navbar-nav ml-auto"> 
                             <li class="nav-item"><a href="#" class="nav-link">หน้าแรก</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">แพทย์ผู้เชี่ยวชาญ</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">เกี่ยวกับเรา</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">บริการของเรา</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link text-primary"><i class="fas fa-map-marker-alt"></i> แผนที่คลินิก</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">สาระน่ารู้</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">ติดต่อเรา</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" style="color: var(--brand-blue) !important;"><i class="fas fa-map-marker-alt"></i> แผนที่คลินิก</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -150,11 +208,11 @@
             
             <div class="container position-relative text-center text-white" style="z-index: 2;">
                 <span class="hero-badge">Premier Medical Center</span>
-                <h1 class="font-weight-bold mb-4" style="font-size: 3.5rem; line-height: 1.2;">
+                <h1 class="font-weight-bold mb-4" style="font-size: 3.8rem; line-height: 1.2;">
                     ปวดเข่า... <br>
-                    <span style="color: #60a5fa;">ให้เราดูแลคุณ</span>
+                    <span style="color: #b8eadd;">ให้เราดูแลคุณ</span>
                 </h1>
-                <p class="lead mb-5 mx-auto" style="max-width: 700px; color: #e5e7eb; font-weight: 300;">
+                <p class="lead mb-5 mx-auto" style="max-width: 700px; color: #f0f0f0; font-weight: 300; font-family: 'Sarabun', sans-serif;">
                     Thanaplus Life Center มุ่งมั่นดูแลคุณภาพชีวิตของคุณ 
                     ด้วยทีมแพทย์ผู้เชี่ยวชาญด้านกระดูกและข้อ พร้อมเทคโนโลยีที่ทันสมัยใจกลางกรุงเทพฯ
                 </p>
@@ -173,7 +231,7 @@
             <div class="container">
                 <div class="row text-center mb-5 mt-5">
                     <div class="col-12">
-                        <h2 class="mb-3 font-weight-bold">บริการทางการแพทย์</h2>
+                        <h2 class="mb-3 font-weight-bold" style="color: var(--brand-blue);">บริการทางการแพทย์</h2>
                         <p class="text-muted">การรักษาแบบองค์รวมเพื่อผลลัพธ์ที่ดีที่สุด</p>
                     </div>
                 </div>
@@ -183,7 +241,7 @@
                             <div class="icon-box"><i class="fas fa-user-md"></i></div>
                             <h4>นัดหมายแพทย์</h4>
                             <p class="text-muted mb-4">ปรึกษาปัญหาสุขภาพกระดูกและข้อ ติดตามผลการรักษาอย่างใกล้ชิด</p>
-                            <a href="#" class="font-weight-bold text-primary">รายละเอียด <i class="fas fa-chevron-right small"></i></a>
+                            <a href="#" class="font-weight-bold" style="color: var(--brand-blue);">รายละเอียด <i class="fas fa-chevron-right small"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -191,7 +249,7 @@
                             <div class="icon-box"><i class="fas fa-procedures"></i></div>
                             <h4>การรักษาด้วย Plasma</h4>
                             <p class="text-muted mb-4">เทคโนโลยีการฟื้นฟูด้วยเกล็ดเลือด เข้มข้น ปลอดภัย มาตรฐานสากล</p>
-                            <a href="#" class="font-weight-bold text-primary">รายละเอียด <i class="fas fa-chevron-right small"></i></a>
+                            <a href="#" class="font-weight-bold" style="color: var(--brand-blue);">รายละเอียด <i class="fas fa-chevron-right small"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -199,47 +257,47 @@
                             <div class="icon-box"><i class="fas fa-chalkboard-teacher"></i></div>
                             <h4>ความรู้สู่ประชาชน</h4>
                             <p class="text-muted mb-4">แหล่งรวมข้อมูลสุขภาพที่ถูกต้อง บรรยายโดยแพทย์ผู้เชี่ยวชาญ</p>
-                            <a href="#" class="font-weight-bold text-primary">อ่านบทความ <i class="fas fa-chevron-right small"></i></a>
+                            <a href="#" class="font-weight-bold" style="color: var(--brand-blue);">อ่านบทความ <i class="fas fa-chevron-right small"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-5 bg-light">
+        <section class="py-5" style="background-color: var(--bg-light-blue);">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb-4">
                         <div class="doctor-card text-center p-5">
                             <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" 
                                  class="rounded-circle mb-4 shadow-sm" 
-                                 style="width: 200px; height: 200px; object-fit: cover; border: 4px solid #f8f9fa;">
+                                 style="width: 200px; height: 200px; object-fit: cover; border: 6px solid var(--bg-light-blue);">
                             <h3 class="mb-1 font-weight-bold">พล.ต.ท. นพ.ธนา ธุระเจน</h3>
-                            <p class="text-primary font-weight-bold mb-3">ศัลยแพทย์กระดูกและข้อ</p>
+                            <p class="font-weight-bold mb-3" style="color: var(--brand-blue);">ศัลยแพทย์กระดูกและข้อ</p>
                             <p class="text-muted">"เราให้ความสำคัญกับการรักษาที่ตรงจุด เพื่อให้คนไข้กลับมามีคุณภาพชีวิตที่ดีโดยเร็วที่สุด"</p>
                         </div>
                     </div>
                     <div class="col-lg-6 mb-4">
-                        <div class="p-4 bg-dark text-white rounded shadow" style="border-radius: 15px;">
-                            <h3 class="mb-4"><i class="fas fa-map-marked-alt mr-2"></i> การเดินทาง</h3>
+                        <div class="p-4 text-white rounded shadow" style="background-color: var(--brand-blue); border-radius: 25px;">
+                            <h3 class="mb-4" style="color: white;"><i class="fas fa-map-marked-alt mr-2"></i> การเดินทาง</h3>
                             <div class="media mb-4">
-                                <i class="fas fa-building fa-2x mr-3 text-warning"></i>
+                                <i class="fas fa-building fa-2x mr-3" style="color: #b8eadd;"></i>
                                 <div class="media-body">
-                                    <h5 class="mt-0">Thanaplus Life Center</h5>
+                                    <h5 class="mt-0" style="color: #f0f0f0; font-family: 'Sarabun', sans-serif;">Thanaplus Life Center</h5>
                                     <p class="mb-0 text-white-50">อาคารจิตต์อุทัย (ชั้น 1) ถนนรามคำแหง<br>แขวงหัวหมาก เขตบางกะปิ กรุงเทพฯ</p>
                                 </div>
                             </div>
                             <div class="media mb-4">
-                                <i class="far fa-clock fa-2x mr-3 text-warning"></i>
+                                <i class="far fa-clock fa-2x mr-3" style="color: #b8eadd;"></i>
                                 <div class="media-body">
-                                    <h5 class="mt-0">เวลาทำการ</h5>
+                                    <h5 class="mt-0" style="color: #f0f0f0; font-family: 'Sarabun', sans-serif;">เวลาทำการ</h5>
                                     <p class="mb-0 text-white-50">
                                         อังคาร - ศุกร์: 15:30 - 17:30 น.<br>
                                         เสาร์ - อาทิตย์: 11:30 - 15:00 น.
                                     </p>
                                 </div>
                             </div>
-                            <a href="https://maps.app.goo.gl/oeq6kLmpkMTktpwx8" target="_blank" class="btn btn-warning btn-block font-weight-bold py-3">
+                            <a href="https://maps.app.goo.gl/oeq6kLmpkMTktpwx8" target="_blank" class="btn btn-block font-weight-bold py-3 shadow" style="background-color: var(--brand-green); color: white; border-radius: 50px; border:none;">
                                 <i class="fas fa-directions"></i> นำทางผ่าน Google Maps
                             </a>
                         </div>
@@ -265,8 +323,8 @@
                     </div>
                     <div class="col-lg-4">
                         <h4 class="text-white">ติดต่อเรา</h4>
-                        <p><i class="fas fa-phone mr-2"></i> 098-143-3999</p>
-                        <p><i class="fab fa-line mr-2"></i> @thana_plus</p>
+                        <p><i class="fas fa-phone mr-2" style="color: var(--brand-green);"></i> 098-143-3999</p>
+                        <p><i class="fab fa-line mr-2" style="color: var(--brand-green);"></i> @thana_plus</p>
                     </div>
                 </div>
                 <div class="row pt-4 border-top border-secondary text-center">

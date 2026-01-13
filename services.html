@@ -51,19 +51,22 @@
                 text-align: center; 
                 border: 1px solid #f0f0f0;
                 height: 100%; 
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
             .single-services-box:hover { 
                 transform: translateY(-5px); 
-                border-color: var(--brand-blue);
-                box-shadow: 0 15px 40px rgba(0, 153, 204, 0.15); 
+                border-color: var(--brand-green); /* Highlight with Green on hover */
+                box-shadow: 0 15px 40px rgba(50, 196, 141, 0.2); 
             }
             .icon-box {
                 width: 80px; height: 80px; 
-                background: #e3f2fd; 
+                background: #e8f5e9; /* Light Green Background */
                 border-radius: 50%; 
                 display: flex; align-items: center; justify-content: center;
                 margin: 0 auto 20px; 
-                color: var(--brand-blue); 
+                color: var(--brand-green); /* Green Icon */
                 font-size: 32px;
             }
 
@@ -120,78 +123,65 @@
 
         <section class="page-header">
             <div class="container">
-                <h1 class="font-weight-bold">บริการของเรา</h1>
-                <p class="lead mb-0">การรักษาแบบองค์รวม ผสมผสานเทคโนโลยีสมัยใหม่และการดูแลที่ใส่ใจ</p>
+                <h1 class="font-weight-bold">การรักษาด้วย Plasma 1</h1>
+                <p class="lead mb-0">ทางเลือกใหม่ของการรักษาข้อเสื่อมและอาการปวดโดยไม่ต้องผ่าตัด</p>
             </div>
         </section>
 
         <section class="py-5">
             <div class="container py-4">
+                <div class="row text-center mb-5">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="font-weight-bold" style="color: var(--brand-blue);">ครอบคลุมการรักษา</h2>
+                        <p class="text-muted lead">
+                            เทคโนโลยี Plasma (PRGF) สามารถนำมาใช้ฟื้นฟูอาการบาดเจ็บของข้อต่อและเส้นเอ็นต่างๆ ได้อย่างมีประสิทธิภาพ ไม่จำกัดเพียงแค่ข้อเข่า
+                        </p>
+                    </div>
+                </div>
+
                 <div class="row">
                     
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-6 mb-4">
                         <div class="single-services-box">
                             <div class="icon-box"><i class="fas fa-bone"></i></div>
-                            <h4>คลินิกกระดูกและข้อ</h4>
+                            <h4>ข้อเข่าเสื่อม (Knee Osteoarthritis)</h4>
                             <p class="text-muted mb-4">
-                                ให้คำปรึกษา ตรวจวินิจฉัย และรักษาโรคทางกระดูกและข้อทุกชนิด โดยทีมแพทย์ผู้เชี่ยวชาญ
+                                ช่วยลดอาการปวดและอักเสบในผู้ป่วยข้อเข่าเสื่อมทุกระยะ ชะลอความเสื่อมของผิวข้อ และช่วยยืดระยะเวลาหรือหลีกเลี่ยงการผ่าตัดเปลี่ยนข้อเข่า
                             </p>
-                            <a href="#" class="font-weight-bold" style="color: var(--brand-blue);">อ่านเพิ่มเติม <i class="fas fa-chevron-right small"></i></a>
+                            <a href="service-plasma.html" class="font-weight-bold" style="color: var(--brand-green);">อ่านรายละเอียด <i class="fas fa-chevron-right small"></i></a>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="single-services-box" style="border-color: var(--brand-green);">
-                            <div class="icon-box" style="background-color: #e8f5e9; color: var(--brand-green);"><i class="fas fa-dna"></i></div>
-                            <h4>รักษาข้อเข่าด้วย Plasma</h4>
-                            <p class="text-muted mb-4">
-                                นวัตกรรมการฟื้นฟูข้อเข่าเสื่อมโดยไม่ต้องผ่าตัด ใช้เกล็ดเลือดเข้มข้นเพื่อซ่อมแซมส่วนที่สึกหรอ
-                            </p>
-                            <a href="service-plasma.html" class="font-weight-bold" style="color: var(--brand-green);">อ่านเพิ่มเติม <i class="fas fa-chevron-right small"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-6 mb-4">
                         <div class="single-services-box">
-                            <div class="icon-box"><i class="fas fa-running"></i></div>
-                            <h4>กายภาพบำบัด</h4>
+                            <div class="icon-box"><i class="fas fa-layer-group"></i></div>
+                            <h4>หมอนรองกระดูกและกระดูกอ่อน (Meniscus & Cartilage)</h4>
                             <p class="text-muted mb-4">
-                                ฟื้นฟูสมรรถภาพร่างกาย ลดอาการปวด และเสริมสร้างกล้ามเนื้อ ด้วยเครื่องมือที่ทันสมัย
+                                ฟื้นฟูการบาดเจ็บของหมอนรองกระดูกเข่าและผิวกระดูกอ่อน ช่วยกระตุ้นกระบวนการซ่อมแซมเนื้อเยื่อตามธรรมชาติ ให้กลับมาใช้งานได้ดีขึ้น
                             </p>
-                            <a href="#" class="font-weight-bold" style="color: var(--brand-blue);">อ่านเพิ่มเติม <i class="fas fa-chevron-right small"></i></a>
+                            <a href="service-plasma.html" class="font-weight-bold" style="color: var(--brand-green);">อ่านรายละเอียด <i class="fas fa-chevron-right small"></i></a>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-6 mb-4">
                         <div class="single-services-box">
-                            <div class="icon-box"><i class="fas fa-laptop-medical"></i></div>
-                            <h4>Office Syndrome</h4>
+                            <div class="icon-box"><i class="fas fa-user-injured"></i></div>
+                            <h4>อาการปวดไหล่และเอ็นไหล่อักเสบ (Shoulder Pain)</h4>
                             <p class="text-muted mb-4">
-                                รักษาอาการปวดคอ บ่า ไหล่ จากการทำงาน ด้วยการรักษาที่ตรงจุดและการปรับพฤติกรรม
+                                รักษาอาการเอ็นหัวไหล่อักเสบเรื้อรัง หรือการฉีกขาดเล็กน้อยของเส้นเอ็น (Rotator Cuff) ช่วยลดปวดและเพิ่มองศาการเคลื่อนไหวของไหล่
                             </p>
-                            <a href="#" class="font-weight-bold" style="color: var(--brand-blue);">อ่านเพิ่มเติม <i class="fas fa-chevron-right small"></i></a>
+                            <a href="service-plasma.html" class="font-weight-bold" style="color: var(--brand-green);">อ่านรายละเอียด <i class="fas fa-chevron-right small"></i></a>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-6 mb-4">
                         <div class="single-services-box">
-                            <div class="icon-box"><i class="fas fa-basketball-ball"></i></div>
-                            <h4>เวชศาสตร์การกีฬา</h4>
+                            <div class="icon-box"><i class="fas fa-universal-access"></i></div>
+                            <h4>ข้อสะโพกเสื่อม (Hip Pain)</h4>
                             <p class="text-muted mb-4">
-                                ดูแลรักษาอาการบาดเจ็บจากการเล่นกีฬา เพื่อให้คุณกลับไปเล่นกีฬาได้อย่างมั่นใจ
+                                บรรเทาอาการปวดจากข้อสะโพกเสื่อม หรือการอักเสบของเส้นเอ็นรอบสะโพก ช่วยให้การเดินและการใช้ชีวิตประจำวันคล่องตัวขึ้น
                             </p>
-                            <a href="#" class="font-weight-bold" style="color: var(--brand-blue);">อ่านเพิ่มเติม <i class="fas fa-chevron-right small"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="single-services-box">
-                            <div class="icon-box"><i class="fas fa-procedures"></i></div>
-                            <h4>การผ่าตัดส่องกล้อง</h4>
-                            <p class="text-muted mb-4">
-                                เทคโนโลยีการผ่าตัดแผลเล็ก เจ็บน้อย ฟื้นตัวไว สำหรับผู้ที่มีความจำเป็นต้องผ่าตัด
-                            </p>
-                            <a href="#" class="font-weight-bold" style="color: var(--brand-blue);">อ่านเพิ่มเติม <i class="fas fa-chevron-right small"></i></a>
+                            <a href="service-plasma.html" class="font-weight-bold" style="color: var(--brand-green);">อ่านรายละเอียด <i class="fas fa-chevron-right small"></i></a>
                         </div>
                     </div>
 
@@ -201,8 +191,8 @@
 
         <section class="py-5 text-white text-center" style="background-color: var(--brand-blue);">
             <div class="container">
-                <h2 class="font-weight-bold mb-3">ยังไม่แน่ใจว่าต้องรักษาแบบไหน?</h2>
-                <p class="lead mb-4">ปรึกษาเราเบื้องต้น หรือนัดหมายเพื่อตรวจประเมินอาการอย่างละเอียด</p>
+                <h2 class="font-weight-bold mb-3">ปรึกษาปัญหากระดูกและข้อกับเรา</h2>
+                <p class="lead mb-4">แพทย์ผู้เชี่ยวชาญพร้อมให้คำแนะนำแนวทางการรักษาที่เหมาะสมกับคุณ</p>
                 <a href="#" class="btn btn-light btn-lg px-5 shadow" style="color: var(--brand-blue); border-radius: 50px; font-weight: bold;">
                     นัดหมายแพทย์ทันที
                 </a>

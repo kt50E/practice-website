@@ -13,11 +13,11 @@
             /* --- 1. BRAND COLOR PALETTE (Fresh & Clinical) --- */
             :root {
                 --bg-white: #ffffff;       
-                --bg-light-blue: #f4f9fc;  /* Very pale clinical blue background */
+                --bg-light-blue: #f4f9fc;
                 --text-dark: #333333;      
-                --brand-green: #32c48d;    /* Minty green from the button */
+                --brand-green: #32c48d;
                 --brand-green-dark: #28a375; 
-                --brand-blue: #0099cc;     /* Clean medical blue */
+                --brand-blue: #0099cc;
                 --brand-blue-dark: #007399;
             }
 
@@ -42,7 +42,7 @@
             }
             .navbar-area { 
                 background: #fff; 
-                box-shadow: 0 4px 20px rgba(0, 153, 204, 0.1); /* Subtle blue shadow */
+                box-shadow: 0 4px 20px rgba(0, 153, 204, 0.1); 
             }
             .nav-link { 
                 font-weight: 500; 
@@ -50,7 +50,7 @@
                 font-family: 'Sarabun', sans-serif;
             }
             
-            /* --- HERO SECTION (BRIGHTENED) --- */
+            /* --- HERO SECTION --- */
             .hero-section {
                 position: relative;
                 height: 90vh; 
@@ -65,7 +65,6 @@
             .hero-overlay {
                 position: absolute;
                 top: 0; left: 0; width: 100%; height: 100%;
-                /* Bright Blue-Green Gradient Overlay instead of dark */
                 background: linear-gradient(135deg, rgba(0, 153, 204, 0.85) 0%, rgba(50, 196, 141, 0.75) 100%);
             }
             .hero-badge {
@@ -82,7 +81,7 @@
                 margin-bottom: 25px;
             }
             
-            /* --- BUTTONS (Using Brand Green) --- */
+            /* --- BUTTONS --- */
             .btn-hero-primary {
                 background-color: var(--brand-green); 
                 color: white;
@@ -137,11 +136,11 @@
             }
             .icon-box {
                 width: 90px; height: 90px; 
-                background: #e3f2fd; /* Light Bootstrap Blue */
+                background: #e3f2fd; 
                 border-radius: 50%; 
                 display: flex; align-items: center; justify-content: center;
                 margin: 0 auto 25px; 
-                color: var(--brand-blue); /* Brand Blue Icon */
+                color: var(--brand-blue); 
                 font-size: 36px;
             }
             .doctor-card { 
@@ -191,11 +190,9 @@
 
                     <div class="collapse navbar-collapse" id="mainNav">
                         <ul class="navbar-nav ml-auto"> 
-                            <li class="nav-item"><a href="#" class="nav-link">หน้าแรก</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">เกี่ยวกับเรา</a></li>
+                            <li class="nav-item"><a href="index.html" class="nav-link">หน้าแรก</a></li>
+                            <li class="nav-item"><a href="about.html" class="nav-link">เกี่ยวกับเรา</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">บริการของเรา</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">สาระน่ารู้</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">ติดต่อเรา</a></li>
                             <li class="nav-item"><a href="#" class="nav-link" style="color: var(--brand-blue) !important;"><i class="fas fa-map-marker-alt"></i> แผนที่คลินิก</a></li>
                         </ul>
                     </div>
@@ -266,38 +263,37 @@
 
         <section class="py-5" style="background-color: var(--bg-light-blue);">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 mb-4">
-                        <div class="doctor-card text-center p-5">
-                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" 
-                                 class="rounded-circle mb-4 shadow-sm" 
-                                 style="width: 200px; height: 200px; object-fit: cover; border: 6px solid var(--bg-light-blue);">
-                            <h3 class="mb-1 font-weight-bold">พล.ต.ท. นพ.ธนา ธุระเจน</h3>
-                            <p class="font-weight-bold mb-3" style="color: var(--brand-blue);">ศัลยแพทย์กระดูกและข้อ</p>
-                            <p class="text-muted">"เราให้ความสำคัญกับการรักษาที่ตรงจุด เพื่อให้คนไข้กลับมามีคุณภาพชีวิตที่ดีโดยเร็วที่สุด"</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="p-4 text-white rounded shadow" style="background-color: var(--brand-blue); border-radius: 25px;">
-                            <h3 class="mb-4" style="color: white;"><i class="fas fa-map-marked-alt mr-2"></i> การเดินทาง</h3>
-                            <div class="media mb-4">
-                                <i class="fas fa-building fa-2x mr-3" style="color: #b8eadd;"></i>
-                                <div class="media-body">
-                                    <h5 class="mt-0" style="color: #f0f0f0; font-family: 'Sarabun', sans-serif;">Thanaplus Life Center</h5>
-                                    <p class="mb-0 text-white-50">อาคารจิตต์อุทัย (ชั้น 1) ถนนรามคำแหง<br>แขวงหัวหมาก เขตบางกะปิ กรุงเทพฯ</p>
+                <div class="row align-items-center justify-content-center">
+                    
+                    <div class="col-lg-8 mb-4">
+                        <div class="p-5 text-white rounded shadow text-center" style="background-color: var(--brand-blue); border-radius: 25px;">
+                            <h3 class="mb-4" style="color: white;"><i class="fas fa-map-marked-alt mr-2"></i> พบกับเราที่คลินิก</h3>
+                            
+                            <div class="row mb-4 text-left">
+                                <div class="col-md-6">
+                                     <div class="media mb-4">
+                                        <i class="fas fa-building fa-2x mr-3" style="color: #b8eadd;"></i>
+                                        <div class="media-body">
+                                            <h5 class="mt-0" style="color: #f0f0f0; font-family: 'Sarabun', sans-serif;">ที่อยู่</h5>
+                                            <p class="mb-0 text-white-50">อาคารจิตต์อุทัย (ชั้น 1) ถนนรามคำแหง<br>แขวงหัวหมาก เขตบางกะปิ กรุงเทพฯ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="media mb-4">
+                                        <i class="far fa-clock fa-2x mr-3" style="color: #b8eadd;"></i>
+                                        <div class="media-body">
+                                            <h5 class="mt-0" style="color: #f0f0f0; font-family: 'Sarabun', sans-serif;">เวลาทำการ</h5>
+                                            <p class="mb-0 text-white-50">
+                                                อังคาร - ศุกร์: 15:30 - 17:30 น.<br>
+                                                เสาร์ - อาทิตย์: 11:30 - 15:00 น.
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="media mb-4">
-                                <i class="far fa-clock fa-2x mr-3" style="color: #b8eadd;"></i>
-                                <div class="media-body">
-                                    <h5 class="mt-0" style="color: #f0f0f0; font-family: 'Sarabun', sans-serif;">เวลาทำการ</h5>
-                                    <p class="mb-0 text-white-50">
-                                        อังคาร - ศุกร์: 15:30 - 17:30 น.<br>
-                                        เสาร์ - อาทิตย์: 11:30 - 15:00 น.
-                                    </p>
-                                </div>
-                            </div>
-                            <a href="https://maps.app.goo.gl/oeq6kLmpkMTktpwx8" target="_blank" class="btn btn-block font-weight-bold py-3 shadow" style="background-color: var(--brand-green); color: white; border-radius: 50px; border:none;">
+
+                            <a href="https://maps.app.goo.gl/oeq6kLmpkMTktpwx8" target="_blank" class="btn btn-lg font-weight-bold py-3 px-5 shadow" style="background-color: var(--brand-green); color: white; border-radius: 50px; border:none;">
                                 <i class="fas fa-directions"></i> นำทางผ่าน Google Maps
                             </a>
                         </div>
@@ -316,9 +312,9 @@
                     <div class="col-lg-4 mb-4">
                         <h4 class="text-white">ลิงก์ด่วน</h4>
                         <ul class="list-unstyled">
+                            <li><a href="index.html">หน้าแรก</a></li>
+                            <li><a href="about.html">เกี่ยวกับเรา</a></li>
                             <li><a href="#">นัดหมายแพทย์</a></li>
-                            <li><a href="#">บทความสุขภาพ</a></li>
-                            <li><a href="#">เกี่ยวกับเรา</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-4">

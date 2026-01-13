@@ -41,6 +41,15 @@
             .page-header h1 { color: white; margin-bottom: 10px; }
 
             /* --- SERVICE CARDS --- */
+            /* Made the whole card a clickable block by wrapping content in <a> tag logic if needed later, 
+               but for now just styling the div to look good without the bottom link */
+            .service-link-wrapper {
+                text-decoration: none !important;
+                color: inherit !important;
+                display: block;
+                height: 100%;
+            }
+
             .single-services-box { 
                 background: #fff; 
                 padding: 40px 30px; 
@@ -54,19 +63,20 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                cursor: pointer; /* Indicates clickable */
             }
             .single-services-box:hover { 
                 transform: translateY(-5px); 
-                border-color: var(--brand-green); /* Highlight with Green on hover */
+                border-color: var(--brand-green); 
                 box-shadow: 0 15px 40px rgba(50, 196, 141, 0.2); 
             }
             .icon-box {
                 width: 80px; height: 80px; 
-                background: #e8f5e9; /* Light Green Background */
+                background: #e8f5e9; 
                 border-radius: 50%; 
                 display: flex; align-items: center; justify-content: center;
                 margin: 0 auto 20px; 
-                color: var(--brand-green); /* Green Icon */
+                color: var(--brand-green); 
                 font-size: 32px;
             }
 
@@ -134,7 +144,7 @@
                     <div class="col-lg-8 mx-auto">
                         <h2 class="font-weight-bold" style="color: var(--brand-blue);">ครอบคลุมการรักษา</h2>
                         <p class="text-muted lead">
-                            เทคโนโลยี Plasma (PRGF) สามารถนำมาใช้ฟื้นฟูอาการบาดเจ็บของข้อต่อและเส้นเอ็นต่างๆ ได้อย่างมีประสิทธิภาพ ไม่จำกัดเพียงแค่ข้อเข่า
+                            เทคโนโลยี Plasma 1 (PRGF) สามารถนำมาใช้ฟื้นฟูอาการบาดเจ็บของข้อต่อและเส้นเอ็นต่างๆ ได้อย่างมีประสิทธิภาพ ไม่จำกัดเพียงแค่ข้อเข่า
                         </p>
                     </div>
                 </div>
@@ -142,47 +152,51 @@
                 <div class="row">
                     
                     <div class="col-lg-6 mb-4">
-                        <div class="single-services-box">
-                            <div class="icon-box"><i class="fas fa-bone"></i></div>
-                            <h4>ข้อเข่าเสื่อม (Knee Osteoarthritis)</h4>
-                            <p class="text-muted mb-4">
-                                ช่วยลดอาการปวดและอักเสบในผู้ป่วยข้อเข่าเสื่อมทุกระยะ ชะลอความเสื่อมของผิวข้อ และช่วยยืดระยะเวลาหรือหลีกเลี่ยงการผ่าตัดเปลี่ยนข้อเข่า
-                            </p>
-                            <a href="service-plasma.html" class="font-weight-bold" style="color: var(--brand-green);">อ่านรายละเอียด <i class="fas fa-chevron-right small"></i></a>
-                        </div>
+                        <a href="service-plasma.html" class="service-link-wrapper">
+                            <div class="single-services-box">
+                                <div class="icon-box"><i class="fas fa-bone"></i></div>
+                                <h4>ข้อเข่าเสื่อม (Knee Osteoarthritis)</h4>
+                                <p class="text-muted mb-0">
+                                    ช่วยลดอาการปวดและอักเสบในผู้ป่วยข้อเข่าเสื่อมทุกระยะ ชะลอความเสื่อมของผิวข้อ และช่วยยืดระยะเวลาหรือหลีกเลี่ยงการผ่าตัดเปลี่ยนข้อเข่า
+                                </p>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="col-lg-6 mb-4">
-                        <div class="single-services-box">
-                            <div class="icon-box"><i class="fas fa-layer-group"></i></div>
-                            <h4>หมอนรองกระดูกและกระดูกอ่อน (Meniscus & Cartilage)</h4>
-                            <p class="text-muted mb-4">
-                                ฟื้นฟูการบาดเจ็บของหมอนรองกระดูกเข่าและผิวกระดูกอ่อน ช่วยกระตุ้นกระบวนการซ่อมแซมเนื้อเยื่อตามธรรมชาติ ให้กลับมาใช้งานได้ดีขึ้น
-                            </p>
-                            <a href="service-plasma.html" class="font-weight-bold" style="color: var(--brand-green);">อ่านรายละเอียด <i class="fas fa-chevron-right small"></i></a>
-                        </div>
+                        <a href="service-plasma.html" class="service-link-wrapper">
+                            <div class="single-services-box">
+                                <div class="icon-box"><i class="fas fa-layer-group"></i></div>
+                                <h4>หมอนรองกระดูกและกระดูกอ่อน (Meniscus & Cartilage)</h4>
+                                <p class="text-muted mb-0">
+                                    ฟื้นฟูการบาดเจ็บของหมอนรองกระดูกเข่าและผิวกระดูกอ่อน ช่วยกระตุ้นกระบวนการซ่อมแซมเนื้อเยื่อตามธรรมชาติ ให้กลับมาใช้งานได้ดีขึ้น
+                                </p>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="col-lg-6 mb-4">
-                        <div class="single-services-box">
-                            <div class="icon-box"><i class="fas fa-user-injured"></i></div>
-                            <h4>อาการปวดไหล่และเอ็นไหล่อักเสบ (Shoulder Pain)</h4>
-                            <p class="text-muted mb-4">
-                                รักษาอาการเอ็นหัวไหล่อักเสบเรื้อรัง หรือการฉีกขาดเล็กน้อยของเส้นเอ็น (Rotator Cuff) ช่วยลดปวดและเพิ่มองศาการเคลื่อนไหวของไหล่
-                            </p>
-                            <a href="service-plasma.html" class="font-weight-bold" style="color: var(--brand-green);">อ่านรายละเอียด <i class="fas fa-chevron-right small"></i></a>
-                        </div>
+                        <a href="service-plasma.html" class="service-link-wrapper">
+                            <div class="single-services-box">
+                                <div class="icon-box"><i class="fas fa-user-injured"></i></div>
+                                <h4>อาการปวดไหล่และเอ็นไหล่อักเสบ (Shoulder Pain)</h4>
+                                <p class="text-muted mb-0">
+                                    รักษาอาการเอ็นหัวไหล่อักเสบเรื้อรัง หรือการฉีกขาดเล็กน้อยของเส้นเอ็น (Rotator Cuff) ช่วยลดปวดและเพิ่มองศาการเคลื่อนไหวของไหล่
+                                </p>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="col-lg-6 mb-4">
-                        <div class="single-services-box">
-                            <div class="icon-box"><i class="fas fa-universal-access"></i></div>
-                            <h4>ข้อสะโพกเสื่อม (Hip Pain)</h4>
-                            <p class="text-muted mb-4">
-                                บรรเทาอาการปวดจากข้อสะโพกเสื่อม หรือการอักเสบของเส้นเอ็นรอบสะโพก ช่วยให้การเดินและการใช้ชีวิตประจำวันคล่องตัวขึ้น
-                            </p>
-                            <a href="service-plasma.html" class="font-weight-bold" style="color: var(--brand-green);">อ่านรายละเอียด <i class="fas fa-chevron-right small"></i></a>
-                        </div>
+                        <a href="service-plasma.html" class="service-link-wrapper">
+                            <div class="single-services-box">
+                                <div class="icon-box"><i class="fas fa-universal-access"></i></div>
+                                <h4>ข้อสะโพกเสื่อม (Hip Pain)</h4>
+                                <p class="text-muted mb-0">
+                                    บรรเทาอาการปวดจากข้อสะโพกเสื่อม หรือการอักเสบของเส้นเอ็นรอบสะโพก ช่วยให้การเดินและการใช้ชีวิตประจำวันคล่องตัวขึ้น
+                                </p>
+                            </div>
+                        </a>
                     </div>
 
                 </div>

@@ -140,7 +140,6 @@
         background-size: cover; background-position: center;
       }
 
-      /* UPDATED CONDITION CARDS (Photo + Text) */
       .condition-card{
         background: var(--surface); 
         border: 1px solid var(--line); 
@@ -148,7 +147,7 @@
         box-shadow: var(--shadow-sm); 
         height: 100%; 
         transition: .2s ease;
-        overflow: hidden; /* Ensures image corners are rounded */
+        overflow: hidden;
         display: flex;
         flex-direction: column;
       }
@@ -170,20 +169,20 @@
       .small-note{ font-size: .92rem; color: var(--muted); }
 
       /* =========================
-         STEPS (FIXED LAYOUT - REDUCED GAP)
+         STEPS (UPDATED - PERFECT ALIGNMENT)
          ========================= */
       .step-card{
         background: var(--surface);
         border: 1px solid var(--line);
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-sm);
-        padding: 20px; 
+        padding: 20px 25px; /* Added horizontal padding */
         display: flex;
         align-items: flex-start; 
-        gap: 15px;
+        gap: 20px;
       }
       .step-num{
-        width: 45px; height: 45px; 
+        width: 48px; height: 48px; 
         border-radius: 14px;
         display:flex; align-items:center; justify-content:center;
         background: rgba(50, 196, 141,.12);
@@ -194,8 +193,8 @@
         flex-shrink: 0; 
       }
       .step-content { flex-grow: 1; }
-      .step-card h6{ margin-bottom: 4px; font-family:'Sarabun', sans-serif; font-weight: 900; color: var(--text); font-size: 1.05rem; }
-      .step-card p { margin-bottom: 0; line-height: 1.5; }
+      .step-card h6{ margin-bottom: 4px; font-family:'Sarabun', sans-serif; font-weight: 900; color: var(--text); font-size: 1.1rem; }
+      .step-card p { margin-bottom: 0; line-height: 1.5; font-size: 0.95rem; }
 
       /* =========================
          MOSAIC & FOOTER
@@ -381,18 +380,16 @@
           </div>
         </div>
 
-        <div class="row align-items-center mt-4">
+        <div class="row align-items-center mt-5">
           
-          <div class="col-lg-4 mb-4 mb-lg-0">
-            <div class="section-kicker">How It Works</div>
+          <div class="col-lg-6 mb-4 mb-lg-0 pr-lg-0"> <div class="section-kicker">How It Works</div>
             <h3 class="font-weight-bold" style="margin-top:10px;">กระบวนการดูแลแบบ 3 ขั้นตอน</h3>
             <p class="mb-0">
               ชัดเจน โปร่งใส และเน้นผลลัพธ์ — เพื่อให้คุณตัดสินใจได้อย่างมั่นใจ
             </p>
           </div>
 
-          <div class="col-lg-8">
-            <div class="step-card mb-3">
+          <div class="col-lg-6 pl-lg-4"> <div class="step-card mb-3">
                 <div class="step-num">1</div>
                 <div class="step-content">
                     <h6>ประเมินอาการ</h6>

@@ -226,22 +226,31 @@
         box-shadow: var(--shadow-sm);
         padding: 22px;
         height: 100%;
+        /* Added for horizontal layout */
+        display: flex;
+        align-items: flex-start; 
+        gap: 20px;
       }
       .step-num{
-        width: 44px; height: 44px;
+        width: 50px; height: 50px;
         border-radius: 16px;
         display:flex; align-items:center; justify-content:center;
         background: rgba(50, 196, 141,.12);
         color: var(--brand-green-dark);
         font-weight: 900;
         font-family:'Sarabun', sans-serif;
-        margin-bottom: 12px;
+        font-size: 1.2rem;
+        flex-shrink: 0; /* prevent shrinking */
+      }
+      .step-content {
+          flex-grow: 1;
       }
       .step-card h6{
-        margin-bottom: 8px;
+        margin-bottom: 5px;
         font-family:'Sarabun', sans-serif;
         font-weight: 900;
         color: var(--text);
+        font-size: 1.1rem;
       }
 
       /* =========================
@@ -455,36 +464,36 @@
         </div>
 
         <div class="row align-items-center mt-4">
-          <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="col-lg-5 mb-4 mb-lg-0">
             <div class="section-kicker">How It Works</div>
             <h3 class="font-weight-bold" style="margin-top:10px;">กระบวนการดูแลแบบ 3 ขั้นตอน</h3>
             <p class="mb-0">
               ชัดเจน โปร่งใส และเน้นผลลัพธ์ — เพื่อให้คุณตัดสินใจได้อย่างมั่นใจ
             </p>
           </div>
-          <div class="col-lg-6">
-            <div class="row">
-              <div class="col-md-4 mb-3">
-                <div class="step-card">
-                  <div class="step-num">1</div>
-                  <h6>ประเมินอาการ</h6>
-                  <p class="small-note mb-0">ซักประวัติ ตรวจร่างกาย วางเป้าหมายการรักษา</p>
+          <div class="col-lg-7">
+            <div class="step-card mb-3">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h6>ประเมินอาการ</h6>
+                    <p class="small-note mb-0">ซักประวัติ ตรวจร่างกาย วางเป้าหมายการรักษา</p>
                 </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <div class="step-card">
-                  <div class="step-num">2</div>
-                  <h6>รักษาแบบเหมาะสม</h6>
-                  <p class="small-note mb-0">เลือกแนวทาง (เช่น Plasma 1/PRGF) ตามสภาพข้อและไลฟ์สไตล์</p>
+            </div>
+            
+            <div class="step-card mb-3">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h6>รักษาแบบเหมาะสม</h6>
+                    <p class="small-note mb-0">เลือกแนวทาง (เช่น Plasma 1/PRGF) ตามสภาพข้อและไลฟ์สไตล์</p>
                 </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <div class="step-card">
-                  <div class="step-num">3</div>
-                  <h6>ติดตามผล</h6>
-                  <p class="small-note mb-0">ประเมินความก้าวหน้า ปรับแผน และแนะนำการฟื้นฟู</p>
+            </div>
+
+            <div class="step-card mb-0">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h6>ติดตามผล</h6>
+                    <p class="small-note mb-0">ประเมินความก้าวหน้า ปรับแผน และแนะนำการฟื้นฟู</p>
                 </div>
-              </div>
             </div>
           </div>
         </div>

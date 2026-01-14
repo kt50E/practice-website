@@ -7,27 +7,28 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
         
         <style>
             /* --- 1. BRAND COLOR PALETTE --- */
             :root {
                 --bg-white: #ffffff;       
-                --bg-light-blue: #f4f9fc;
+                --bg-warm-white: #f9f9f7; /* Warm off-white background */
                 --text-dark: #333333;      
                 --brand-green: #32c48d;
                 --brand-green-dark: #28a375; 
                 --brand-blue: #0099cc;
                 --brand-blue-dark: #007399;
+                --brand-blue-overlay: rgba(0, 153, 204, 0.85); /* Blue tint for location section */
             }
 
             body { 
                 font-family: 'Sarabun', sans-serif; 
-                background-color: var(--bg-white); 
+                background-color: var(--bg-warm-white); /* Warm background applied globally */
                 color: var(--text-dark);
             }
 
-            /* Headings defaults */
+            /* Restored Playfair Display for Headings */
             h1, h2, h3, h4, .navbar-brand { 
                 font-family: 'Playfair Display', serif; 
                 color: var(--text-dark);
@@ -58,7 +59,7 @@
             
             .carousel-item img {
                 width: 100%;
-                height: 650px; /* Increased slightly for better vertical breathing room */
+                height: 650px; 
                 object-fit: cover; 
             }
 
@@ -70,17 +71,17 @@
             }
 
             .carousel-caption {
-                bottom: 25%; /* Positioned slightly lower */
-                text-shadow: 0 2px 4px rgba(0,0,0,0.6); /* Text Shadow for legibility */
+                bottom: 25%; 
+                text-shadow: 0 2px 4px rgba(0,0,0,0.6); 
             }
 
             /* --- NEW HERO TYPOGRAPHY --- */
             .hero-title {
-                font-family: 'Sarabun', sans-serif; /* Modern, clean look */
+                font-family: 'Sarabun', sans-serif; 
                 font-weight: 700;
                 color: #ffffff;
                 line-height: 1.2;
-                margin-bottom: 20px; /* Spacing below title */
+                margin-bottom: 20px; 
             }
 
             /* Responsive Font Sizes */
@@ -98,7 +99,7 @@
                 line-height: 1.6;
                 color: #f8f9fa;
                 max-width: 700px;
-                margin: 0 auto 35px auto; /* Centered with bottom spacing */
+                margin: 0 auto 35px auto; 
             }
 
             /* --- CTA BUTTONS --- */
@@ -106,20 +107,20 @@
                 background-color: var(--brand-green); 
                 color: white;
                 padding: 15px 45px;
-                border-radius: 50px; /* Pill Shape */
+                border-radius: 50px; 
                 font-size: 1.1rem;
                 font-weight: 600;
                 font-family: 'Sarabun', sans-serif;
                 border: none;
                 transition: all 0.3s ease;
-                box-shadow: 0 4px 15px rgba(50, 196, 141, 0.4); /* Glow effect */
+                box-shadow: 0 4px 15px rgba(50, 196, 141, 0.4); 
                 display: inline-block;
             }
             .cta-button:hover { 
                 background-color: var(--brand-green-dark); 
                 color: white; 
                 text-decoration: none;
-                transform: translateY(-3px); /* Lift effect */
+                transform: translateY(-3px); 
                 box-shadow: 0 8px 25px rgba(50, 196, 141, 0.6);
             }
             
@@ -141,21 +142,21 @@
                 border-color: white;
             }
             
-            /* --- SERVICES & DOCTOR --- */
+            /* --- SERVICES & DOCTOR (Premium Cards) --- */
             .single-services-box { 
                 background: #fff; 
                 padding: 40px 30px; 
                 margin-bottom: 30px; 
-                border-radius: 20px; 
-                box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
+                border-radius: 20px; /* Softened edges */
+                box-shadow: 0 15px 35px rgba(0,0,0,0.05); /* Soft, premium shadow */
                 transition: .3s; 
                 text-align: center; 
-                border: 1px solid #f0f0f0;
+                border: 1px solid rgba(0,0,0,0.02); /* Very subtle border */
             }
             .single-services-box:hover { 
-                transform: translateY(-5px); 
-                border-color: var(--brand-blue);
-                box-shadow: 0 15px 40px rgba(0, 153, 204, 0.15); 
+                transform: translateY(-8px); 
+                border-color: transparent;
+                box-shadow: 0 20px 40px rgba(0, 153, 204, 0.12); 
             }
             .icon-box {
                 width: 80px; height: 80px; 
@@ -167,6 +168,22 @@
                 font-size: 32px;
             }
             
+            /* --- LOCATION SECTION (Blue Overlay) --- */
+            .location-section {
+                /* Placeholder background image with blue tint overlay */
+                background: linear-gradient(var(--brand-blue-overlay), var(--brand-blue-overlay)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+                background-size: cover;
+                background-position: center;
+                padding: 80px 0;
+            }
+            
+            .location-card {
+                background-color: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+                backdrop-filter: blur(5px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 25px; /* Softened edges */
+            }
+
             /* --- FOOTER --- */
             .footer-area { background-color: #2c3e50; color: #d0d0d0; padding-top: 60px; }
             .footer-area h4 { color: #ffffff; margin-bottom: 25px; font-family: 'Playfair Display', serif; }
@@ -312,16 +329,16 @@
             </div>
         </section>
 
-        <section class="py-5" style="background-color: var(--bg-light-blue);">
+        <section class="location-section">
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-8 mb-4">
-                        <div class="p-5 text-white rounded shadow text-center" style="background-color: var(--brand-blue); border-radius: 25px;">
+                        <div class="p-5 text-white shadow text-center location-card">
                             <h3 class="mb-4" style="color: white;"><i class="fas fa-map-marked-alt mr-2"></i> พบกับเราที่คลินิก</h3>
                             <div class="row mb-4 text-left">
                                 <div class="col-md-6">
                                      <div class="media mb-4">
-                                        <i class="fas fa-building fa-2x mr-3" style="color: #b8eadd;"></i>
+                                        <i class="fas fa-building fa-2x mr-3" style="color: rgba(255,255,255,0.8);"></i>
                                         <div class="media-body">
                                             <h5 class="mt-0" style="color: #f0f0f0;">ที่อยู่</h5>
                                             <p class="mb-0 text-white-50">อาคาร ACME (ชั้น 1) ถนนเพชรบุรี<br>แขวงทุ่งพญาไท เขตราชเทวี กรุงเทพฯ</p>
@@ -330,7 +347,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="media mb-4">
-                                        <i class="far fa-clock fa-2x mr-3" style="color: #b8eadd;"></i>
+                                        <i class="far fa-clock fa-2x mr-3" style="color: rgba(255,255,255,0.8);"></i>
                                         <div class="media-body">
                                             <h5 class="mt-0" style="color: #f0f0f0;">เวลาทำการ</h5>
                                             <p class="mb-0 text-white-50">
@@ -368,7 +385,7 @@
                     <div class="col-lg-4">
                         <h4 class="text-white">ติดต่อเรา</h4>
                         <p><i class="fas fa-phone mr-2" style="color: var(--brand-green);"></i> 098-143-3999</p>
-                        <p><i class="fab fa-line mr-2" style="color: var(--brand-green);"></i> @thana_plus</p>
+                        <p><i class="fab fa-line mr-2" style="color: var(--brand-green);"></i> <span style="font-family: Arial, sans-serif;">@thana_plus</span></p>
                     </div>
                 </div>
                 <div class="row pt-4 border-top border-secondary text-center">

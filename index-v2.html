@@ -69,6 +69,13 @@
                 flex-shrink: 0;
             }
 
+            /* Add this new rule to control the text style */
+.qualification-list span {
+    font-weight: 500;   /* Makes text medium thickness */
+    font-size: 1.1rem;  /* OPTIONAL: Increases text size (default is 1rem) */
+    line-height: 1.6;   /* OPTIONAL: Adds breathing room between lines */
+}
+
             /* Publication list styling */
             .publication-item {
                 border-left: 4px solid var(--brand-green);
@@ -177,7 +184,7 @@
                                     <img src="Thana.png" 
                                          alt="พล.ต.ท. นพ.ธนา ธุระเจน" 
                                          class="img-fluid shadow-sm" 
-                                         style="border-radius: 25px; width: 100%; object-fit: cover;">
+                                         style="border-radius: 25px; width: 100%; object-fit: cover; transform: scale(1.2); transform-origin: top center;">
                                 </div>
                                 <div class="col-md-7 text-left">
                                     <h3 class="mb-4 font-weight-bold">พล.ต.ท. นพ.ธนา ธุระเจน</h3>

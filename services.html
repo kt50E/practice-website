@@ -217,7 +217,7 @@
       .small-note{ font-size: .92rem; color: var(--muted); }
 
       /* =========================
-         STEPS (UPDATED - COMPACT LAYOUT)
+         STEPS (UPDATED - TIGHTER LAYOUT)
          ========================= */
       .step-card{
         background: var(--surface);
@@ -225,14 +225,13 @@
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-sm);
         padding: 20px; 
-        height: 100%;
+        /* Removed fixed height so it hugs content */
         display: flex;
-        align-items: flex-start; /* Aligns number to top of text */
+        align-items: flex-start; 
         gap: 15px;
-        max-width: 600px; /* Limits width so text doesn't stretch too far */
       }
       .step-num{
-        width: 45px; height: 45px; /* Slightly smaller number box */
+        width: 45px; height: 45px; 
         border-radius: 14px;
         display:flex; align-items:center; justify-content:center;
         background: rgba(50, 196, 141,.12);
@@ -252,7 +251,6 @@
         color: var(--text);
         font-size: 1.05rem;
       }
-      /* Remove extra margin on the paragraph for cleaner look */
       .step-card p {
           margin-bottom: 0;
           line-height: 1.5;
@@ -469,14 +467,14 @@
         </div>
 
         <div class="row align-items-center mt-4">
-          <div class="col-lg-5 mb-4 mb-lg-0">
+          <div class="col-lg-7 mb-4 mb-lg-0">
             <div class="section-kicker">How It Works</div>
             <h3 class="font-weight-bold" style="margin-top:10px;">กระบวนการดูแลแบบ 3 ขั้นตอน</h3>
             <p class="mb-0">
               ชัดเจน โปร่งใส และเน้นผลลัพธ์ — เพื่อให้คุณตัดสินใจได้อย่างมั่นใจ
             </p>
           </div>
-          <div class="col-lg-7">
+          <div class="col-lg-5">
             <div class="step-card mb-3">
                 <div class="step-num">1</div>
                 <div class="step-content">

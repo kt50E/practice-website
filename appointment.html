@@ -53,6 +53,18 @@
                 padding: 12px 15px;
                 border: 1px solid #eee;
                 background-color: #f9f9f9;
+                height: auto; /* Fixes text cutting off inside boxes */
+                font-size: 1rem; /* Ensures consistent font size */
+            }
+            /* Specific fix for select boxes to ensure full visibility */
+            select.form-control {
+                height: 50px !important; 
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: right .75rem center;
+                background-size: 8px 10px;
             }
             .form-control:focus {
                 border-color: var(--brand-blue);
@@ -74,6 +86,7 @@
                 transition: 0.3s;
                 width: 100%;
                 font-size: 1.1rem;
+                margin-top: 20px;
             }
             .btn-submit:hover {
                 background-color: var(--brand-green-dark);
@@ -197,7 +210,7 @@
                                         <select class="form-control">
                                             <option>ไม่ระบุแพทย์</option>
                                             <option>พล.ต.ท. นพ.ธนา ธุระเจน</option>
-                                            </select>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -216,13 +229,7 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-4">
-                                    <label>รายละเอียดอาการเบื้องต้น</label>
-                                    <textarea class="form-control" rows="4" placeholder="เช่น ปวดเข่าขวาเรื้อรังมา 3 เดือน..."></textarea>
-                                </div>
-
                                 <button type="submit" class="btn-submit shadow">ส่งข้อมูลขอนัดหมาย</button>
-                                <p class="small text-muted text-center mt-3">* เจ้าหน้าที่จะติดต่อกลับเพื่อยืนยันคิวภายใน 24 ชั่วโมง</p>
                             </form>
                         </div>
                     </div>
@@ -266,7 +273,7 @@
                         </div>
 
                         <div class="rounded overflow-hidden shadow-sm">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.592750379567!2d100.5283923148304!3d13.742880990353136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2992f72a0c4bd%3A0x2f5223010300300!2sAcme%20International!5e0!3m2!1sen!2sth!4v1625000000000!5m2!1sen!2sth" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.3898752650766!2d100.52390977663264!3d13.755346586636966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29946bb1f1769%3A0x481279a872a91728!2sThanaplus%20Life%20Center!5e0!3m2!1sen!2sth!4v1768350318808!5m2!1sen!2sth" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
 

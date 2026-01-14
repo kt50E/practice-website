@@ -217,40 +217,45 @@
       .small-note{ font-size: .92rem; color: var(--muted); }
 
       /* =========================
-         STEPS
+         STEPS (UPDATED - COMPACT LAYOUT)
          ========================= */
       .step-card{
         background: var(--surface);
         border: 1px solid var(--line);
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-sm);
-        padding: 22px;
+        padding: 20px; 
         height: 100%;
-        /* Added for horizontal layout */
         display: flex;
-        align-items: flex-start; 
-        gap: 20px;
+        align-items: flex-start; /* Aligns number to top of text */
+        gap: 15px;
+        max-width: 600px; /* Limits width so text doesn't stretch too far */
       }
       .step-num{
-        width: 50px; height: 50px;
-        border-radius: 16px;
+        width: 45px; height: 45px; /* Slightly smaller number box */
+        border-radius: 14px;
         display:flex; align-items:center; justify-content:center;
         background: rgba(50, 196, 141,.12);
         color: var(--brand-green-dark);
         font-weight: 900;
         font-family:'Sarabun', sans-serif;
-        font-size: 1.2rem;
-        flex-shrink: 0; /* prevent shrinking */
+        font-size: 1.1rem;
+        flex-shrink: 0; 
       }
       .step-content {
           flex-grow: 1;
       }
       .step-card h6{
-        margin-bottom: 5px;
+        margin-bottom: 4px;
         font-family:'Sarabun', sans-serif;
         font-weight: 900;
         color: var(--text);
-        font-size: 1.1rem;
+        font-size: 1.05rem;
+      }
+      /* Remove extra margin on the paragraph for cleaner look */
+      .step-card p {
+          margin-bottom: 0;
+          line-height: 1.5;
       }
 
       /* =========================

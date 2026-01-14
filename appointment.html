@@ -53,12 +53,14 @@
                 padding: 12px 15px;
                 border: 1px solid #eee;
                 background-color: #f9f9f9;
-                height: auto; /* Fixes text cutting off inside boxes */
-                font-size: 1rem; /* Ensures consistent font size */
+                /* FIX: Allow height to grow */
+                height: auto; 
+                min-height: 50px; 
+                font-size: 1rem;
             }
-            /* Specific fix for select boxes to ensure full visibility */
+            /* Specific style for Select boxes */
             select.form-control {
-                height: 50px !important; 
+                height: 50px !important;
                 -webkit-appearance: none;
                 -moz-appearance: none;
                 background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
@@ -134,7 +136,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-8 text-lg-left text-center">
                         <ul class="list-inline mb-0">
-                            <li class="list-inline-item mr-4"><i class="fab fa-line" style="color: var(--brand-green);"></i> @thana_plus</li>
+                            <li class="list-inline-item mr-4"><i class="fab fa-line" style="color: var(--brand-green);"></i> <span style="font-family: Arial, sans-serif;">@thana_plus</span></li>
                             <li class="list-inline-item"><i class="fas fa-phone" style="color: var(--brand-green);"></i> 098-143-3999</li>
                         </ul>
                     </div>
@@ -242,8 +244,7 @@
                                 <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                                 <div>
                                     <h6 class="font-weight-bold mb-1">ที่อยู่คลินิก</h6>
-                                    <p class="text-muted small mb-0">อาคาร ACME (ชั้น 1) ถนนเพชรบุรี<br>
-                                        แขวงทุ่งพญาไท เขตราชเทวี กรุงเทพฯ</p>
+                                    <p class="text-muted small mb-0">อาคาร ACME (ชั้น 1) ถนนเพชรบุรี แขวงทุ่งพญาไท เขตราชเทวี กรุงเทพฯ</p>
                                 </div>
                             </div>
 
@@ -259,7 +260,7 @@
                                 <div class="contact-icon"><i class="fab fa-line"></i></div>
                                 <div>
                                     <h6 class="font-weight-bold mb-1">LINE ID</h6>
-                                    <p class="text-muted small mb-0">@thana_plus</p>
+                                    <p class="text-muted small mb-0" style="font-family: Arial, sans-serif;">@thana_plus</p>
                                 </div>
                             </div>
 
@@ -274,7 +275,7 @@
                         </div>
 
                         <div class="rounded overflow-hidden shadow-sm">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.3898752650766!2d100.52390977663264!3d13.755346586636966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29946bb1f1769%3A0x481279a872a91728!2sThanaplus%20Life%20Center!5e0!3m2!1sen!2sth!4v1768350318808!5m2!1sen!2sth" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.592750379567!2d100.5283923148304!3d13.742880990353136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2992f72a0c4bd%3A0x2f5223010300300!2sAcme%20International!5e0!3m2!1sen!2sth!4v1625000000000!5m2!1sen!2sth" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
 

@@ -14,16 +14,16 @@
          DESIGN SYSTEM (Clean + Trustworthy)
          ========================= */
       :root{
-        --bg: #f9f9f7; 
+        --bg: #f9f9f7; /* Warm off-white from About page */
         --surface: #ffffff;
         --surface-2: #f4f9fc;
         --text: #333333;
         --muted: #5b6773;
         --line: #eee;
 
-        --brand-green: #32c48d;      
+        --brand-green: #32c48d;      /* Matches About Page Green */
         --brand-green-dark: #28a375;
-        --brand-blue: #0099cc;       
+        --brand-blue: #0099cc;       /* Matches About Page Blue */
         --brand-blue-dark: #007399;
         --brand-gold: #c9a66b;
 
@@ -45,7 +45,7 @@
       a{ color: inherit; }
       
       /* =========================
-         NAVBAR
+         NAVBAR + TOP STRIP (MATCHING ABOUT.HTML)
          ========================= */
       .top-header { 
           background-color: #f8f9fa; 
@@ -64,6 +64,7 @@
       }
       .nav-link.active { color: var(--brand-blue) !important; }
 
+      /* Buttons (System Style) */
       .btn-pill{ border-radius: 999px; font-weight: 700; padding: 12px 18px; }
       .btn-primary-brand{
         background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-dark) 100%);
@@ -83,6 +84,7 @@
             rgba(0, 153, 204, 0.85) 0%, 
             rgba(50, 196, 141, 0.75) 100%
           ),
+          /* Clinic photo */
           url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
         background-size: cover;
         background-position: center;
@@ -93,9 +95,11 @@
       .page-header h1{ color: #fff; margin-bottom: 10px; }
 
       /* =========================
-         SECTIONS
+         SECTIONS + HEADERS
          ========================= */
-      .section{ padding: 70px 0; }
+      .section{
+        padding: 70px 0;
+      }
       .section-muted{
         background: linear-gradient(180deg, #ffffff 0%, var(--surface-2) 100%);
         border-top: 1px solid var(--line);
@@ -108,13 +112,24 @@
         text-transform: uppercase;
         font-size: .78rem;
       }
-      .section-title{ color: var(--text); margin-top: 10px; }
-      .section-subtitle{ max-width: 78ch; margin: 10px auto 0; }
+      .section-title{
+        color: var(--text);
+        margin-top: 10px;
+      }
+      .section-subtitle{
+        max-width: 78ch;
+        margin: 10px auto 0;
+      }
 
       /* =========================
-         FEATURE & CARDS
+         MAIN SERVICE FEATURE (clickable)
          ========================= */
-      .service-link-wrapper{ text-decoration:none !important; color: inherit !important; display:block; height:100%; }
+      .service-link-wrapper{
+        text-decoration:none !important;
+        color: inherit !important;
+        display:block;
+        height:100%;
+      }
       .feature-card{
         background: var(--surface);
         border: 1px solid var(--line);
@@ -123,37 +138,86 @@
         overflow: hidden;
         transition: .25s ease;
       }
-      .feature-card:hover{ transform: translateY(-4px); box-shadow: 0 24px 60px rgba(16,24,40,.14); }
-      .feature-inner{ padding: 42px 42px; }
+      .feature-card:hover{
+        transform: translateY(-4px);
+        box-shadow: 0 24px 60px rgba(16,24,40,.14);
+      }
+      .feature-inner{
+        padding: 42px 42px;
+      }
       .feature-pill{
-        display:inline-flex; align-items:center; gap:10px; padding: 8px 12px; border-radius: 999px;
-        background: rgba(0, 153, 204,.08); color: var(--brand-blue-dark); font-weight: 800; font-size: .92rem;
+        display:inline-flex;
+        align-items:center;
+        gap:10px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(0, 153, 204,.08);
+        color: var(--brand-blue-dark);
+        font-weight: 800;
+        font-size: .92rem;
         font-family: 'Sarabun', sans-serif;
       }
-      .feature-title{ margin-top: 14px; font-weight: 800; }
-      .feature-copy{ font-size: 1.05rem; line-height: 1.8; margin-top: 10px; }
-      .feature-cta{ margin-top: 18px; display:flex; align-items:center; gap: 12px; flex-wrap: wrap; }
+      .feature-title{
+        margin-top: 14px;
+        font-weight: 800;
+      }
+      .feature-copy{
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-top: 10px;
+      }
+      .feature-cta{
+        margin-top: 18px;
+        display:flex;
+        align-items:center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
       .feature-media{
-        height: 100%; min-height: 260px;
-        background: linear-gradient(135deg, rgba(0, 153, 204,.25) 0%, rgba(50, 196, 141,.22) 100%),
-          url('https://images.unsplash.com/photo-1559757175-5700dde67548?auto=format&fit=crop&w=1400&q=80');
-        background-size: cover; background-position: center;
+        height: 100%;
+        min-height: 260px;
+        background:
+          linear-gradient(135deg, rgba(0, 153, 204,.25) 0%, rgba(50, 196, 141,.22) 100%),
+          url('https://images.unsplash.com/photo-1559757175-5700dde67548?auto=format&fit=crop&w=1400&q=80'); /* consult/clinic */
+        background-size: cover;
+        background-position: center;
       }
 
+      /* =========================
+         CONDITIONS (cards)
+         ========================= */
       .condition-card{
-        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-sm); padding: 22px 22px; height: 100%; transition: .2s ease;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+        padding: 22px 22px;
+        height: 100%;
+        transition: .2s ease;
       }
-      .condition-card:hover{ transform: translateY(-2px); box-shadow: 0 16px 34px rgba(16,24,40,.10); }
+      .condition-card:hover{
+        transform: translateY(-2px);
+        box-shadow: 0 16px 34px rgba(16,24,40,.10);
+      }
       .condition-ico{
-        width: 54px; height: 54px; border-radius: 18px; display:flex; align-items:center; justify-content:center;
-        background: rgba(0, 153, 204,.10); color: var(--brand-blue); font-size: 20px; margin-bottom: 14px;
+        width: 54px; height: 54px;
+        border-radius: 18px;
+        display:flex; align-items:center; justify-content:center;
+        background: rgba(0, 153, 204,.10);
+        color: var(--brand-blue);
+        font-size: 20px;
+        margin-bottom: 14px;
       }
-      .condition-card h5{ font-family:'Sarabun', sans-serif; font-weight: 900; color: var(--text); margin-bottom: 8px; }
+      .condition-card h5{
+        font-family:'Sarabun', sans-serif;
+        font-weight: 900;
+        color: var(--text);
+        margin-bottom: 8px;
+      }
       .small-note{ font-size: .92rem; color: var(--muted); }
 
       /* =========================
-         STEPS (FIXED LAYOUT)
+         STEPS (UPDATED - TIGHTER LAYOUT)
          ========================= */
       .step-card{
         background: var(--surface);
@@ -161,10 +225,10 @@
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-sm);
         padding: 20px; 
+        /* Removed fixed height so it hugs content */
         display: flex;
         align-items: flex-start; 
         gap: 15px;
-        /* Removed max-width to allow filling the column nicely */
       }
       .step-num{
         width: 45px; height: 45px; 
@@ -177,37 +241,82 @@
         font-size: 1.1rem;
         flex-shrink: 0; 
       }
-      .step-content { flex-grow: 1; }
-      .step-card h6{ margin-bottom: 4px; font-family:'Sarabun', sans-serif; font-weight: 900; color: var(--text); font-size: 1.05rem; }
-      .step-card p { margin-bottom: 0; line-height: 1.5; }
+      .step-content {
+          flex-grow: 1;
+      }
+      .step-card h6{
+        margin-bottom: 4px;
+        font-family:'Sarabun', sans-serif;
+        font-weight: 900;
+        color: var(--text);
+        font-size: 1.05rem;
+      }
+      .step-card p {
+          margin-bottom: 0;
+          line-height: 1.5;
+      }
 
       /* =========================
-         MOSAIC & FOOTER
+         IMAGE MOSAIC (lifestyle)
          ========================= */
-      .mosaic{ border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid var(--line); }
-      .mosaic img{ width: 100%; height: 100%; object-fit: cover; display:block; }
-
-      .cta{
-        background: radial-gradient(900px 300px at 20% 15%, rgba(201,166,107,.22), transparent 60%),
-          linear-gradient(135deg, rgba(0, 153, 204,1) 0%, rgba(50, 196, 141,1) 100%);
-        color:#fff; border-top: 1px solid rgba(255,255,255,.15);
+      .mosaic{
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--line);
       }
-      .cta h2, .cta p{ color:#fff; } .cta p{ opacity: .92; }
-      .cta-card{ background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22); border-radius: 26px; padding: 22px; }
+      .mosaic img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display:block;
+      }
 
+      /* =========================
+         FINAL CTA
+         ========================= */
+      .cta{
+        background:
+          radial-gradient(900px 300px at 20% 15%, rgba(201,166,107,.22), transparent 60%),
+          linear-gradient(135deg, rgba(0, 153, 204,1) 0%, rgba(50, 196, 141,1) 100%);
+        color:#fff;
+        border-top: 1px solid rgba(255,255,255,.15);
+      }
+      .cta h2, .cta p{ color:#fff; }
+      .cta p{ opacity: .92; }
+      .cta-card{
+        background: rgba(255,255,255,.14);
+        border: 1px solid rgba(255,255,255,.22);
+        border-radius: 26px;
+        padding: 22px;
+      }
+
+      /* =========================
+         FOOTER
+         ========================= */
       .footer-area { background-color: #2c3e50; color: #d0d0d0; padding-top: 60px; }
       .footer-area h4 { color: #ffffff; margin-bottom: 25px; font-family: 'Playfair Display', serif; }
       .footer-area a { color: #acb7b9; transition: 0.3s; }
       .footer-area a:hover { color: var(--brand-green); text-decoration: none; }
 
+      /* =========================
+         MOBILE BOTTOM CTA BAR
+         ========================= */
       .mobile-cta{
-        position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 999;
-        background: rgba(255,255,255,.95); border: 1px solid var(--line); border-radius: 18px;
-        box-shadow: 0 18px 50px rgba(16,24,40,.18); padding: 10px; display: none;
+        position: fixed;
+        left: 12px; right: 12px; bottom: 12px;
+        z-index: 999;
+        background: rgba(255,255,255,.95);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 18px 50px rgba(16,24,40,.18);
+        padding: 10px;
+        display: none;
       }
       .mobile-cta .btn{ width: 100%; }
       @media (max-width: 991.98px){
-        .mobile-cta{ display:block; } body{ padding-bottom: 78px; }
+        .mobile-cta{ display:block; }
+        body{ padding-bottom: 78px; } /* prevent overlap */
       }
     </style>
 
@@ -358,16 +467,14 @@
         </div>
 
         <div class="row align-items-center mt-4">
-          
-          <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="col-lg-7 mb-4 mb-lg-0">
             <div class="section-kicker">How It Works</div>
             <h3 class="font-weight-bold" style="margin-top:10px;">กระบวนการดูแลแบบ 3 ขั้นตอน</h3>
             <p class="mb-0">
               ชัดเจน โปร่งใส และเน้นผลลัพธ์ — เพื่อให้คุณตัดสินใจได้อย่างมั่นใจ
             </p>
           </div>
-
-          <div class="col-lg-8">
+          <div class="col-lg-5">
             <div class="step-card mb-3">
                 <div class="step-num">1</div>
                 <div class="step-content">

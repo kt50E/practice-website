@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+      /* =========================
+         DESIGN SYSTEM (clean + luxe + performance)
+         ========================= */
+      :root{
+        --bg: #fbfcfe;
+        --surface: #ffffff;
+        --surface-2: #f4f9fc;
+        --text: #1d2731;
+        --muted: #5b6773;
+        --line: rgba(29,39,49,.10);
+
+        --brand-teal: #22b8a7;     /* fresh “performance” */
+        --brand-teal-dark: #169889;
+        --brand-blue: #1a73e8;     /* medical trust */
+        --brand-blue-dark: #145db9;
+        --brand-gold: #c9a66b;     /* subtle “luxe” accent */
+
+        --radius-lg: 22px;
+        --radius-md: 16px;
+
+        --shadow-sm: 0 8px 20px rgba(16, 24, 40, 0.06);
+        --shadow-md: 0 18px 45px rgba(16, 24, 40, 0.10);
+      }
+
+      html { scroll-behavior: smooth; }
+      body{
+        font-family: 'Sarabun', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      h1,h2,h3,h4,.navbar-brand{ font-family:'Playfair Display', serif; color: var(--text); }
+      p{ color: var(--muted); }
+      a{ color: inherit; }
+      .container{ max-width: 1140px; } /* tighter, more “designed” */
+
+      /* =========================
+         NAV + TOP STRIP
+         ========================= */
+      .top-header{
+        background: rgba(255,255,255,.75);
+        backdrop-filter: blur(8px);
+        font-size: 14px;
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+      }
+      .navbar-area{
+        background: rgba(255,255,255,.90);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-link{
+        font-weight: 500;
+        color: #3b4651 !important;
+      }
+      .nav-link.active{ color: var(--brand-blue) !important; }
+
+      .btn-pill{ border-radius: 999px; font-weight: 700; padding: 12px 18px; }
+      .btn-primary-brand{
+        background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-teal) 100%);
+        border: 0;
+        color: #fff !important;
+        box-shadow: 0 12px 30px rgba(26,115,232,.18);
+      }
+      .btn-primary-brand:hover{ filter: brightness(.98); transform: translateY(-1px); }
+      .btn-ghost{
+        background: rgba(255,255,255,.15);
+        border: 1px solid rgba(255,255,255,.45);
+        color: #fff !important;
+      }
+      .btn-outline-soft{
+        border: 1px solid rgba(26,115,232,.25);
+        color: var(--brand-blue) !important;
+        background: #fff;
+      }
+      .btn-outline-soft:hover{
+        background: rgba(26,115,232,.06);
+        border-color: rgba(26,115,232,.35);
+      }
+
+      /* =========================
+         HERO (more premium + clearer CTA)
+         ========================= */
+      .page-hero{
+        position: relative;
+        padding: 96px 0 56px;
+        color: #fff;
+        overflow: hidden;
+        background:
+          linear-gradient(135deg, rgba(10, 24, 45, 0.78) 0%, rgba(9, 85, 120, 0.62) 45%, rgba(34, 184, 167, 0.55) 100%),
+          url('https://images.unsplash.com/photo-1526404801122-40fc40fca08f?auto=format&fit=crop&w=2200&q=80'); /* runner vibe */
+        background-size: cover;
+        background-position: center;
+      }
+      .hero-badge{
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(255,255,255,.12);
+        border: 1px solid rgba(255,255,255,.22);
+        font-weight: 600;
+        letter-spacing: .2px;
+      }
+      .hero-badge i{ color: #fff; opacity: .95; }
+      .page-hero h1{
+        color: #fff;
+        margin-top: 14px;
+        letter-spacing: .2px;
+      }
+      .hero-lead{
+        color: rgba(255,255,255,.88);
+        font-size: 1.12rem;
+        line-height: 1.7;
+        max-width: 58ch;
+      }
+      .hero-actions{ display:flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+      .hero-meta{
+        margin-top: 18px;
+        color: rgba(255,255,255,.78);
+        font-size: .95rem;
+      }
+      .hero-meta i{ opacity: .95; }
+
+      /* trust strip */
+      .trust-strip{
+        margin-top: -26px;
+        position: relative;
+        z-index: 2;
+      }
+      .trust-card{
+        background: rgba(255,255,255,.92);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+        padding: 18px 18px;
+        height: 100%;
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .trust-ico{
+        width: 44px; height: 44px;
+        border-radius: 14px;
+        display:flex; align-items:center; justify-content:center;
+        background: rgba(34,184,167,.12);
+        color: var(--brand-teal-dark);
+        flex-shrink: 0;
+        font-size: 18px;
+      }
+      .trust-card h6{ margin: 0 0 4px; font-weight: 800; font-family: 'Sarabun', sans-serif; color: var(--text); }
+      .trust-card p{ margin: 0; font-size: .92rem; }
+
+      /* =========================
+         SECTIONS + HEADERS
+         ========================= */
+      .section{
+        padding: 70px 0;
+      }
+      .section-muted{
+        background: linear-gradient(180deg, #ffffff 0%, var(--surface-2) 100%);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      .section-kicker{
+        color: var(--brand-gold);
+        font-weight: 700;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        font-size: .78rem;
+      }
+      .section-title{
+        color: var(--text);
+        margin-top: 10px;
+      }
+      .section-subtitle{
+        max-width: 78ch;
+        margin: 10px auto 0;
+      }
+
+      /* =========================
+         MAIN SERVICE FEATURE (clickable)
+         ========================= */
+      .service-link-wrapper{
+        text-decoration:none !important;
+        color: inherit !important;
+        display:block;
+        height:100%;
+      }
+      .feature-card{
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        box-shadow: var(--shadow-md);
+        overflow: hidden;
+        transition: .25s ease;
+      }
+      .feature-card:hover{
+        transform: translateY(-4px);
+        box-shadow: 0 24px 60px rgba(16,24,40,.14);
+      }
+      .feature-inner{
+        padding: 42px 42px;
+      }
+      .feature-pill{
+        display:inline-flex;
+        align-items:center;
+        gap:10px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(26,115,232,.08);
+        color: var(--brand-blue-dark);
+        font-weight: 800;
+        font-size: .92rem;
+        font-family: 'Sarabun', sans-serif;
+      }
+      .feature-title{
+        margin-top: 14px;
+        font-weight: 800;
+      }
+      .feature-copy{
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-top: 10px;
+      }
+      .feature-cta{
+        margin-top: 18px;
+        display:flex;
+        align-items:center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .feature-media{
+        height: 100%;
+        min-height: 260px;
+        background:
+          linear-gradient(135deg, rgba(26,115,232,.25) 0%, rgba(34,184,167,.22) 100%),
+          url('https://images.unsplash.com/photo-1559757175-5700dde67548?auto=format&fit=crop&w=1400&q=80'); /* consult/clinic */
+        background-size: cover;
+        background-position: center;
+      }
+
+      /* =========================
+         CONDITIONS (cards)
+         ========================= */
+      .condition-card{
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+        padding: 22px 22px;
+        height: 100%;
+        transition: .2s ease;
+      }
+      .condition-card:hover{
+        transform: translateY(-2px);
+        box-shadow: 0 16px 34px rgba(16,24,40,.10);
+      }
+      .condition-ico{
+        width: 54px; height: 54px;
+        border-radius: 18px;
+        display:flex; align-items:center; justify-content:center;
+        background: rgba(26,115,232,.10);
+        color: var(--brand-blue);
+        font-size: 20px;
+        margin-bottom: 14px;
+      }
+      .condition-card h5{
+        font-family:'Sarabun', sans-serif;
+        font-weight: 900;
+        color: var(--text);
+        margin-bottom: 8px;
+      }
+      .small-note{ font-size: .92rem; color: var(--muted); }
+
+      /* =========================
+         STEPS
+         ========================= */
+      .step-card{
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+        padding: 22px;
+        height: 100%;
+      }
+      .step-num{
+        width: 44px; height: 44px;
+        border-radius: 16px;
+        display:flex; align-items:center; justify-content:center;
+        background: rgba(34,184,167,.12);
+        color: var(--brand-teal-dark);
+        font-weight: 900;
+        font-family:'Sarabun', sans-serif;
+        margin-bottom: 12px;
+      }
+      .step-card h6{
+        margin-bottom: 8px;
+        font-family:'Sarabun', sans-serif;
+        font-weight: 900;
+        color: var(--text);
+      }
+
+      /* =========================
+         IMAGE MOSAIC (lifestyle)
+         ========================= */
+      .mosaic{
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--line);
+      }
+      .mosaic img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display:block;
+      }
+
+      /* =========================
+         FINAL CTA
+         ========================= */
+      .cta{
+        background:
+          radial-gradient(900px 300px at 20% 15%, rgba(201,166,107,.22), transparent 60%),
+          linear-gradient(135deg, rgba(26,115,232,1) 0%, rgba(34,184,167,1) 100%);
+        color:#fff;
+        border-top: 1px solid rgba(255,255,255,.15);
+      }
+      .cta h2, .cta p{ color:#fff; }
+      .cta p{ opacity: .92; }
+      .cta-card{
+        background: rgba(255,255,255,.14);
+        border: 1px solid rgba(255,255,255,.22);
+        border-radius: 26px;
+        padding: 22px;
+      }
+
+      /* =========================
+         FOOTER
+         ========================= */
+      .footer-area{
+        background-color: #15202b;
+        color: #cfd7df;
+        padding-top: 60px;
+      }
+      .footer-area h4{ color:#fff; margin-bottom: 18px; }
+      .footer-area a{ color:#cfd7df; opacity:.85; }
+      .footer-area a:hover{ opacity:1; color: #fff; text-decoration:none; }
+
+      /* =========================
+         MOBILE BOTTOM CTA BAR
+         ========================= */
+      .mobile-cta{
+        position: fixed;
+        left: 12px; right: 12px; bottom: 12px;
+        z-index: 999;
+        background: rgba(255,255,255,.95);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 18px 50px rgba(16,24,40,.18);
+        padding: 10px;
+        display: none;
+      }
+      .mobile-cta .btn{ width: 100%; }
+      @media (max-width: 991.98px){
+        .mobile-cta{ display:block; }
+        body{ padding-bottom: 78px; } /* prevent overlap */
+      }
+    </style>
+
+    <title>บริการของเรา - Thanaplus Life Center</title>
+  </head>
+
+  <body>
+
+    <!-- Top strip -->
+    <div class="top-header py-2">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8 text-lg-left text-center">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item mr-4">
+                <i class="fab fa-line" style="color: var(--brand-teal);"></i> @thana_plus
+              </li>
+              <li class="list-inline-item">
+                <i class="fas fa-phone" style="color: var(--brand-teal);"></i> 098-143-3999
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4 text-lg-right text-center d-none d-lg-block">
+            <span><i class="far fa-clock"></i> อ.-ศ. 15:30-17:30 น. | ส.-อา. 11:30-15:00 น.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <div class="navbar-area sticky-top">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light py-2">
+          <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="TP-logo.png" alt="Thanaplus Clinic" style="height: 56px; width:auto;">
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ml-auto align-items-lg-center">
+              <li class="nav-item"><a href="index.html" class="nav-link">หน้าแรก</a></li>
+              <li class="nav-item"><a href="about.html" class="nav-link">เกี่ยวกับเรา</a></li>
+              <li class="nav-item"><a href="services.html" class="nav-link active">บริการของเรา</a></li>
+              <li class="nav-item"><a href="education.html" class="nav-link">สาระน่ารู้</a></li>
+              <li class="nav-item ml-lg-2">
+                <a href="appointment.html" class="btn btn-primary-brand btn-pill btn-sm d-none d-lg-inline-flex">
+                  <i class="far fa-calendar-check mr-2"></i> นัดหมายแพทย์
+                </a>
+              </li>
+              <li class="nav-item ml-lg-2">
+                <a href="contactus.html" class="btn btn-outline-soft btn-pill btn-sm d-none d-lg-inline-flex">
+                  <i class="fas fa-phone mr-2"></i> ติดต่อเรา
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <header class="page-hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <div class="hero-badge">
+              <i class="fas fa-sparkles"></i>
+              <span>Orthopedics • Sports • Mobility Care</span>
+            </div>
+
+            <h1 class="font-weight-bold">บริการของเรา</h1>
+            <p class="hero-lead mb-0">
+              นวัตกรรมการรักษาโดยไม่ต้องผ่าตัด เพื่อช่วยให้คุณกลับไปใช้ชีวิตได้อย่างมั่นใจ
+              ไม่ว่าจะเป็นนักวิ่ง ผู้สูงอายุ หรือผู้ที่มีอาการปวดเรื้อรัง
+            </p>
+
+            <div class="hero-actions">
+              <a href="appointment.html" class="btn btn-primary-brand btn-pill">
+                นัดหมายแพทย์ทันที <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+              <!-- Replace # with your real LINE deep link if you have it -->
+              <a href="#" class="btn btn-ghost btn-pill">
+                <i class="fab fa-line mr-2"></i> ปรึกษาทาง LINE
+              </a>
+              <a href="tel:0981433999" class="btn btn-ghost btn-pill">
+                <i class="fas fa-phone mr-2"></i> โทรเลย
+              </a>
+            </div>
+
+            <div class="hero-meta">
+              <i class="far fa-clock mr-2"></i> อ.-ศ. 15:30-17:30 น. | ส.-อา. 11:30-15:00 น.
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- TRUST STRIP -->
+    <section class="trust-strip">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-3 mb-lg-0">
+            <div class="trust-card">
+              <div class="trust-ico"><i class="fas fa-user-md"></i></div>
+              <div>
+                <h6>เน้นการรักษาแบบไม่ผ่าตัด</h6>
+                <p>ลดปวด ฟื้นฟูการเคลื่อนไหว พร้อมแนวทางที่เหมาะกับแต่ละคน</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-3 mb-lg-0">
+            <div class="trust-card">
+              <div class="trust-ico"><i class="fas fa-shield-alt"></i></div>
+              <div>
+                <h6>มาตรฐานความปลอดภัย</h6>
+                <p>ดูแลโดยทีมแพทย์ พร้อมกระบวนการที่คำนึงถึงความสะอาดและความปลอดภัย</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="trust-card">
+              <div class="trust-ico"><i class="fas fa-running"></i></div>
+              <div>
+                <h6>กลับสู่กิจกรรมที่รัก</h6>
+                <p>เหมาะกับสายกีฬา นักวิ่ง และผู้ที่ต้องการคุณภาพชีวิตที่ดีขึ้น</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE SERVICE -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-4">
+          <div class="section-kicker">Signature Service</div>
+          <h2 class="section-title font-weight-bold">บริการเด่นของเรา</h2>
+          <p class="section-subtitle">
+            คลิกเพื่ออ่านรายละเอียด การเตรียมตัว และแนวทางการรักษาอย่างครบถ้วน
+          </p>
+        </div>
+
+        <a href="service-plasma.html" class="service-link-wrapper" aria-label="อ่านรายละเอียดการรักษาด้วย Plasma 1 (PRGF)">
+          <div class="feature-card">
+            <div class="row no-gutters">
+              <div class="col-lg-7">
+                <div class="feature-inner">
+                  <div class="feature-pill"><i class="fas fa-dna"></i> Plasma 1 (PRGF)</div>
+                  <h3 class="feature-title">การรักษาด้วย Plasma 1 (PRGF)</h3>
+                  <p class="feature-copy">
+                    เทคโนโลยีชีวภาพที่ช่วยซ่อมแซมเนื้อเยื่อและลดการอักเสบตามธรรมชาติ
+                    เป็นทางเลือกที่มีประสิทธิภาพสำหรับผู้ที่มีปัญหาข้อเสื่อมและอาการบาดเจ็บของข้อต่อต่าง ๆ
+                    โดยไม่ต้องผ่าตัด
+                  </p>
+                  <div class="feature-cta">
+                    <span class="btn btn-primary-brand btn-pill">
+                      อ่านรายละเอียดบริการ <i class="fas fa-arrow-right ml-2"></i>
+                    </span>
+                    <span class="small-note">
+                      <i class="fas fa-check-circle mr-2" style="color: var(--brand-teal-dark);"></i>
+                      เน้นลดปวด + ฟื้นฟูการทำงานของข้อ
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5 d-none d-lg-block">
+                <div class="feature-media" role="img" aria-label="ภาพบรรยากาศการให้คำปรึกษาในคลินิก"></div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- CONDITIONS -->
+    <section class="section section-muted" id="conditions">
+      <div class="container">
+        <div class="text-center mb-5">
+          <div class="section-kicker">What We Treat</div>
+          <h2 class="section-title font-weight-bold">อาการที่สามารถรักษาได้</h2>
+          <p class="section-subtitle">
+            เทคโนโลยี Plasma 1 สามารถช่วยบรรเทาอาการบาดเจ็บของข้อต่อต่าง ๆ ได้อย่างมีประสิทธิภาพ
+            (ทั้งสายกีฬาและการใช้งานในชีวิตประจำวัน)
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="condition-card">
+              <div class="condition-ico"><i class="fas fa-bone"></i></div>
+              <h5>ข้อเข่าเสื่อม</h5>
+              <p class="mb-0 small-note">
+                ช่วยลดอาการปวดและอักเสบ ชะลอความเสื่อมของผิวข้อ และเพิ่มความมั่นคงในการเดิน
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="condition-card">
+              <div class="condition-ico"><i class="fas fa-layer-group"></i></div>
+              <h5>หมอนรองกระดูก/กระดูกอ่อน</h5>
+              <p class="mb-0 small-note">
+                ฟื้นฟูการบาดเจ็บของหมอนรองกระดูกและผิวกระดูกอ่อน ให้กลับมาใช้งานได้ดีขึ้น
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="condition-card">
+              <div class="condition-ico"><i class="fas fa-user-injured"></i></div>
+              <h5>ปวดไหล่/เอ็นไหล่อักเสบ</h5>
+              <p class="mb-0 small-note">
+                ลดปวดจากเอ็นอักเสบเรื้อรัง ช่วยเพิ่มองศาการเคลื่อนไหวของไหล่ และกลับไปใช้งานได้คล่องตัว
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="condition-card">
+              <div class="condition-ico"><i class="fas fa-universal-access"></i></div>
+              <h5>ข้อสะโพกเสื่อม/ปวดสะโพก</h5>
+              <p class="mb-0 small-note">
+                บรรเทาปวดจากข้อสะโพกเสื่อมหรือการอักเสบของเส้นเอ็นรอบสะโพก ช่วยให้เคลื่อนไหวได้ดีขึ้น
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Steps -->
+        <div class="row align-items-center mt-4">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="section-kicker">How It Works</div>
+            <h3 class="font-weight-bold" style="margin-top:10px;">กระบวนการดูแลแบบ 3 ขั้นตอน</h3>
+            <p class="mb-0">
+              ชัดเจน โปร่งใส และเน้นผลลัพธ์ — เพื่อให้คุณตัดสินใจได้อย่างมั่นใจ
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <div class="step-card">
+                  <div class="step-num">1</div>
+                  <h6>ประเมินอาการ</h6>
+                  <p class="small-note mb-0">ซักประวัติ ตรวจร่างกาย วางเป้าหมายการรักษา</p>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="step-card">
+                  <div class="step-num">2</div>
+                  <h6>รักษาแบบเหมาะสม</h6>
+                  <p class="small-note mb-0">เลือกแนวทาง (เช่น Plasma 1/PRGF) ตามสภาพข้อและไลฟ์สไตล์</p>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="step-card">
+                  <div class="step-num">3</div>
+                  <h6>ติดตามผล</h6>
+                  <p class="small-note mb-0">ประเมินความก้าวหน้า ปรับแผน และแนะนำการฟื้นฟู</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Lifestyle imagery (optional but recommended) -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-5">
+          <div class="section-kicker">Lifestyle Outcomes</div>
+          <h2 class="section-title font-weight-bold">กลับไปใช้ชีวิตแบบที่คุณต้องการ</h2>
+          <p class="section-subtitle">
+            ภาพตัวอย่างแนวทางภาพ (นักวิ่ง / ผู้สูงอายุ / การดูแลแบบใกล้ชิด) — แนะนำให้เปลี่ยนเป็นภาพที่มีสิทธิ์ใช้งานถูกต้องและโทนเดียวกัน
+          </p>
+        </div>
+
+        <div class="mosaic">
+          <div class="row no-gutters" style="min-height: 360px;">
+            <div class="col-lg-6" style="min-height: 360px;">
+              <img
+                src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?auto=format&fit=crop&w=1400&q=80"
+                alt="นักวิ่งกำลังออกกำลังกาย"
+              >
+            </div>
+            <div class="col-lg-6">
+              <div class="row no-gutters" style="height: 100%;">
+                <div class="col-12" style="min-height: 180px;">
+                  <img
+                    src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1400&q=80"
+                    alt="บรรยากาศคลินิกสะอาดและเชื่อถือได้"
+                  >
+                </div>
+                <div class="col-12" style="min-height: 180px;">
+                  <img
+                    src="https://images.unsplash.com/photo-1520975958225-9d1d9fba7b45?auto=format&fit=crop&w=1400&q=80"
+                    alt="ผู้สูงอายุเดินอย่างมั่นใจ"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta text-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <h2 class="font-weight-bold mb-3">ปรึกษาปัญหากระดูกและข้อกับเรา</h2>
+            <p class="lead mb-4">
+              แพทย์ผู้เชี่ยวชาญพร้อมให้คำแนะนำแนวทางการรักษาที่เหมาะสมกับคุณ
+            </p>
+
+            <div class="cta-card mb-4">
+              <div class="row text-left">
+                <div class="col-md-4 mb-3 mb-md-0">
+                  <div class="d-flex">
+                    <div class="mr-3"><i class="fas fa-phone" style="font-size:18px;"></i></div>
+                    <div>
+                      <div class="font-weight-bold">โทร</div>
+                      <div style="opacity:.92;">098-143-3999</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                  <div class="d-flex">
+                    <div class="mr-3"><i class="fab fa-line" style="font-size:18px;"></i></div>
+                    <div>
+                      <div class="font-weight-bold">LINE</div>
+                      <div style="opacity:.92;">@thana_plus</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="d-flex">
+                    <div class="mr-3"><i class="far fa-clock" style="font-size:18px;"></i></div>
+                    <div>
+                      <div class="font-weight-bold">เวลาทำการ</div>
+                      <div style="opacity:.92;">อ.-ศ. 15:30-17:30 | ส.-อา. 11:30-15:00</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="appointment.html" class="btn btn-light btn-lg btn-pill px-5 shadow" style="color: var(--brand-blue-dark); font-weight: 900;">
+              นัดหมายแพทย์ทันที <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-area">
+      <div class="container">
+        <div class="row pb-5">
+          <div class="col-lg-4 mb-4">
+            <h4>Thanaplus</h4>
+            <p style="opacity:.9;">
+              คลินิกเฉพาะทางด้านกระดูกและข้อ มุ่งเน้นการรักษาที่มีประสิทธิภาพและปลอดภัย
+            </p>
+          </div>
+          <div class="col-lg-4 mb-4">
+            <h4>ลิงก์ด่วน</h4>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="index.html">หน้าแรก</a></li>
+              <li class="mb-2"><a href="about.html">เกี่ยวกับเรา</a></li>
+              <li class="mb-2"><a href="services.html">บริการของเรา</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h4>ติดต่อเรา</h4>
+            <p class="mb-2"><i class="fas fa-phone mr-2" style="color: var(--brand-teal);"></i> 098-143-3999</p>
+            <p class="mb-0"><i class="fab fa-line mr-2" style="color: var(--brand-teal);"></i> @thana_plus</p>
+          </div>
+        </div>
+
+        <div class="row pt-4 border-top border-secondary text-center" style="border-color: rgba(255,255,255,.18) !important;">
+          <div class="col-12">
+            <p class="small mb-0">© 2024 Thana Plus Life Center. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile fixed CTA -->
+    <div class="mobile-cta">
+      <a href="appointment.html" class="btn btn-primary-brand btn-pill">
+        <i class="far fa-calendar-check mr-2"></i> นัดหมายแพทย์ทันที
+      </a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

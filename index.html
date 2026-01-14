@@ -303,21 +303,23 @@
       /* =========================
          LOCATION SECTION (Softer typography + less overwhelming)
          ========================= */
-      .location-section {
-        background: linear-gradient(var(--brand-blue-overlay), var(--brand-blue-overlay)),
-          url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-        background-size: cover;
-        background-position: center;
-        padding: 80px 0;
-      }
+.location-section {
+  background: linear-gradient(var(--brand-blue-overlay), var(--brand-blue-overlay)),
+    url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0;
+}
 
-      .location-card {
-        background-color: rgba(255, 255, 255, 0.14);
-        backdrop-filter: blur(6px);
-        border: 1px solid rgba(255, 255, 255, 0.22);
-        border-radius: 25px;
-        box-shadow: 0 18px 48px rgba(0,0,0,0.18);
-      }
+
+.location-card {
+  background-color: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 25px;
+  box-shadow: 0 18px 48px rgba(0,0,0,0.18);
+}
+
 
       /* Override Bootstrap p-5 (too big here) */
       .location-card.p-5{
@@ -343,32 +345,32 @@
       }
 
       /* Make the inner block feel organized */
-      .location-card .media{
-        padding: 14px 14px;
-        border-radius: 14px;
-        background: rgba(0,0,0,0.10);
-        border: 1px solid rgba(255,255,255,0.12);
-      }
-      .location-card .media i{
-        font-size: 1.55rem !important; /* softer than fa-2x */
-        margin-top: 0.15rem;
-      }
+.location-card .media{
+  padding: 14px 14px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.10);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.location-card .media i{
+  font-size: 1.55rem !important;
+  margin-top: 0.15rem;
+}
+
 
       /* Subtle column divider on md+ */
-      @media (min-width: 768px){
-        .location-card .row.mb-4 > .col-md-6:first-child{
-          position: relative;
-        }
-        .location-card .row.mb-4 > .col-md-6:first-child::after{
-          content:"";
-          position:absolute;
-          top: 6px;
-          right: -10px;
-          width: 1px;
-          height: calc(100% - 12px);
-          background: rgba(255,255,255,0.18);
-        }
-      }
+@media (min-width: 768px){
+  .location-card .row.mb-4 > .col-md-6:first-child::after{
+    content:"";
+    position:absolute;
+    top: 6px;
+    right: -10px;
+    width: 1px;
+    height: calc(100% - 12px);
+    background: rgba(255,255,255,0.18);
+  }
+}
+
 
       @media (max-width: 767.98px){
         .location-card.p-5{ padding: 1.75rem 1.25rem !important; }

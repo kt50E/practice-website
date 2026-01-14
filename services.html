@@ -21,11 +21,11 @@
         --muted: #5b6773;
         --line: rgba(29,39,49,.10);
 
-        --brand-teal: #22b8a7;
+        --brand-teal: #22b8a7;     /* fresh “performance” */
         --brand-teal-dark: #169889;
-        --brand-blue: #1a73e8;
+        --brand-blue: #1a73e8;     /* medical trust */
         --brand-blue-dark: #145db9;
-        --brand-gold: #c9a66b;
+        --brand-gold: #c9a66b;     /* subtle “luxe” accent */
 
         --radius-lg: 22px;
         --radius-md: 16px;
@@ -43,7 +43,7 @@
       h1,h2,h3,h4,.navbar-brand{ font-family:'Playfair Display', serif; color: var(--text); }
       p{ color: var(--muted); }
       a{ color: inherit; }
-      .container{ max-width: 1140px; }
+      .container{ max-width: 1140px; } /* tighter, more “designed” */
 
       /* =========================
          NAV + TOP STRIP
@@ -74,6 +74,7 @@
         box-shadow: 0 12px 30px rgba(26,115,232,.18);
       }
       .btn-primary-brand:hover{ filter: brightness(.98); transform: translateY(-1px); }
+
       .btn-outline-soft{
         border: 1px solid rgba(26,115,232,.25);
         color: var(--brand-blue) !important;
@@ -85,27 +86,31 @@
       }
 
       /* =========================
-         PAGE HEADER (replaces HERO)
+         PAGE HEADER (About.html style, updated gradient + clinic photo)
          ========================= */
-      .page-header-slim{
-        padding: 34px 0 14px;
+      .page-header{
+        background:
+          linear-gradient(
+            135deg,
+            rgba(26,115,232,0.82) 0%,
+            rgba(34,184,167,0.72) 100%
+          ),
+          /* Clinic photo */
+          url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        padding: 100px 0;
+        text-align: center;
+        color: #fff;
       }
-      .page-header-slim h1{
-        margin-top: 10px;
-        margin-bottom: 8px;
-        font-weight: 800;
-      }
-      .page-header-slim .subtitle{
-        margin: 0;
-        max-width: 80ch;
-      }
+      .page-header h1{ color: #fff; margin-bottom: 10px; }
 
       /* =========================
          SECTIONS + HEADERS
          ========================= */
-      .section{ padding: 70px 0; }
-      .section-first{ padding-top: 40px; } /* tighter start now that hero is gone */
-
+      .section{
+        padding: 70px 0;
+      }
       .section-muted{
         background: linear-gradient(180deg, #ffffff 0%, var(--surface-2) 100%);
         border-top: 1px solid var(--line);
@@ -118,8 +123,14 @@
         text-transform: uppercase;
         font-size: .78rem;
       }
-      .section-title{ color: var(--text); margin-top: 10px; }
-      .section-subtitle{ max-width: 78ch; margin: 10px auto 0; }
+      .section-title{
+        color: var(--text);
+        margin-top: 10px;
+      }
+      .section-subtitle{
+        max-width: 78ch;
+        margin: 10px auto 0;
+      }
 
       /* =========================
          MAIN SERVICE FEATURE (clickable)
@@ -142,7 +153,9 @@
         transform: translateY(-4px);
         box-shadow: 0 24px 60px rgba(16,24,40,.14);
       }
-      .feature-inner{ padding: 42px 42px; }
+      .feature-inner{
+        padding: 42px 42px;
+      }
       .feature-pill{
         display:inline-flex;
         align-items:center;
@@ -155,8 +168,15 @@
         font-size: .92rem;
         font-family: 'Sarabun', sans-serif;
       }
-      .feature-title{ margin-top: 14px; font-weight: 800; }
-      .feature-copy{ font-size: 1.05rem; line-height: 1.8; margin-top: 10px; }
+      .feature-title{
+        margin-top: 14px;
+        font-weight: 800;
+      }
+      .feature-copy{
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-top: 10px;
+      }
       .feature-cta{
         margin-top: 18px;
         display:flex;
@@ -169,11 +189,10 @@
         min-height: 260px;
         background:
           linear-gradient(135deg, rgba(26,115,232,.25) 0%, rgba(34,184,167,.22) 100%),
-          url('https://images.unsplash.com/photo-1559757175-5700dde67548?auto=format&fit=crop&w=1400&q=80');
+          url('https://images.unsplash.com/photo-1559757175-5700dde67548?auto=format&fit=crop&w=1400&q=80'); /* consult/clinic */
         background-size: cover;
         background-position: center;
       }
-      .small-note{ font-size: .92rem; color: var(--muted); }
 
       /* =========================
          CONDITIONS (cards)
@@ -206,6 +225,7 @@
         color: var(--text);
         margin-bottom: 8px;
       }
+      .small-note{ font-size: .92rem; color: var(--muted); }
 
       /* =========================
          STEPS
@@ -299,7 +319,7 @@
       .mobile-cta .btn{ width: 100%; }
       @media (max-width: 991.98px){
         .mobile-cta{ display:block; }
-        body{ padding-bottom: 78px; }
+        body{ padding-bottom: 78px; } /* prevent overlap */
       }
     </style>
 
@@ -363,19 +383,16 @@
       </div>
     </div>
 
-    <!-- PAGE HEADER (replaces hero) -->
-    <section class="page-header-banner">
-  <div class="container">
-    <div class="page-header-content text-center">
-      <h1 class="page-title">บริการของเรา</h1>
-      <p class="page-subtitle mb-0">การรักษาแบบไม่ผ่าตัด เพื่อช่วยลดปวดและฟื้นฟูการเคลื่อนไหวอย่างปลอดภัย </p>
-    </div>
-  </div>
-</section>
-
+    <!-- PAGE HEADER (About-style) -->
+    <section class="page-header">
+      <div class="container">
+        <h1 class="font-weight-bold">บริการของเรา</h1>
+        <p class="lead mb-0">นวัตกรรมการรักษาโดยไม่ต้องผ่าตัด</p>
+      </div>
+    </section>
 
     <!-- FEATURE SERVICE -->
-    <section class="section section-first">
+    <section class="section">
       <div class="container">
         <div class="text-center mb-4">
           <div class="section-kicker">Signature Service</div>
@@ -401,7 +418,10 @@
                     <span class="btn btn-primary-brand btn-pill">
                       อ่านรายละเอียดบริการ <i class="fas fa-arrow-right ml-2"></i>
                     </span>
-                    
+                    <span class="small-note">
+                      <i class="fas fa-check-circle mr-2" style="color: var(--brand-teal-dark);"></i>
+                      เน้นลดปวด + ฟื้นฟูการทำงานของข้อ
+                    </span>
                   </div>
                 </div>
               </div>
@@ -421,7 +441,8 @@
           <div class="section-kicker">What We Treat</div>
           <h2 class="section-title font-weight-bold">อาการที่สามารถรักษาได้</h2>
           <p class="section-subtitle">
-            เทคโนโลยี Plasma 1 สามารถช่วยบรรเทาอาการบาดเจ็บของข้อต่อต่างๆ ได้อย่างมีประสิทธิภาพ
+            เทคโนโลยี Plasma 1 สามารถช่วยบรรเทาอาการบาดเจ็บของข้อต่อต่าง ๆ ได้อย่างมีประสิทธิภาพ
+            (ทั้งสายกีฬาและการใช้งานในชีวิตประจำวัน)
           </p>
         </div>
 
@@ -473,7 +494,7 @@
             <div class="section-kicker">How It Works</div>
             <h3 class="font-weight-bold" style="margin-top:10px;">กระบวนการดูแลแบบ 3 ขั้นตอน</h3>
             <p class="mb-0">
-              ชัดเจน โปร่งใส และเน้นผลลัพธ์
+              ชัดเจน โปร่งใส และเน้นผลลัพธ์ — เพื่อให้คุณตัดสินใจได้อย่างมั่นใจ
             </p>
           </div>
           <div class="col-lg-6">
@@ -557,8 +578,40 @@
               แพทย์ผู้เชี่ยวชาญพร้อมให้คำแนะนำแนวทางการรักษาที่เหมาะสมกับคุณ
             </p>
 
+            <div class="cta-card mb-4">
+              <div class="row text-left">
+                <div class="col-md-4 mb-3 mb-md-0">
+                  <div class="d-flex">
+                    <div class="mr-3"><i class="fas fa-phone" style="font-size:18px;"></i></div>
+                    <div>
+                      <div class="font-weight-bold">โทร</div>
+                      <div style="opacity:.92;">098-143-3999</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                  <div class="d-flex">
+                    <div class="mr-3"><i class="fab fa-line" style="font-size:18px;"></i></div>
+                    <div>
+                      <div class="font-weight-bold">LINE</div>
+                      <div style="opacity:.92;">@thana_plus</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="d-flex">
+                    <div class="mr-3"><i class="far fa-clock" style="font-size:18px;"></i></div>
+                    <div>
+                      <div class="font-weight-bold">เวลาทำการ</div>
+                      <div style="opacity:.92;">อ.-ศ. 15:30-17:30 | ส.-อา. 11:30-15:00</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <a href="appointment.html" class="btn btn-light btn-lg btn-pill px-5 shadow" style="color: var(--brand-blue-dark); font-weight: 900;">
-              นัดหมายแพทย์ <i class="fas fa-arrow-right ml-2"></i>
+              นัดหมายแพทย์ทันที <i class="fas fa-arrow-right ml-2"></i>
             </a>
           </div>
         </div>
@@ -601,7 +654,7 @@
     <!-- Mobile fixed CTA -->
     <div class="mobile-cta">
       <a href="appointment.html" class="btn btn-primary-brand btn-pill">
-        <i class="far fa-calendar-check mr-2"></i> นัดหมายแพทย์
+        <i class="far fa-calendar-check mr-2"></i> นัดหมายแพทย์ทันที
       </a>
     </div>
 

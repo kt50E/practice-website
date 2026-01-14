@@ -56,24 +56,27 @@
                 border: 1px solid #e3f2fd;
             }
             
-            /* List Styling for Qualifications */
+            /* --- QUALIFICATION LIST (UPDATED) --- */
             .qualification-list li {
-                margin-bottom: 15px;
-                display: flex;
-                align-items: start;
+                margin-bottom: 20px; /* Better spacing between items */
+                display: flex;       /* Flexbox for perfect alignment */
+                align-items: flex-start; 
             }
-            /* Updated icon style for bullets */
+            
+            /* Bullet Icon Style */
             .qualification-list i {
-                margin-top: 8px; /* Adjusted for bullet alignment */
-                font-size: 0.8rem; /* Smaller size for bullet look */
-                flex-shrink: 0;
+                margin-top: 8px;     /* Push down slightly to align with text cap-height */
+                margin-right: 15px;  /* Gap between bullet and text */
+                font-size: 10px;     /* Smaller, proportional bullet size */
+                color: var(--brand-green);
+                flex-shrink: 0;      /* Prevents bullet from squishing */
             }
 
-            /* Text Styling for Qualifications */
+            /* Text Style */
             .qualification-list span {
-                font-weight: 500;   /* Makes text medium thickness */
-                font-size: 1.1rem;  /* Increases text size */
-                line-height: 1.6;   /* Adds breathing room */
+                font-weight: 500;   
+                font-size: 1.1rem;  
+                line-height: 1.6;   
             }
 
             /* Publication list styling */
@@ -161,7 +164,7 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="about-image-box shadow-lg">
-                            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Clinic Interior" class="img-fluid">
+                            <img src="intro1.png" alt="Clinic Interior" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -184,22 +187,22 @@
                                     <img src="Thana.png" 
                                          alt="พล.ต.ท. นพ.ธนา ธุระเจน" 
                                          class="img-fluid shadow-sm" 
-                                         style="border-radius: 25px; width: 100%; object-fit: cover; transform: scale(1.2); transform-origin: top center;">
+                                         style="border-radius: 25px; width: 100%; object-fit: cover; transform: scale(1.1);">
                                 </div>
-                                <div class="col-md-7 text-left">
+                                <div class="col-md-7 text-left pl-md-4">
                                     <h3 class="mb-4 font-weight-bold">พล.ต.ท. นพ.ธนา ธุระเจน</h3>
                                     
                                     <ul class="list-unstyled qualification-list mb-0">
                                         <li>
-                                            <i class="fas fa-circle mr-3" style="color: var(--brand-green);"></i>
+                                            <i class="fas fa-circle"></i>
                                             <span>จบการศึกษาแพทยศาสตร์บัณฑิต (พ.บ.) (เกียรตินิยมอันดับ 2) จากมหาวิทยาลัยสงขลานครินทร์</span>
                                         </li>
                                         <li>
-                                            <i class="fas fa-circle mr-3" style="color: var(--brand-green);"></i>
+                                            <i class="fas fa-circle"></i>
                                             <span>แพทย์เฉพาะทางสาขาศัลยกรรมกระดูกและข้อวิทยาลัยแพทยศาสตร์พระมงกุฎเกล้า โรงพยาบาลพระมงกุฎเกล้า</span>
                                         </li>
                                         <li>
-                                            <i class="fas fa-circle mr-3" style="color: var(--brand-green);"></i>
+                                            <i class="fas fa-circle"></i>
                                             <span>Clinical Fellowship, Hospital for Special Surgery (HSS), an affiliate of Weill Cornell Medical College ที่เมืองนิวยอร์ก ประเทศสหรัฐอเมริกา</span>
                                         </li>
                                     </ul>

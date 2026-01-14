@@ -620,68 +620,150 @@
       </div>
     </section>
 
-    <!-- Trust strip: Option A (Connected Steps); content unchanged -->
-    <section class="section trust-strip">
-      <div class="container">
-        <div class="row text-center mb-4">
-          <div class="col-12">
-            <h2 class="section-title mb-2 text-brand-blue">ทำไมคนไข้เลือกเรา</h2>
-            <p class="section-lead mb-0">ดูแลแบบเฉพาะบุคคล เน้นผลลัพธ์และความปลอดภัย</p>
-          </div>
-        </div>
+    <!-- Trust strip: interconnected (no numbers/labels), aligned, unique connector -->
+<section class="section trust-strip">
+  <style>
+    /* Trust strip connector + alignment updates */
+    .trust-steps {
+      position: relative;
+      margin-top: 26px;
+    }
 
-        <div class="trust-steps">
-          <div class="row">
-            <div class="col-lg-4 mb-4 trust-col-1">
-              <div class="trust-card">
-                <div class="trust-step">
-                  <span class="badge badge-pill">1</span>
-                  <span class="label">แนวทางการรักษา</span>
-                </div>
+    /* Connector line: solid + dotted segments to imply “connected + unique” */
+    @media (min-width: 992px){
+      .trust-steps::before{
+        content:"";
+        position:absolute;
+        left: 10%;
+        right: 10%;
+        top: 44px;            /* aligns behind icons */
+        height: 2px;
+        background:
+          linear-gradient(to right,
+            rgba(0,153,204,0.0) 0%,
+            rgba(0,153,204,0.32) 6%,
+            rgba(0,153,204,0.32) 45%,
+            rgba(50,196,141,0.30) 55%,
+            rgba(50,196,141,0.30) 94%,
+            rgba(50,196,141,0.0) 100%
+          );
+        opacity: 0.95;
+      }
 
-                <div class="trust-ico"><i class="fas fa-user-md" aria-hidden="true"></i></div>
-                <div>
-                  <h6>เน้นการรักษาแบบไม่ผ่าตัด</h6>
-                  <p>ลดปวด ฟื้นฟูการเคลื่อนไหว พร้อมแนวทางที่เหมาะกับแต่ละคน</p>
-                </div>
-              </div>
-            </div>
+      /* Dotted “unique” accents between cards */
+      .trust-steps::after{
+        content:"";
+        position:absolute;
+        left: 18%;
+        right: 18%;
+        top: 44px;
+        height: 2px;
+        background:
+          repeating-linear-gradient(
+            to right,
+            rgba(255,255,255,0.0) 0,
+            rgba(255,255,255,0.0) 14px,
+            rgba(255,255,255,0.55) 14px,
+            rgba(255,255,255,0.55) 18px
+          );
+        mix-blend-mode: overlay;
+        opacity: 0.55;
+        pointer-events: none;
+      }
+    }
 
-            <div class="col-lg-4 mb-4 trust-col-2">
-              <div class="trust-card">
-                <div class="trust-step">
-                  <span class="badge badge-pill">2</span>
-                  <span class="label">ความปลอดภัย</span>
-                </div>
+    /* Keep all three in a straight line (remove stagger transforms) */
+    @media (min-width: 992px){
+      .trust-col-1, .trust-col-2, .trust-col-3 { transform: none !important; }
+    }
 
-                <div class="trust-ico"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
-                <div>
-                  <h6>มาตรฐานความปลอดภัย</h6>
-                  <p>กระบวนการดูแลคำนึงถึงความสะอาด ความปลอดภัย และความมั่นใจของคนไข้</p>
-                </div>
-              </div>
-            </div>
+    /* Remove step badge container spacing artifacts */
+    .trust-step { display: none !important; }
 
-            <div class="col-lg-4 mb-2 trust-col-3">
-              <div class="trust-card">
-                <div class="trust-step">
-                  <span class="badge badge-pill">3</span>
-                  <span class="label">กลับไปใช้ชีวิต</span>
-                </div>
+    /* Make icon align with connector */
+    .trust-ico{ margin-top: 0 !important; }
 
-                <div class="trust-ico"><i class="fas fa-running" aria-hidden="true"></i></div>
-                <div>
-                  <h6>กลับสู่กิจกรรมที่รัก</h6>
-                  <p>เหมาะกับสายกีฬา นักวิ่ง และผู้ที่ต้องการคุณภาพชีวิตที่ดีขึ้น</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    /* Add a subtle “node” behind each icon to reinforce interconnectedness */
+    .trust-card{ overflow: hidden; }
+    .trust-card::after{
+      content:"";
+      position:absolute;
+      width: 160px;
+      height: 160px;
+      right: -70px;
+      bottom: -70px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(0,153,204,0.16), transparent 62%);
+      pointer-events:none;
+    }
+    .trust-node{
+      position:absolute;
+      left: 24px;
+      top: 30px; /* behind icon */
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid rgba(255,255,255,0.55);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.06);
+      filter: blur(0.2px);
+      pointer-events: none;
+    }
 
+    @media (max-width: 991.98px){
+      .trust-node{ display:none; } /* keep mobile clean */
+    }
+  </style>
+
+  <div class="container">
+    <div class="row text-center mb-4">
+      <div class="col-12">
+        <h2 class="section-title mb-2 text-brand-blue">ทำไมคนไข้เลือกเรา</h2>
+        <p class="section-lead mb-0">ดูแลแบบเฉพาะบุคคล เน้นผลลัพธ์และความปลอดภัย</p>
       </div>
-      <div class="trust-divider"></div>
-    </section>
+    </div>
+
+    <div class="trust-steps">
+      <div class="row">
+        <div class="col-lg-4 mb-4 trust-col-1">
+          <div class="trust-card">
+            <span class="trust-node" aria-hidden="true"></span>
+            <div class="trust-ico"><i class="fas fa-user-md" aria-hidden="true"></i></div>
+            <div>
+              <h6>เน้นการรักษาแบบไม่ผ่าตัด</h6>
+              <p>ลดปวด ฟื้นฟูการเคลื่อนไหว พร้อมแนวทางที่เหมาะกับแต่ละคน</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-4 trust-col-2">
+          <div class="trust-card">
+            <span class="trust-node" aria-hidden="true"></span>
+            <div class="trust-ico"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
+            <div>
+              <h6>มาตรฐานความปลอดภัย</h6>
+              <p>กระบวนการดูแลคำนึงถึงความสะอาด ความปลอดภัย และความมั่นใจของคนไข้</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-2 trust-col-3">
+          <div class="trust-card">
+            <span class="trust-node" aria-hidden="true"></span>
+            <div class="trust-ico"><i class="fas fa-running" aria-hidden="true"></i></div>
+            <div>
+              <h6>กลับสู่กิจกรรมที่รัก</h6>
+              <p>เหมาะกับสายกีฬา นักวิ่ง และผู้ที่ต้องการคุณภาพชีวิตที่ดีขึ้น</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="trust-divider"></div>
+</section>
+
 
     <!-- Location: overlap transition -->
     <section class="location-section">

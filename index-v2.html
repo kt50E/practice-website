@@ -13,15 +13,18 @@
       /* --- 1. BRAND COLOR PALETTE --- */
       :root {
         --bg-white: #ffffff;
-        --bg-warm-white: #f9f9f7; /* Warm off-white background */
+        --bg-warm-white: #f9f9f7; 
         --text-dark: #333333;
         --brand-green: #32c48d;
         --brand-green-dark: #28a375;
         --brand-blue: #0099cc;
         --brand-blue-dark: #007399;
-        --brand-blue-overlay: rgba(0, 153, 204, 0.85); /* Blue tint for location section */
+        
+        /* New Softer Blue for Location Section */
+        --brand-soft-blue-start: #6aafe6; 
+        --brand-soft-blue-end: #63c0df;
 
-        /* --- Soft UI tokens (styling only) --- */
+        /* --- Soft UI tokens --- */
         --radius-lg: 22px;
         --radius-md: 16px;
         --shadow-soft: 0 14px 38px rgba(0,0,0,0.08);
@@ -35,7 +38,6 @@
         color: var(--text-dark);
       }
 
-      /* Restored Playfair Display for Headings */
       h1, h2, h3, h4, .navbar-brand {
         font-family: 'Playfair Display', serif;
         color: var(--text-dark);
@@ -57,389 +59,185 @@
         color: #555 !important;
         font-family: 'Sarabun', sans-serif;
       }
+      .nav-link.active { color: var(--brand-blue) !important; }
 
-      /* --- HERO SECTION (DESIGN UPGRADE) --- */
-      .hero-section-carousel {
-        position: relative;
-        width: 100%;
+      /* --- HERO SECTION --- */
+      .hero-section-carousel { position: relative; width: 100%; }
+      .carousel-item { position: relative; }
+      .carousel-item::after {
+          content: "";
+          position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+          background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent); 
+          z-index: 1;
       }
-
-      .carousel-item {
-          position: relative; /* Needed for the pseudo-element overlay */
-      }
-
-
-
-      .carousel-item img {
-        width: 100%;
-        height: 650px;
-        object-fit: cover;
-      }
-
-      /* 2. Fix Layout & Typography */
+      .carousel-item img { width: 100%; height: 650px; object-fit: cover; }
       .carousel-caption {
-        /* Vertically Center using Flexbox */
-        bottom: 0; 
-        top: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center; 
-        align-items: center; 
-        
-        /* Typography & Layout Constraints */
-        z-index: 2; /* Ensure text is above the overlay */
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* Added text shadow */
-        padding-left: 1rem;
-        padding-right: 1rem;
-        max-width: 800px; /* Constrain width */
-        margin: 0 auto; /* Center horizontally */
-        text-align: center;
+        bottom: 0; top: 0; display: flex; flex-direction: column;
+        justify-content: center; align-items: center; z-index: 2;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+        padding-left: 1rem; padding-right: 1rem;
+        max-width: 800px; margin: 0 auto; text-align: center;
       }
-
-      /* --- HERO TYPOGRAPHY (Adjusted so it’s not overwhelming) --- */
       .hero-title {
-        font-family: 'Sarabun', sans-serif;
-        font-weight: 700;
-        color: #ffffff;
-        line-height: 1.2; 
-        margin-bottom: 20px;
-        letter-spacing: -0.02em;
-        /* Mobile Check: handled via media queries below */
+        font-family: 'Sarabun', sans-serif; font-weight: 700; color: #ffffff;
+        line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.02em;
       }
-
       .hero-subtitle {
-        font-family: 'Sarabun', sans-serif;
-        font-weight: 400;
-        line-height: 1.6;
-        color: #f2f6f8;
-        margin-bottom: 30px;
+        font-family: 'Sarabun', sans-serif; font-weight: 400; line-height: 1.6;
+        color: #f2f6f8; margin-bottom: 30px;
       }
-
-      /* 4. Mobile Check - Responsive Text Sizing */
       @media (max-width: 768px) {
-        .hero-title { font-size: 2rem; } /* Adjusted for mobile */
-        .hero-subtitle { font-size: 1rem; } 
-        .carousel-item img { height: 500px; } /* Slightly shorter height on mobile if desired */
+        .hero-title { font-size: 2rem; } .hero-subtitle { font-size: 1rem; } 
+        .carousel-item img { height: 500px; }
       }
       @media (min-width: 769px) {
-        .hero-title { font-size: 3.5rem; } /* Large bold heading on desktop */
-        .hero-subtitle { font-size: 1.25rem; }
+        .hero-title { font-size: 3.5rem; } .hero-subtitle { font-size: 1.25rem; }
       }
-
-
-      /* --- 3. Upgrade CTA Button --- */
       .cta-button {
-        background-color: var(--brand-green); /* Solid primary color */
-        color: white;
-        padding: 12px 30px; /* Substantial padding */
-        border-radius: 50px; /* Pill-shaped */
-        font-size: 1.1rem;
-        font-weight: 600;
-        font-family: 'Sarabun', sans-serif;
-        border: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(50, 196, 141, 0.4);
-        display: inline-block;
-        text-decoration: none; /* Ensure no underline for link */
+        background-color: var(--brand-green); color: white; padding: 12px 30px;
+        border-radius: 50px; font-size: 1.1rem; font-weight: 600; font-family: 'Sarabun', sans-serif;
+        border: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(50, 196, 141, 0.4);
+        display: inline-block; text-decoration: none;
       }
       .cta-button:hover {
-        background-color: var(--brand-green-dark);
-        color: white;
-        text-decoration: none;
-        transform: translateY(-2px); /* Lift effect */
-        box-shadow: 0 8px 25px rgba(50, 196, 141, 0.6);
+        background-color: var(--brand-green-dark); color: white; text-decoration: none;
+        transform: translateY(-2px); box-shadow: 0 8px 25px rgba(50, 196, 141, 0.6);
       }
 
-      /* ... (Rest of your CSS remains unchanged) ... */
-      
-      .btn-hero-outline {
-        background-color: transparent;
-        border: 2px solid rgba(255,255,255,0.8);
-        color: white;
-        padding: 13px 35px;
-        border-radius: 50px;
-        font-weight: 600;
-        font-family: 'Sarabun', sans-serif;
-        transition: .3s;
-        margin-left: 10px;
-      }
-      .btn-hero-outline:hover {
-        background-color: white;
-        color: var(--brand-blue);
-        text-decoration: none;
-        border-color: white;
-      }
-
-      /* --- SERVICES & DOCTOR (Premium Cards) --- */
-      .single-services-box {
-        background: #fff;
-        padding: 40px 30px;
-        margin-bottom: 30px;
-        border-radius: 20px;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-        transition: .3s;
-        text-align: center;
-        border: 1px solid rgba(0,0,0,0.02);
-      }
-      .single-services-box:hover {
-        transform: translateY(-8px);
-        border-color: transparent;
-        box-shadow: 0 20px 40px rgba(0, 153, 204, 0.12);
-      }
-      .icon-box {
-        width: 80px; height: 80px;
-        background: #e3f2fd;
-        border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        margin: 0 auto 20px;
-        color: var(--brand-blue);
-        font-size: 32px;
-      }
-
-      /* =========================
-         TRUST STRIP (Added design + structure; content unchanged)
-         ========================= */
-      .section {
-        padding: 70px 0;
-      }
-
+      /* --- TRUST STRIP --- */
+      .section { padding: 70px 0; }
       .trust-strip {
-        position: relative;
-        padding: 70px 0;
-        overflow: hidden;
+        position: relative; padding: 70px 0; overflow: hidden;
         background: linear-gradient(180deg, rgba(0,153,204,0.06) 0%, rgba(50,196,141,0.04) 100%);
-        border-top: 1px solid rgba(0,0,0,0.03);
-        border-bottom: 1px solid rgba(0,0,0,0.03);
+        border-top: 1px solid rgba(0,0,0,0.03); border-bottom: 1px solid rgba(0,0,0,0.03);
       }
-      .trust-strip::before,
-      .trust-strip::after{
-        content:"";
-        position:absolute;
-        width: 520px;
-        height: 520px;
-        border-radius: 50%;
-        filter: blur(35px);
-        opacity: 0.55;
-        pointer-events: none;
-      }
-      .trust-strip::before{
-        top: -260px;
-        left: -220px;
-        background: radial-gradient(circle at 30% 30%, rgba(0,153,204,0.28), transparent 60%);
-      }
-      .trust-strip::after{
-        bottom: -280px;
-        right: -220px;
-        background: radial-gradient(circle at 60% 60%, rgba(50,196,141,0.26), transparent 60%);
-      }
-
-      .section-title {
-        letter-spacing: -0.01em;
-      }
+      .section-title { letter-spacing: -0.01em; }
       .text-brand-blue { color: var(--brand-blue) !important; }
-
-      .section-lead{
-        color: rgba(51,51,51,0.75);
-        font-size: 1.05rem;
-        line-height: 1.7;
-        max-width: 760px;
-        margin: 0 auto;
-      }
-
+      .section-lead{ color: rgba(51,51,51,0.75); font-size: 1.05rem; line-height: 1.7; max-width: 760px; margin: 0 auto; }
       .trust-card {
-        position: relative;
-        height: 100%;
-        display: flex;
-        gap: 16px;
-        align-items: flex-start;
-        padding: 22px 22px;
-        border-radius: var(--radius-md);
-        background: rgba(255,255,255,0.92);
-        border: 1px solid var(--line-soft);
-        box-shadow: var(--shadow-softer);
-        overflow: hidden;
+        position: relative; height: 100%; display: flex; gap: 16px; align-items: flex-start;
+        padding: 22px 22px; border-radius: var(--radius-md); background: rgba(255,255,255,0.92);
+        border: 1px solid var(--line-soft); box-shadow: var(--shadow-softer); overflow: hidden;
         transition: transform .25s ease, box-shadow .25s ease;
       }
       .trust-card::before{
-        content:"";
-        position:absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, var(--brand-blue), var(--brand-green));
-        opacity: 0.9;
+        content:""; position:absolute; top: 0; left: 0; right: 0; height: 4px;
+        background: linear-gradient(90deg, var(--brand-blue), var(--brand-green)); opacity: 0.9;
       }
-      .trust-card::after{
-        content:"";
-        position:absolute;
-        width: 140px;
-        height: 140px;
-        right: -55px;
-        bottom: -55px;
-        border-radius: 50%;
-        background: radial-gradient(circle at 30% 30%, rgba(0,153,204,0.20), transparent 62%);
-        pointer-events:none;
-      }
-      .trust-card:hover{
-        transform: translateY(-6px);
-        box-shadow: var(--shadow-soft);
-      }
-
+      .trust-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow-soft); }
       .trust-ico{
-        width: 56px;
-        height: 56px;
-        border-radius: 16px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+        width: 56px; height: 56px; border-radius: 16px; display: inline-flex;
+        align-items: center; justify-content: center;
         background: linear-gradient(135deg, rgba(0,153,204,0.16), rgba(50,196,141,0.14));
-        color: var(--brand-blue);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.06);
-        flex: 0 0 auto;
+        color: var(--brand-blue); box-shadow: 0 10px 20px rgba(0,0,0,0.06); flex: 0 0 auto;
       }
       .trust-ico i{ font-size: 22px; }
-
-      .trust-card h6{
-        font-family: 'Sarabun', sans-serif;
-        font-weight: 700;
-        font-size: 1.05rem;
-        margin-bottom: 6px;
-        color: #22313a;
-      }
-      .trust-card p{
-        margin-bottom: 0;
-        color: rgba(34,49,58,0.75);
-        line-height: 1.7;
-        font-size: 0.98rem;
-      }
+      .trust-card h6{ font-family: 'Sarabun', sans-serif; font-weight: 700; font-size: 1.05rem; margin-bottom: 6px; color: #22313a; }
+      .trust-card p{ margin-bottom: 0; color: rgba(34,49,58,0.75); line-height: 1.7; font-size: 0.98rem; }
 
       /* =========================
-         LOCATION SECTION (Softer typography + less overwhelming)
+         LOCATION SECTION (Updated Layout)
          ========================= */
       .location-section {
-        background: linear-gradient(var(--brand-blue-overlay), var(--brand-blue-overlay)),
-          url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-        background-size: cover;
-        background-position: center;
-        padding: 80px 0;
+        /* Softer Blue Gradient Background */
+        background: linear-gradient(135deg, var(--brand-soft-blue-start) 0%, var(--brand-soft-blue-end) 100%);
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
       }
 
-      .location-card {
-        background-color: rgba(255, 255, 255, 0.14);
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
-        border: 1px solid rgba(255, 255, 255, 0.22);
-        border-radius: 25px;
-        box-shadow: 0 18px 48px rgba(0,0,0,0.18);
+      /* Add subtle texture pattern if desired, or keep clean */
+      .location-section::before {
+          content: "";
+          position: absolute;
+          width: 100%; height: 100%;
+          top: 0; left: 0;
+          background: url('https://www.transparenttextures.com/patterns/cubes.png');
+          opacity: 0.05;
+          pointer-events: none;
       }
 
-      /* ✅ FIX: Your HTML uses .location-card-inner but CSS didn’t define it */
-      .location-card-inner{
-        padding: 2.25rem 2.25rem;
-      }
-      @media (max-width: 767.98px){
-        .location-card-inner{ padding: 1.75rem 1.25rem; }
+      .location-content-left {
+          padding-right: 2rem;
       }
 
-      /* ✅ FIX: Your HTML uses .location-overlap but CSS didn’t define it */
-      .location-overlap{
-        margin-top: -18px;
-      }
-
-      .location-card h3{
+      .location-section h3 {
         font-family: 'Sarabun', sans-serif;
         font-weight: 700;
-        letter-spacing: -0.01em;
-        line-height: 1.25;
-        margin-bottom: 1.25rem !important;
+        color: #ffffff;
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
       }
-      .location-card h5{
-        font-family: 'Sarabun', sans-serif;
+
+      .info-row {
+          margin-bottom: 2rem;
+      }
+
+      .info-item {
+          display: flex;
+          align-items: flex-start;
+          margin-bottom: 1.5rem;
+      }
+
+      .info-icon-circle {
+          width: 50px; height: 50px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.2);
+          display: flex; align-items: center; justify-content: center;
+          margin-right: 15px;
+          flex-shrink: 0;
+          color: #fff;
+          font-size: 1.2rem;
+      }
+
+      .info-text h5 {
+          color: #fff;
+          font-weight: 700;
+          margin-bottom: 5px;
+          font-size: 1.1rem;
+      }
+
+      .info-text p {
+          color: rgba(255, 255, 255, 0.9);
+          margin-bottom: 0;
+          line-height: 1.6;
+          font-size: 1rem;
+      }
+
+      .btn-location-white {
+        background-color: #fff;
+        color: var(--brand-blue);
+        border-radius: 50px;
+        padding: 12px 30px;
         font-weight: 700;
-        font-size: 1.02rem;
-        margin-bottom: 0.35rem;
-      }
-      .location-card p{
-        font-size: 0.98rem;
-        line-height: 1.75;
-      }
-
-      /* ✅ FIX: Your HTML uses .info-block, .info-ico, .location-split, but CSS didn’t define them */
-      .info-block{
-        padding: 14px 14px;
-        border-radius: 14px;
-        background: rgba(0,0,0,0.10);
-        border: 1px solid rgba(255,255,255,0.12);
-        height: 100%;
-      }
-      .info-ico{
-        width: 44px;
-        height: 44px;
-        border-radius: 14px;
-        background: rgba(255,255,255,0.12);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 12px;
-        flex: 0 0 auto;
-      }
-      .info-ico i{
-        font-size: 1.2rem;
-        color: rgba(255,255,255,0.86);
-      }
-
-      /* ✅ FIX: Divider rule needed the left column to be position:relative */
-      @media (min-width: 768px){
-        .location-card .row.mb-4 > .col-md-6:first-child{
-          position: relative;
-        }
-        .location-card .row.mb-4 > .col-md-6:first-child::after{
-          content:"";
-          position:absolute;
-          top: 6px;
-          right: -10px;
-          width: 1px;
-          height: calc(100% - 12px);
-          background: rgba(255,255,255,0.18);
-        }
-      }
-
-      /* ✅ FIX: Your HTML uses .btn-location but CSS didn’t define it */
-      .btn-location{
-        background-color: var(--brand-green);
-        color: #fff;
-        border-radius: 999px;
-        border: none;
-        font-weight: 700;
-        padding: 14px 22px;
-        min-height: 52px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        box-shadow: 0 14px 26px rgba(0,0,0,0.18);
-        transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
-        width: 100%;
+        display: inline-flex; align-items: center; gap: 10px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        transition: .3s;
         text-decoration: none;
       }
-      @media (min-width: 576px){
-        .btn-location{ width: auto; }
-      }
-      .btn-location:hover{
-        background-color: var(--brand-green-dark);
+      .btn-location-white:hover {
+        background-color: #f0f8ff;
+        color: var(--brand-blue-dark);
         transform: translateY(-2px);
-        color: #fff;
         text-decoration: none;
-        box-shadow: 0 18px 34px rgba(0,0,0,0.22);
       }
-      .btn-location:active{ transform: translateY(0); }
 
-      @media (max-width: 767.98px){
-        .location-card h3{ font-size: 1.55rem; }
+      /* Right Column Image */
+      .location-img-box {
+          position: relative;
+          box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+          border-radius: 20px;
+          overflow: hidden;
+          border: 4px solid rgba(255,255,255,0.3);
       }
-      @media (min-width: 768px){
-        .location-card h3{ font-size: 1.85rem; }
+      .location-img-box img {
+          width: 100%;
+          height: auto;
+          display: block;
+          transition: transform 0.5s ease;
+      }
+      .location-img-box:hover img {
+          transform: scale(1.03);
       }
 
       /* --- FOOTER --- */
@@ -455,53 +253,50 @@
   <body>
 
     <div class="top-header py-2">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-8 text-lg-left text-center">
-            <ul class="list-inline mb-0">
-              <li class="list-inline-item mr-4"><i class="fab fa-line" style="color: var(--brand-green);"></i> <span style="font-family: Arial, sans-serif;">@thana_plus</span></li>
-              <li class="list-inline-item"><i class="fas fa-phone" style="color: var(--brand-green);"></i> 098-143-3999</li>
-            </ul>
-          </div>
-          <div class="col-lg-4 text-lg-right text-center d-none d-lg-block">
-            <span style="color: #777;"><i class="far fa-clock"></i> อ.-ศ. 15:30-17:30 น. | ส.-อา. 11:30-15:00 น.</span>
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-8 text-lg-left text-center">
+              <ul class="list-inline mb-0">
+                <li class="list-inline-item mr-4"><i class="fab fa-line" style="color: var(--brand-green);"></i> <span style="font-family: Arial, sans-serif;">@thana_plus</span></li>
+                <li class="list-inline-item"><i class="fas fa-phone" style="color: var(--brand-green);"></i> 098-143-3999</li>
+              </ul>
+            </div>
+            <div class="col-lg-4 text-lg-right text-center d-none d-lg-block">
+              <span style="color: #777;"><i class="far fa-clock"></i> อ.-ศ. 15:30-17:30 น. | ส.-อา. 11:30-15:00 น.</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="navbar-area sticky-top">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <a class="navbar-brand" href="index.html">
-            <img src="TP-logo.png" alt="Thanaplus Clinic" style="height: 60px; width: auto;">
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-label="Toggle navigation" aria-controls="mainNav" aria-expanded="false">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="mainNav">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a href="index.html" class="nav-link">หน้าแรก</a></li>
-              <li class="nav-item"><a href="about.html" class="nav-link">เกี่ยวกับเรา</a></li>
-              <li class="nav-item"><a href="services.html" class="nav-link">บริการของเรา</a></li>
-              <li class="nav-item"><a href="education.html" class="nav-link">สาระน่ารู้</a></li>
-              <li class="nav-item"><a href="contactus.html" class="nav-link" style="color: var(--brand-blue) !important;"><i class="fas fa-phone"></i> ติดต่อเรา</a></li>
-            </ul>
-          </div>
-        </nav>
+  
+      <div class="navbar-area sticky-top">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="index.html">
+              <img src="TP-logo.png" alt="Thanaplus Clinic" style="height: 60px; width: auto;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="index.html" class="nav-link">หน้าแรก</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">เกี่ยวกับเรา</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">บริการของเรา</a></li>
+                <li class="nav-item"><a href="education.html" class="nav-link">สาระน่ารู้</a></li>
+                <li class="nav-item"><a href="contactus.html" class="nav-link" style="color: var(--brand-blue) !important;"><i class="fas fa-phone"></i> ติดต่อเรา</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
       </div>
-    </div>
 
     <section class="hero-section-carousel">
       <div id="heroCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
-
         <ol class="carousel-indicators">
           <li data-target="#heroCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#heroCarousel" data-slide-to="1"></li>
           <li data-target="#heroCarousel" data-slide-to="2"></li>
         </ol>
-
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="c2.png" alt="">
@@ -511,16 +306,14 @@
               <a href="appointment.html" class="cta-button">นัดหมายแพทย์</a>
             </div>
           </div>
-
           <div class="carousel-item">
-            <img src="c1.png"d-block w-100" alt="">
+            <img src="c1.png" class="d-block w-100" alt="">
             <div class="carousel-caption text-center">
               <h1 class="hero-title">เทคโนโลยีการรักษาที่ทันสมัย</h1>
               <p class="hero-subtitle">ฟื้นฟูข้อเข่าด้วยนวัตกรรม Plasma 1 และการดูแลแบบองค์รวม เพื่อให้คุณกลับมาเคลื่อนไหวได้อย่างอิสระ</p>
               <a href="services.html" class="cta-button">ดูรายละเอียดบริการ</a>
             </div>
           </div>
-
           <div class="carousel-item">
             <img src="c3.png" alt="t">
             <div class="carousel-caption text-center">
@@ -530,7 +323,6 @@
             </div>
           </div>
         </div>
-
         <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
@@ -539,7 +331,6 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-
       </div>
     </section>
 
@@ -551,7 +342,6 @@
             <p class="section-lead mb-0">ดูแลแบบเฉพาะบุคคล เน้นผลลัพธ์และความปลอดภัย</p>
           </div>
         </div>
-
         <div class="row">
           <div class="col-lg-4 mb-3 mb-lg-0">
             <div class="trust-card">
@@ -562,7 +352,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-lg-4 mb-3 mb-lg-0">
             <div class="trust-card">
               <div class="trust-ico"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
@@ -572,7 +361,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-lg-4">
             <div class="trust-card">
               <div class="trust-ico"><i class="fas fa-running" aria-hidden="true"></i></div>
@@ -587,48 +375,45 @@
     </section>
 
     <section class="location-section">
-      <div class="container location-overlap">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-lg-9">
-            <div class="location-card text-white">
-              <div class="location-card-inner text-center">
-                <h3 class="mb-4" style="color: white;">
-                  <i class="fas fa-map-marked-alt mr-2"></i> พบกับเราที่คลินิก
-                </h3>
-
-                <div class="row text-left mb-4">
-                  <div class="col-md-6 mb-3 mb-md-0">
-                    <div class="info-block location-split d-flex">
-                      <div class="info-ico" aria-hidden="true"><i class="fas fa-building"></i></div>
-                      <div>
-                        <h5 class="mt-0">ที่อยู่</h5>
-                        <p class="text-white-50">อาคาร ACME (ชั้น 1) ถนนเพชรบุรี<br>แขวงทุ่งพญาไท เขตราชเทวี กรุงเทพฯ</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <div class="info-block d-flex">
-                      <div class="info-ico" aria-hidden="true"><i class="far fa-clock"></i></div>
-                      <div>
-                        <h5 class="mt-0">เวลาทำการ</h5>
-                        <p class="text-white-50">
-                          อังคาร - ศุกร์: 15:30 - 17:30 น.<br>
-                          เสาร์ - อาทิตย์: 11:30 - 15:00 น.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+      <div class="container">
+        <div class="row align-items-center">
+          
+          <div class="col-lg-6 mb-5 mb-lg-0 location-content-left">
+            <h3><i class="fas fa-map-marked-alt mr-2"></i> พบกับเราที่คลินิก</h3>
+            
+            <div class="info-row">
+              <div class="info-item">
+                <div class="info-icon-circle"><i class="fas fa-building"></i></div>
+                <div class="info-text">
+                  <h5>ที่อยู่</h5>
+                  <p>อาคาร ACME (ชั้น 1) ถนนเพชรบุรี<br>แขวงทุ่งพญาไท เขตราชเทวี กรุงเทพฯ</p>
                 </div>
+              </div>
 
-                <a href="contactus.html" class="btn-location" aria-label="ดูแผนที่และข้อมูลติดต่อ">
-                  <i class="fas fa-directions" aria-hidden="true"></i>
-                  <span>ดูแผนที่และข้อมูลติดต่อ</span>
-                </a>
-
+              <div class="info-item">
+                <div class="info-icon-circle"><i class="far fa-clock"></i></div>
+                <div class="info-text">
+                  <h5>เวลาทำการ</h5>
+                  <p>
+                    อังคาร - ศุกร์: 15:30 - 17:30 น.<br>
+                    เสาร์ - อาทิตย์: 11:30 - 15:00 น.
+                  </p>
+                </div>
               </div>
             </div>
+
+            <a href="contactus.html" class="btn-location-white">
+              <i class="fas fa-directions" aria-hidden="true"></i>
+              <span>ดูแผนที่และข้อมูลติดต่อ</span>
+            </a>
           </div>
+
+          <div class="col-lg-6">
+            <div class="location-img-box">
+              <img src="acme.png" alt="ACME Building Clinic Exterior" class="img-fluid">
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

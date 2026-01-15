@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <!-- ✅ FIX: Sarabun in your CSS uses 700 weight, but your original import only loaded up to 600 -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -65,24 +64,47 @@
         width: 100%;
       }
 
+      .carousel-item {
+          position: relative; /* Needed for the pseudo-element overlay */
+      }
+
+      /* 1. Add Dark Overlay */
+      .carousel-item::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          /* Linear gradient: black at 50% opacity to transparent */
+          background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent); 
+          z-index: 1; /* Place above image but below text */
+      }
+
       .carousel-item img {
         width: 100%;
         height: 650px;
         object-fit: cover;
       }
 
-      /* Enhanced Dark Overlay for Text Readability */
-      .hero-overlay {
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%);
-      }
-
+      /* 2. Fix Layout & Typography */
       .carousel-caption {
-        bottom: 24%;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+        /* Vertically Center using Flexbox */
+        bottom: 0; 
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center; 
+        
+        /* Typography & Layout Constraints */
+        z-index: 2; /* Ensure text is above the overlay */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* Added text shadow */
         padding-left: 1rem;
         padding-right: 1rem;
+        max-width: 800px; /* Constrain width */
+        margin: 0 auto; /* Center horizontally */
+        text-align: center;
       }
 
       /* --- HERO TYPOGRAPHY (Adjusted so it’s not overwhelming) --- */
@@ -90,55 +112,57 @@
         font-family: 'Sarabun', sans-serif;
         font-weight: 700;
         color: #ffffff;
-        line-height: 1.18;
-        margin-bottom: 16px;
+        line-height: 1.2; 
+        margin-bottom: 20px;
         letter-spacing: -0.02em;
-        max-width: 920px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      /* Smaller, softer scale than before */
-      @media (max-width: 768px) {
-        .hero-title { font-size: 2.05rem; }
-        .hero-subtitle { font-size: 1.05rem; }
-      }
-      @media (min-width: 769px) {
-        .hero-title { font-size: 3.15rem; }
-        .hero-subtitle { font-size: 1.2rem; }
+        /* Mobile Check: handled via media queries below */
       }
 
       .hero-subtitle {
         font-family: 'Sarabun', sans-serif;
         font-weight: 400;
-        line-height: 1.7;
+        line-height: 1.6;
         color: #f2f6f8;
-        max-width: 720px;
-        margin: 0 auto 28px auto;
+        margin-bottom: 30px;
       }
 
-      /* --- CTA BUTTONS --- */
+      /* 4. Mobile Check - Responsive Text Sizing */
+      @media (max-width: 768px) {
+        .hero-title { font-size: 2rem; } /* Adjusted for mobile */
+        .hero-subtitle { font-size: 1rem; } 
+        .carousel-item img { height: 500px; } /* Slightly shorter height on mobile if desired */
+      }
+      @media (min-width: 769px) {
+        .hero-title { font-size: 3.5rem; } /* Large bold heading on desktop */
+        .hero-subtitle { font-size: 1.25rem; }
+      }
+
+
+      /* --- 3. Upgrade CTA Button --- */
       .cta-button {
-        background-color: var(--brand-green);
+        background-color: var(--brand-green); /* Solid primary color */
         color: white;
-        padding: 13px 40px; /* slightly softer */
-        border-radius: 50px;
-        font-size: 1.05rem;
+        padding: 12px 30px; /* Substantial padding */
+        border-radius: 50px; /* Pill-shaped */
+        font-size: 1.1rem;
         font-weight: 600;
         font-family: 'Sarabun', sans-serif;
         border: none;
         transition: all 0.3s ease;
         box-shadow: 0 4px 15px rgba(50, 196, 141, 0.4);
         display: inline-block;
+        text-decoration: none; /* Ensure no underline for link */
       }
       .cta-button:hover {
         background-color: var(--brand-green-dark);
         color: white;
         text-decoration: none;
-        transform: translateY(-3px);
+        transform: translateY(-2px); /* Lift effect */
         box-shadow: 0 8px 25px rgba(50, 196, 141, 0.6);
       }
 
+      /* ... (Rest of your CSS remains unchanged) ... */
+      
       .btn-hero-outline {
         background-color: transparent;
         border: 2px solid rgba(255,255,255,0.8);
@@ -442,44 +466,43 @@
   <body>
 
     <div class="top-header py-2">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-8 text-lg-left text-center">
-            <ul class="list-inline mb-0">
-              <li class="list-inline-item mr-4"><i class="fab fa-line" style="color: var(--brand-green);"></i> <span style="font-family: Arial, sans-serif;">@thana_plus</span></li>
-              <li class="list-inline-item"><i class="fas fa-phone" style="color: var(--brand-green);"></i> 098-143-3999</li>
-            </ul>
-          </div>
-          <div class="col-lg-4 text-lg-right text-center d-none d-lg-block">
-            <span style="color: #777;"><i class="far fa-clock"></i> อ.-ศ. 15:30-17:30 น. | ส.-อา. 11:30-15:00 น.</span>
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-8 text-lg-left text-center">
+              <ul class="list-inline mb-0">
+                <li class="list-inline-item mr-4"><i class="fab fa-line" style="color: var(--brand-green);"></i> <span style="font-family: Arial, sans-serif;">@thana_plus</span></li>
+                <li class="list-inline-item"><i class="fas fa-phone" style="color: var(--brand-green);"></i> 098-143-3999</li>
+              </ul>
+            </div>
+            <div class="col-lg-4 text-lg-right text-center d-none d-lg-block">
+              <span style="color: #777;"><i class="far fa-clock"></i> อ.-ศ. 15:30-17:30 น. | ส.-อา. 11:30-15:00 น.</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="navbar-area sticky-top">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <a class="navbar-brand" href="index.html">
-            <img src="TP-logo.png" alt="Thanaplus Clinic" style="height: 60px; width: auto;">
-          </a>
-          <!-- ✅ Minor a11y improvement -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-label="Toggle navigation" aria-controls="mainNav" aria-expanded="false">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="mainNav">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a href="index.html" class="nav-link">หน้าแรก</a></li>
-              <li class="nav-item"><a href="about.html" class="nav-link">เกี่ยวกับเรา</a></li>
-              <li class="nav-item"><a href="services.html" class="nav-link">บริการของเรา</a></li>
-              <li class="nav-item"><a href="education.html" class="nav-link">สาระน่ารู้</a></li>
-              <li class="nav-item"><a href="contactus.html" class="nav-link" style="color: var(--brand-blue) !important;"><i class="fas fa-phone"></i> ติดต่อเรา</a></li>
-            </ul>
-          </div>
-        </nav>
+  
+      <div class="navbar-area sticky-top">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="index.html">
+              <img src="TP-logo.png" alt="Thanaplus Clinic" style="height: 60px; width: auto;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-label="Toggle navigation" aria-controls="mainNav" aria-expanded="false">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+  
+            <div class="collapse navbar-collapse" id="mainNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="index.html" class="nav-link">หน้าแรก</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">เกี่ยวกับเรา</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">บริการของเรา</a></li>
+                <li class="nav-item"><a href="education.html" class="nav-link">สาระน่ารู้</a></li>
+                <li class="nav-item"><a href="contactus.html" class="nav-link" style="color: var(--brand-blue) !important;"><i class="fas fa-phone"></i> ติดต่อเรา</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
       </div>
-    </div>
 
     <section class="hero-section-carousel">
       <div id="heroCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
@@ -492,9 +515,8 @@
 
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="c2.png" class="d-block w-100" alt="">
-            <div class="hero-overlay"></div>
-            <div class="carousel-caption d-none d-md-block text-center">
+            <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="d-block w-100" alt="Doctor Team">
+            <div class="carousel-caption text-center">
               <h1 class="hero-title">ปวดเข่า... ให้เราดูแลคุณ</h1>
               <p class="hero-subtitle">Thanaplus Life Center มุ่งมั่นดูแลคุณภาพชีวิตของคุณ ด้วยทีมแพทย์ผู้เชี่ยวชาญ และนวัตกรรมการรักษาที่ทันสมัย</p>
               <a href="appointment.html" class="cta-button">นัดหมายแพทย์</a>
@@ -502,9 +524,8 @@
           </div>
 
           <div class="carousel-item">
-            <img src="c1.png" class="d-block w-100" alt="">
-            <div class="hero-overlay"></div>
-            <div class="carousel-caption d-none d-md-block text-center">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" class="d-block w-100" alt="Knee Treatment">
+            <div class="carousel-caption text-center">
               <h1 class="hero-title">เทคโนโลยีการรักษาที่ทันสมัย</h1>
               <p class="hero-subtitle">ฟื้นฟูข้อเข่าด้วยนวัตกรรม Plasma 1 และการดูแลแบบองค์รวม เพื่อให้คุณกลับมาเคลื่อนไหวได้อย่างอิสระ</p>
               <a href="services.html" class="cta-button">ดูรายละเอียดบริการ</a>
@@ -512,9 +533,8 @@
           </div>
 
           <div class="carousel-item">
-            <img src="c3.png" class="d-block w-100" alt="">
-            <div class="hero-overlay"></div>
-            <div class="carousel-caption d-none d-md-block text-center">
+            <img src="https://images.unsplash.com/photo-1552248984-70240b622624?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" class="d-block w-100" alt="Happy Patient">
+            <div class="carousel-caption text-center">
               <h1 class="hero-title">กลับมาใช้ชีวิตได้อย่างมั่นใจ</h1>
               <p class="hero-subtitle">เราพร้อมดูแลให้คุณกลับไปทํากิจกรรมที่รักได้อีกครั้ง ด้วยแผนการรักษาที่ออกแบบมาเพื่อคุณโดยเฉพาะ</p>
               <a href="about.html" class="cta-button">รู้จักทีมแพทย์ของเรา</a>
@@ -534,7 +554,6 @@
       </div>
     </section>
 
-    <!-- Trust strip -->
     <section class="section trust-strip">
       <div class="container">
         <div class="row text-center mb-4">
@@ -578,7 +597,6 @@
       </div>
     </section>
 
-    <!-- Location (your current HTML kept; now all required CSS exists) -->
     <section class="location-section">
       <div class="container location-overlap">
         <div class="row align-items-center justify-content-center">

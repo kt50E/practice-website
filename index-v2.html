@@ -67,9 +67,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        text-align: center;
+        text-align: left; /* Changed from center to left */
         /* Background Image with Dark Overlay */
-        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('c3_nolgo.png');
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('c3_nolgo.png');
         background-size: cover;
         background-position: center center; /* Keeps the subject centered */
         background-repeat: no-repeat;
@@ -78,7 +78,7 @@
       .hero-content {
         position: relative;
         z-index: 2;
-        max-width: 900px;
+        /* Removed max-width restriction here to let Bootstrap columns handle it */
         padding: 0 15px;
       }
 
@@ -97,18 +97,24 @@
         font-weight: 400;
         line-height: 1.6;
         color: #f2f6f8;
-        margin-bottom: 35px;
+        margin-bottom: 15px; /* Reduced bottom margin slightly for signature */
         text-shadow: 0 1px 5px rgba(0,0,0,0.3);
       }
 
       @media (max-width: 768px) {
-        .hero-static { height: 500px; } 
-        .hero-title { font-size: 2rem; } 
+        .hero-static { height: 500px; background-position: 70% center; } /* Shift bg on mobile */
+        .hero-title { font-size: 1.8rem; } 
         .hero-subtitle { font-size: 1rem; } 
+        /* On mobile, add a slight dark backing to text ensures readability over doctor's image if they overlap */
+        .hero-content {
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 15px;
+        }
       }
       @media (min-width: 769px) {
-        .hero-title { font-size: 3.5rem; } 
-        .hero-subtitle { font-size: 1.35rem; }
+        .hero-title { font-size: 3.2rem; } 
+        .hero-subtitle { font-size: 1.25rem; }
       }
 
       /* Upgrade CTA Button */
@@ -133,6 +139,31 @@
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba(0, 153, 204, 0.6);
       }
+
+      /* --- ANIMATION KEYFRAMES (STEP 1) --- */
+      @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px); /* Start slightly lower */
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0); /* End in natural position */
+        }
+      }
+
+      /* Helper class to apply the animation */
+      .animate-fade-up {
+        opacity: 0; /* Hidden by default */
+        animation: fadeInUp 0.8s ease-out forwards; /* Run for 0.8s */
+      }
+
+      /* Delays for different elements so they don't appear all at once */
+      .delay-1 { animation-delay: 0.2s; } /* Headline appears first */
+      .delay-2 { animation-delay: 0.4s; } /* Subtitle appears second */
+      .delay-3 { animation-delay: 0.6s; } /* Signature appears third */
+      .delay-4 { animation-delay: 0.8s; } /* Button appears last */
+
 
       /* --- TRUST STRIP --- */
       .section {
@@ -353,15 +384,30 @@
 
     <section class="hero-static">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-10 hero-content">
-            <h1 class="hero-title">กลับมาใช้ชีวิตได้อย่างมั่นใจ อีกครั้ง</h1>
-            <p class="hero-subtitle">ดูแลปวดเข่าและข้อโดยทีมแพทย์เฉพาะทาง เน้นการรักษาที่มีประสิทธิภาพและปลอดภัย ไม่ต้องผ่าตัด</p>
-            <a href="appointment.html" class="cta-button">นัดหมายปรึกษาแพทย์</a>
+        <div class="row">
+          <div class="col-lg-7 hero-content">
+            <h1 class="hero-title animate-fade-up delay-1">
+              "ความสุขของผม คือการเห็นคุณ<br>กลับมาเคลื่อนไหวได้อย่างมั่นใจ"
+            </h1>
+            
+            <p class="hero-subtitle animate-fade-up delay-2">
+              มุ่งเน้นการรักษาแบบ <strong>Regenerative</strong> เพื่อฟื้นฟูและซ่อมแซมข้อต่อ<br>
+              ให้คุณกลับไปใช้ชีวิตที่รักได้เต็มที่
+            </p>
+
+            <p class="mt-2 mb-4 animate-fade-up delay-3" style="color: rgba(255,255,255,0.9); font-style: italic; font-weight: 300;">
+              — พล.ต.ท.นพ. ธนา ธุระเจน
+            </p>
+
+            <a href="appointment.html" class="cta-button animate-fade-up delay-4 mt-4">
+              นัดหมายปรึกษาแพทย์
+            </a>
+
           </div>
         </div>
       </div>
     </section>
+
     <section class="section trust-strip">
       <div class="container">
         <div class="row text-center mb-4">

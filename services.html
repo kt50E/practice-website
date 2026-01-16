@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
       /* =========================
@@ -83,7 +83,7 @@
             rgba(0, 153, 204, 0.85) 0%, 
             rgba(50, 196, 141, 0.75) 100%
           ),
-          url('lab.png');
+          url('lab.png'); /* Ensure lab.png is uploaded */
         background-size: cover;
         background-position: center;
         padding: 100px 0;
@@ -133,11 +133,18 @@
       .feature-title{ margin-top: 14px; font-weight: 800; }
       .feature-copy{ font-size: 1.05rem; line-height: 1.8; margin-top: 10px; }
       .feature-cta{ margin-top: 18px; display:flex; align-items:center; gap: 12px; flex-wrap: wrap; }
-      .feature-media{
-        height: 100%; min-height: 260px;
-        background: linear-gradient(135deg, rgba(0, 153, 204,.25) 0%, rgba(50, 196, 141,.22) 100%),
-          url('https://images.unsplash.com/photo-1559757175-5700dde67548?auto=format&fit=crop&w=1400&q=80');
-        background-size: cover; background-position: center;
+      
+      /* Updated Feature Media to handle direct IMG tag */
+      .feature-media-container {
+        height: 100%;
+        min-height: 300px;
+        position: relative;
+      }
+      .feature-media-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
 
       .condition-card{
@@ -169,14 +176,14 @@
       .small-note{ font-size: .92rem; color: var(--muted); }
 
       /* =========================
-         STEPS (UPDATED - PERFECT ALIGNMENT)
+         STEPS
          ========================= */
       .step-card{
         background: var(--surface);
         border: 1px solid var(--line);
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-sm);
-        padding: 20px 25px; /* Added horizontal padding */
+        padding: 20px 25px; 
         display: flex;
         align-items: flex-start; 
         gap: 20px;
@@ -289,9 +296,10 @@
 
         <a href="service-plasma.html" class="service-link-wrapper" aria-label="อ่านรายละเอียดการรักษาด้วย Plasma 1 (PRGF)">
           <div class="feature-card">
-            <div class="row no-gutters">
+            <div class="row no-gutters align-items-center">
               <div class="col-lg-7">
                 <div class="feature-inner">
+                  <div class="feature-pill"><i class="fas fa-dna"></i> Plasma 1 (PRGF)</div>
                   <h3 class="feature-title">การรักษาด้วย Plasma 1 (PRGF)</h3>
                   <p class="feature-copy">
                     เทคโนโลยีชีวภาพที่ช่วยซ่อมแซมเนื้อเยื่อและลดการอักเสบตามธรรมชาติ
@@ -303,6 +311,12 @@
                       อ่านรายละเอียดบริการ <i class="fas fa-arrow-right ml-2"></i>
                     </span>
                   </div>
+                </div>
+              </div>
+              
+              <div class="col-lg-5 d-none d-lg-block">
+                <div class="feature-media-container">
+                    <img src="freepik_plateletai.png" alt="Signature Service Image">
                 </div>
               </div>
             </div>
@@ -317,8 +331,8 @@
           <div class="section-kicker">What We Treat</div>
           <h2 class="section-title font-weight-bold">อาการที่สามารถรักษาได้</h2>
           <p class="section-subtitle">
-            เทคโนโลยี Plasma 1 สามารถช่วยบรรเทาอาการบาดเจ็บของข้อต่อต่างๆ ได้อย่างมีประสิทธิภาพ
-            <br>(ทั้งสายกีฬาและการใช้งานในชีวิตประจำวัน)
+            เทคโนโลยี Plasma 1 สามารถช่วยบรรเทาอาการบาดเจ็บของข้อต่อต่าง ๆ ได้อย่างมีประสิทธิภาพ
+            (ทั้งสายกีฬาและการใช้งานในชีวิตประจำวัน)
           </p>
         </div>
 
@@ -339,7 +353,7 @@
             <div class="condition-card">
               <img src="elbowpain.png" alt="Elbow Pain" class="condition-img">
               <div class="condition-body">
-                  <h5>ข้อศอกอักเสบ</h5>
+                  <h5>ข้อศอก</h5>
                   <p class="mb-0 small-note">
                     ฟื้นฟูอาการบาดเจ็บและอาการปวดบริเวณข้อศอก เพื่อช่วยให้การใช้งานแขนและข้อศอกกลับมาดีขึ้น
                   </p>
@@ -373,15 +387,16 @@
         </div>
 
         <div class="row align-items-center mt-5">
-          
-          <div class="col-lg-6 mb-4 mb-lg-0 pr-lg-0"> <div class="section-kicker">How It Works</div>
+          <div class="col-lg-6 mb-4 mb-lg-0 pr-lg-0"> 
+            <div class="section-kicker">How It Works</div>
             <h3 class="font-weight-bold" style="margin-top:10px;">กระบวนการดูแลแบบ 3 ขั้นตอน</h3>
             <p class="mb-0">
               ชัดเจน โปร่งใส และเน้นผลลัพธ์ — เพื่อให้คุณตัดสินใจได้อย่างมั่นใจ
             </p>
           </div>
 
-          <div class="col-lg-6 pl-lg-4"> <div class="step-card mb-3">
+          <div class="col-lg-6 pl-lg-4"> 
+            <div class="step-card mb-3">
                 <div class="step-num">1</div>
                 <div class="step-content">
                     <h6>ประเมินอาการ</h6>
@@ -418,25 +433,25 @@
         </div>
 
         <div class="mosaic">
-          <div class="row no-gutters" style="min-height: 200px;">
-            <div class="col-lg-6" style="min-height: 200px;">
+          <div class="row no-gutters" style="min-height: 360px;">
+            <div class="col-lg-6" style="min-height: 360px;">
               <img
                 src="golf.png"
-                alt=""
+                alt="นักวิ่งกำลังออกกำลังกาย"
               >
             </div>
             <div class="col-lg-6">
               <div class="row no-gutters" style="height: 100%;">
-                <div class="col-12" style="min-height: 100px;">
+                <div class="col-12" style="min-height: 180px;">
                   <img
                     src="excercise1.png"
-                    alt=""
+                    alt="บรรยากาศคลินิกสะอาดและเชื่อถือได้"
                   >
                 </div>
-                <div class="col-12" style="min-height: 100px;">
+                <div class="col-12" style="min-height: 180px;">
                   <img
                     src="marathon.png"
-                    alt=""
+                    alt="ผู้สูงอายุเดินอย่างมั่นใจ"
                   >
                 </div>
               </div>

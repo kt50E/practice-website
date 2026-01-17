@@ -102,14 +102,50 @@
       }
 
       @media (max-width: 768px) {
-        .hero-static { height: 500px; background-position: 70% center; } /* Shift bg on mobile */
-        .hero-title { font-size: 1.8rem; } 
-        .hero-subtitle { font-size: 1rem; } 
-        /* On mobile, add a slight dark backing to text ensures readability over doctor's image if they overlap */
+        .hero-static { 
+            height: 600px; /* Slightly taller to give space for both face and text */
+            
+            /* 1. PIN FACE TO TOP */
+            background-position: center top; 
+            
+            /* 2. PUSH TEXT TO BOTTOM */
+            align-items: flex-end; 
+            text-align: left; /* Keep left align, or use center if preferred */
+            
+            /* 3. VERTICAL GRADIENT (Dark at bottom, Transparent at top) */
+            /* This ensures text readability at the bottom without covering his face */
+            background: linear-gradient(to top, rgba(0, 55, 85, 0.95) 20%, rgba(0, 55, 85, 0) 60%), url('c3_nolgo.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        /* Remove the box background we added earlier, the gradient does the job now */
         .hero-content {
-            background: rgba(0,0,0,0.2);
-            padding: 20px;
-            border-radius: 15px;
+            background: transparent;
+            padding: 0 25px 40px 25px; /* Padding pushes text up slightly from very bottom edge */
+            width: 100%;
+        }
+
+        /* 4. REDUCE TEXT SIZE FOR 2-LINE LIMIT */
+        .hero-title { 
+            font-size: 1.5rem; /* Reduced from 1.8rem */
+            line-height: 1.3;  /* Tighter line spacing */
+            margin-bottom: 10px;
+        } 
+        
+        .hero-subtitle { 
+            font-size: 0.95rem; /* Reduced from 1rem */
+            line-height: 1.4;
+            margin-bottom: 15px;
+            color: rgba(255,255,255,0.9); /* Slightly brighter for contrast */
+        }
+        
+        /* Make the button slightly more compact */
+        .cta-button {
+            padding: 10px 25px;
+            font-size: 1rem;
+            width: 100%; /* Full width button is easier to tap on mobile */
+            text-align: center;
         }
       }
       @media (min-width: 769px) {

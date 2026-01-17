@@ -103,49 +103,58 @@
 
       @media (max-width: 768px) {
         .hero-static { 
-            height: 600px; /* Slightly taller to give space for both face and text */
+            height: 600px; 
             
-            /* 1. PIN FACE TO TOP */
-            background-position: center top; 
+            /* FIX 1: MOVE CAMERA TO THE RIGHT */
+            /* "85%" means "Pan the camera 85% to the right". */
+            /* This brings the doctor back into frame on mobile. */
+            background-position: 85% top; 
             
-            /* 2. PUSH TEXT TO BOTTOM */
+            /* Align text to bottom */
             align-items: flex-end; 
-            text-align: left; /* Keep left align, or use center if preferred */
+            text-align: left; 
             
-            /* 3. VERTICAL GRADIENT (Dark at bottom, Transparent at top) */
-            /* This ensures text readability at the bottom without covering his face */
-            background: linear-gradient(to top, rgba(0, 55, 85, 0.95) 20%, rgba(0, 55, 85, 0) 60%), url('c3_nolgo.png');
+            /* FIX 2: SMOOTHER GRADIENT */
+            /* Deep Blue fade from bottom (0.95) to transparent (0) */
+            background: linear-gradient(to top, rgba(0, 55, 85, 0.95) 25%, rgba(0, 55, 85, 0) 55%), url('c3_nolgo.png');
+            
             background-size: cover;
             background-repeat: no-repeat;
         }
         
-        /* Remove the box background we added earlier, the gradient does the job now */
         .hero-content {
             background: transparent;
-            padding: 0 25px 40px 25px; /* Padding pushes text up slightly from very bottom edge */
+            /* Extra padding at bottom to lift text off the edge */
+            padding: 0 25px 50px 25px; 
             width: 100%;
         }
 
-        /* 4. REDUCE TEXT SIZE FOR 2-LINE LIMIT */
+        /* FIX 3: SMALLER TEXT FOR 2 LINES */
         .hero-title { 
-            font-size: 1.5rem; /* Reduced from 1.8rem */
-            line-height: 1.3;  /* Tighter line spacing */
-            margin-bottom: 10px;
+            font-size: 1.4rem; /* Smaller font to prevent wrapping */
+            line-height: 1.4;
+            margin-bottom: 8px;
         } 
         
         .hero-subtitle { 
-            font-size: 0.95rem; /* Reduced from 1rem */
-            line-height: 1.4;
+            font-size: 0.9rem; /* Clean and small */
+            line-height: 1.5;
             margin-bottom: 15px;
-            color: rgba(255,255,255,0.9); /* Slightly brighter for contrast */
+            color: rgba(255,255,255,0.85);
+            
+            /* Limit to 2 lines and add "..." if it gets too long */
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
         
-        /* Make the button slightly more compact */
         .cta-button {
-            padding: 10px 25px;
+            padding: 12px 0; /* Taller touch target */
             font-size: 1rem;
-            width: 100%; /* Full width button is easier to tap on mobile */
+            width: 100%; 
             text-align: center;
+            margin-top: 10px; /* Space between sig and button */
         }
       }
       @media (min-width: 769px) {
@@ -427,8 +436,8 @@
             </h1>
             
             <p class="hero-subtitle animate-fade-up delay-2">
-              มุ่งเน้นการรักษาแบบ <strong>Regenerative Medicine</strong> เพื่อฟื้นฟูและ<br>
-              ซ่อมแซมข้อต่อให้คุณกลับไปใช้ชีวิตที่รักได้เต็มที่
+              มุ่งเน้นการรักษาแบบ <strong>Regenerative Medicine</strong> เพื่อฟื้นฟู<br>
+              และซ่อมแซมข้อต่อให้คุณกลับไปใช้ชีวิตที่รักได้เต็มที่
             </p>
 
             <p class="mt-2 mb-4 animate-fade-up delay-3" style="color: rgba(255,255,255,0.9); font-style: italic; font-weight: 300;">

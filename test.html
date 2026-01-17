@@ -16,7 +16,7 @@
             :root {
                 --bg-white: #ffffff;        
                 --bg-light-blue: #f4f9fc;
-                --text-dark: #333333;       
+                --text-dark: #333333;        
                 --brand-green: #32c48d;
                 --brand-green-dark: #28a375; 
                 --brand-blue: #0099cc;
@@ -223,7 +223,7 @@
                                             <label>เบอร์โทรศัพท์ <span class="text-danger">*</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <select class="custom-select" style="border-top-right-radius: 0; border-bottom-right-radius: 0; min-width: 140px;">
+                                                    <select class="custom-select" id="countryCodeSelect" style="border-top-right-radius: 0; border-bottom-right-radius: 0; min-width: 140px;">
                                                         <option value="+66" selected>Thailand (+66)</option> 
                                                         <option value="+855">Cambodia (+855)</option>
                                                         <option value="+86">China (+86)</option>
@@ -274,7 +274,15 @@
                                         </div>
                                     </div>
 
-                                    <button type="submit" class="btn-submit shadow">ส่งข้อมูลขอนัดหมาย</button>
+                                    <button type="submit" class="btn btn-primary-brand btn-block btn-lg" style="border-radius: 50px;">
+                                        ส่งข้อมูลขอนัดหมาย
+                                    </button>
+                                    
+                                    <div class="text-center mt-3">
+                                        <small class="text-muted" style="font-size: 0.85rem;">
+                                            <i class="fas fa-info-circle mr-1"></i> กรุณาตรวจสอบความถูกต้องของข้อมูลก่อนกดส่ง
+                                        </small>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -288,7 +296,7 @@
                                 <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                                 <div>
                                     <h6 class="font-weight-bold mb-1">ที่อยู่คลินิก</h6>
-                                    <p class="text-muted small mb-0">อาคาร ACME (ชั้น 1) ถนนเพชรบุรี แขวงทุ่งพญาไท เขตราชเทวี กรุงเทพฯ</p>
+                                    <p class="text-muted mb-0">อาคาร ACME (ชั้น 1) ถนนเพชรบุรี แขวงทุ่งพญาไท เขตราชเทวี กรุงเทพฯ</p>
                                 </div>
                             </div>
 
@@ -296,7 +304,7 @@
                                 <div class="contact-icon"><i class="fas fa-phone"></i></div>
                                 <div>
                                     <h6 class="font-weight-bold mb-1">เบอร์โทรศัพท์</h6>
-                                    <p class="text-muted small mb-0">098-143-3999</p>
+                                    <p class="text-muted mb-0">098-143-3999</p>
                                 </div>
                             </div>
 
@@ -304,7 +312,7 @@
                                 <div class="contact-icon"><i class="fab fa-line"></i></div>
                                 <div>
                                     <h6 class="font-weight-bold mb-1">LINE ID</h6>
-                                    <p class="text-muted small mb-0" style="font-family: Arial, sans-serif;">@thana_plus</p>
+                                    <p class="text-muted mb-0" style="font-family: Arial, sans-serif;">@thana_plus</p>
                                 </div>
                             </div>
 
@@ -312,8 +320,8 @@
                                 <div class="contact-icon"><i class="far fa-clock"></i></div>
                                 <div>
                                     <h6 class="font-weight-bold mb-1">เวลาทำการ</h6>
-                                    <p class="text-muted small mb-0">อ.-ศ. 15:30-17:30 น.</p>
-                                    <p class="text-muted small mb-0">ส.-อา. 11:30-15:00 น.</p>
+                                    <p class="text-muted mb-0">อ.-ศ. 15:30-17:30 น.</p>
+                                    <p class="text-muted mb-0">ส.-อา. 11:30-15:00 น.</p>
                                 </div>
                             </div>
                         </div>
@@ -362,20 +370,48 @@
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
         <script>
-            // 1. Define your Holidays
+            // 1. Sort Country Codes (A-Z)
+            function sortSelectOptions(selectElementId) {
+                var select = document.getElementById(selectElementId);
+                var options = Array.from(select.options);
+                
+                // Keep "Thailand" (value +66) at the top
+                var topOption = options.find(opt => opt.value === "+66");
+                var otherOptions = options.filter(opt => opt.value !== "+66");
+
+                // Sort others alphabetically by text
+                otherOptions.sort((a, b) => a.text.localeCompare(b.text));
+
+                // Re-append
+                select.innerHTML = "";
+                select.appendChild(topOption);
+                otherOptions.forEach(opt => select.appendChild(opt));
+            }
+            // Run sort on load
+            sortSelectOptions("countryCodeSelect");
+
+
+            // 2. Define Holidays
             var holidayDates = [
                 "13-04-2026", "14-04-2026", "31-12-2026", "01-01-2027"
             ];
 
-            // 2. Initialize Calendar
+            // 3. Initialize Calendar
             flatpickr("#appointmentDate", {
                 dateFormat: "d-m-Y",
                 minDate: "today",
                 disable: [
                     // Block Mondays (Day 1)
                     function(date) { return (date.getDay() === 1); },
-                    // Block Holidays
-                    ...holidayDates 
+                    // Block Holidays (String comparison)
+                    function(date) {
+                        // Helper to format date to d-m-Y for comparison
+                        let d = date.getDate().toString().padStart(2, '0');
+                        let m = (date.getMonth() + 1).toString().padStart(2, '0');
+                        let y = date.getFullYear();
+                        let dateString = `${d}-${m}-${y}`;
+                        return holidayDates.includes(dateString);
+                    }
                 ],
                 locale: { firstDayOfWeek: 0 },
 
@@ -408,7 +444,7 @@
                 }
             });
 
-            // 3. HANDLE FORM SUBMISSION (Success Message)
+            // 4. HANDLE FORM SUBMISSION (Success Message)
             $(document).ready(function() {
                 $("#appointmentForm").on("submit", function(e) {
                     e.preventDefault(); // Stop page refresh

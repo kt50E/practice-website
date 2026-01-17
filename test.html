@@ -16,8 +16,8 @@
             :root {
                 --bg-white: #ffffff;        
                 --bg-light-blue: #f4f9fc;
-                --text-dark: #333333;        
-                --brand-green: #32c48d;
+                --text-dark: #333333;       
+                --brand-green: #32c48d;  /* THIS IS YOUR GREEN COLOR */
                 --brand-green-dark: #28a375; 
                 --brand-blue: #0099cc;
                 --brand-blue-dark: #007399;
@@ -82,8 +82,9 @@
                 background-color: #fff; 
             }
 
+            /* --- BUTTON STYLE (Already defined as Green here) --- */
             .btn-submit {
-                background-color: var(--brand-green);
+                background-color: var(--brand-green); /* Green Background */
                 color: white;
                 padding: 15px 40px;
                 border-radius: 50px;
@@ -95,7 +96,7 @@
                 margin-top: 20px;
             }
             .btn-submit:hover {
-                background-color: var(--brand-green-dark);
+                background-color: var(--brand-green-dark); /* Darker Green on Hover */
                 transform: translateY(-2px);
                 box-shadow: 0 10px 20px rgba(50, 196, 141, 0.3);
             }
@@ -274,7 +275,7 @@
                                         </div>
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary-brand btn-block btn-lg" style="border-radius: 50px;">
+                                    <button type="submit" class="btn btn-submit shadow">
                                         ส่งข้อมูลขอนัดหมาย
                                     </button>
                                     

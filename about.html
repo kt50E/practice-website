@@ -12,9 +12,9 @@
         <style>
             /* --- SHARED STYLES --- */
             :root {
-                --bg-white: #ffffff;       
+                --bg-white: #ffffff;        
                 --bg-light-blue: #f4f9fc;
-                --text-dark: #333333;      
+                --text-dark: #333333;        
                 --brand-green: #32c48d;
                 --brand-green-dark: #28a375; 
                 --brand-blue: #0099cc;
@@ -48,38 +48,116 @@
                 border: 4px solid var(--bg-light-blue);
             }
             
-            /* --- DOCTOR CARD --- */
-             .doctor-card { 
+            /* --- REDESIGNED DOCTOR PROFILE --- */
+            .doctor-profile-section {
+                background-color: var(--bg-light-blue);
+            }
+
+            .doctor-card { 
                 background: #fff; 
-                border-radius: 30px;
-                box-shadow: 0 15px 40px rgba(0,0,0,0.06); 
-                border: 1px solid #e3f2fd;
+                border-radius: 20px; 
+                box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+                border: none;
+                overflow: hidden; /* Keeps content inside rounded corners */
             }
-            
-            /* --- QUALIFICATION LIST (UPDATED) --- */
-            .qualification-list li {
-                margin-bottom: 20px; /* Better spacing between items */
-                display: flex;       /* Flexbox for perfect alignment */
-                align-items: flex-start; 
+
+            /* Left Column: Profile Info */
+            .profile-sidebar {
+                background-color: #fff;
+                padding: 40px 30px;
+                text-align: center;
+                border-right: 1px solid #f0f0f0;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
             }
-            
-            /* Bullet Icon Style */
-            .qualification-list i {
-                margin-top: 8px;     /* Push down slightly to align with text cap-height */
-                margin-right: 15px;  /* Gap between bullet and text */
-                font-size: 10px;     /* Smaller, proportional bullet size */
+
+            .profile-img {
+                width: 180px;
+                height: 180px;
+                object-fit: cover;
+                object-position: top;
+                border-radius: 50%; /* Circle shape */
+                border: 4px solid var(--bg-light-blue);
+                margin-bottom: 20px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+
+            .doctor-name {
+                font-family: 'Playfair Display', serif;
+                font-weight: 700;
+                color: var(--text-dark);
+                font-size: 1.5rem;
+                margin-bottom: 5px;
+            }
+
+            .doctor-role {
+                font-family: 'Sarabun', sans-serif;
+                color: var(--brand-green-dark);
+                font-weight: 600;
+                font-size: 1rem;
+                margin-bottom: 0;
+            }
+
+            /* Right Column: Details */
+            .profile-content {
+                padding: 40px 40px;
+            }
+
+            .profile-section-title {
+                color: var(--brand-blue);
+                font-weight: 700;
+                font-family: 'Sarabun', sans-serif;
+                font-size: 1.25rem; /* Keep original heading size */
+                margin-bottom: 15px;
+                position: relative;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .profile-section-block {
+                margin-bottom: 30px; /* Comfortable spacing between sections */
+            }
+            .profile-section-block:last-child {
+                margin-bottom: 0;
+            }
+
+            /* List Styling */
+            .clean-list {
+                list-style: none;
+                padding-left: 0;
+                margin-bottom: 0;
+            }
+
+            .clean-list li {
+                position: relative;
+                padding-left: 20px;
+                margin-bottom: 6px; /* Tighter line spacing within sections */
+                font-size: 0.95rem; /* Reduced slightly to fit one line */
+                line-height: 1.5;
+                color: #555;
+            }
+
+            /* Custom Bullet Point */
+            .clean-list li::before {
+                content: "•";
                 color: var(--brand-green);
-                flex-shrink: 0;      /* Prevents bullet from squishing */
+                font-weight: bold;
+                font-size: 1.2rem;
+                position: absolute;
+                left: 0;
+                top: -3px;
             }
 
-            /* Text Style */
-            .qualification-list span {
-                font-weight: 500;   
-                font-size: 1.1rem;  
-                line-height: 1.6;   
+            /* Responsive Adjustments */
+            @media (max-width: 991px) {
+                .profile-sidebar { border-right: none; border-bottom: 1px solid #f0f0f0; padding: 30px; }
+                .profile-content { padding: 30px; }
             }
 
-            /* Publication list styling */
+            /* Publication list styling (Footer area) */
             .publication-item {
                 border-left: 4px solid var(--brand-green);
                 transition: 0.3s;
@@ -171,66 +249,71 @@
             </div>
         </section>
 
-        <section class="py-5" style="background-color: var(--bg-light-blue);">
+        <section class="py-5 doctor-profile-section">
             <div class="container py-4">
                 <div class="row text-center mb-5">
                     <div class="col-12">
-                         <h2 class="font-weight-bold mb-3" style="color: var(--brand-blue);">แพทย์ผู้เชี่ยวชาญ</h2>
-                         <p class="text-muted font-weight-bold" style="color: var(--brand-green-dark);">บริหารงานโดย พล.ต.ท.นพ.ธนา ธุระเจน</p>
+                         <h2 class="font-weight-bold" style="color: var(--brand-blue);">แพทย์ผู้เชี่ยวชาญ</h2>
                     </div>
                 </div>
+                
                 <div class="row justify-content-center">
-                    <div class="col-lg-10 mb-4">
-                        <div class="doctor-card p-4 p-lg-5">
-                            <div class="row align-items-center">
-                                <div class="col-md-5 mb-4 mb-md-0 text-center">
-                                    <img src="Thana2.png" 
-                                         alt="พล.ต.ท. นพ.ธนา ธุระเจน" 
-                                         class="img-fluid shadow-sm" 
-                                         style="border-radius: 25px; width: 100%; object-fit: cover; transform: scale(1.1);">
-                                </div>
-                                    <div class="col-md-7 text-left pl-md-4">                      
-                                        <h5 class="font-weight-bold mb-3" style="color: var(--brand-blue);">ประวัติการศึกษา</h5>
-                                        <ul class="list-unstyled qualification-list mb-4">
-                                            <li class="mb-3">
-                                                <span>แพทยศาสตรบัณฑิต (เกียรตินิยมอันดับ 2) คณะแพทยศาสตร์ มหาวิทยาลัยสงขลานครินทร์</span>
-                                            </li>
-                                            <li class="mb-3">
-                                                <span>แพทย์เฉพาะทางสาขาศัลยกรรมกระดูกและข้อวิทยาลัยแพทยศาสตร์พระมงกุฎเกล้า โรงพยาบาลพระมงกุฎเกล้า</span>
-                                            </li>
-                                        </ul>
-                                    <h5 class="font-weight-bold mb-3" style="color: var(--brand-blue);">วุฒิบัตร</h5>
-                                        <ul class="list-unstyled qualification-list mb-4">
-                                            <li class="mb-3">
-                                                <span>สาขาศัลยศาสตร์ออร์โธปิดิกส์, ประเทศไทย</span>
-                                            </li>
-                                        </ul>
-                                        <h5 class="font-weight-bold mb-3" style="color: var(--brand-blue);">การศึกษาหลังปริญญา</h5>
-                                        <ul class="list-unstyled qualification-list mb-4">
-                                            <li class="mb-3">
-                                                <span>Spine Surgery Fellowship, Lutheran Medical Center (รัฐโอไฮโอ สหรัฐอเมริกา)</span>
-                                            </li>
-                                            <li class="mb-3">
-                                                <span>Pediatric Orthopedics Fellowship, Hospital for Special Surgery (รัฐนิวยอร์ก สหรัฐอเมริกา)</span>
-                                            </li>
-                                            <li class="mb-3">
-                                                <span>Arthroscopy Training, Arthroscopy Association of North America</span>
-                                            </li>
-                                        <h5 class="font-weight-bold mb-3" style="color: var(--brand-blue);">ตำแหน่งบริหาร</h5>
-                                        <ul class="list-unstyled qualification-list mb-4">
-                                            <li class="mb-3">
-                                                <span>ประธานอนุสาขาข้อสะโพกและข้อเข่า (ราชวิทยาลัยแพทย์ออร์โธปิดิกส์แห่งประเทศไทย)</span>
-                                            </li>
-                                            <li class="mb-3">
-                                                <span>ประธานอนุสาขาข้อสะโพก (สมาคมออร์โธปิดิกส์แห่งเอเชียแปซิฟิก)</span>
-                                            </li>
-                                        <h5 class="font-weight-bold mb-3" style="color: var(--brand-blue);">รางวัลที่ได้รับ</h5>
-                                        <ul class="list-unstyled qualification-list mb-4">
-                                            <li class="mb-3">
-                                                <span>รางวัลนวัตกรรมดีเด่น ประจำปี 2021 จากชมรมศัลยแพทย์ข้อสะโพกและข้อเข่าแห่งประเทศไทย (Thai Hip and Knee Society - THKS) </span>
-                                            </li>
-                                        </ul>
+                    <div class="col-lg-11"> <div class="doctor-card">
+                            <div class="row no-gutters">
+                                
+                                <div class="col-lg-4">
+                                    <div class="profile-sidebar">
+                                        <img src="thana2.png" alt="พล.ต.ท. นพ.ธนา ธุระเจน" class="profile-img">
+                                        <h3 class="doctor-name">พล.ต.ท. นพ.ธนา ธุระเจน</h3>
+                                        <p class="doctor-role">บริหารงานโดย</p>
                                     </div>
+                                </div>
+
+                                <div class="col-lg-8">
+                                    <div class="profile-content">
+                                        
+                                        <div class="profile-section-block">
+                                            <h5 class="profile-section-title">ประวัติการศึกษา</h5>
+                                            <ul class="clean-list">
+                                                <li>แพทยศาสตรบัณฑิต (เกียรตินิยมอันดับ 2) คณะแพทยศาสตร์ มหาวิทยาลัยสงขลานครินทร์</li>
+                                                <li>แพทย์เฉพาะทางสาขาศัลยกรรมกระดูกและข้อวิทยาลัยแพทยศาสตร์พระมงกุฎเกล้า โรงพยาบาลพระมงกุฎเกล้า</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="profile-section-block">
+                                            <h5 class="profile-section-title">วุฒิบัตร</h5>
+                                            <ul class="clean-list">
+                                                <li>สาขาศัลยศาสตร์ออร์โธปิดิกส์, ประเทศไทย</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="profile-section-block">
+                                            <h5 class="profile-section-title">การศึกษาหลังปริญญา</h5>
+                                            <ul class="clean-list">
+                                                <li>Spine Surgery Fellowship, Lutheran Medical Center (รัฐโอไฮโอ สหรัฐอเมริกา)</li>
+                                                <li>Pediatric Orthopedics Fellowship, Hospital for Special Surgery (รัฐนิวยอร์ก สหรัฐอเมริกา)</li>
+                                                <li>Arthroscopy Training, Arthroscopy Association of North America</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="profile-section-block">
+                                            <h5 class="profile-section-title">ตำแหน่งบริหาร</h5>
+                                            <ul class="clean-list">
+                                                <li>ประธานอนุสาขาข้อสะโพกและข้อเข่า (ราชวิทยาลัยแพทย์ออร์โธปิดิกส์แห่งประเทศไทย)</li>
+                                                <li>ประธานอนุสาขาข้อสะโพก (สมาคมออร์โธปิดิกส์แห่งเอเชียแปซิฟิก)</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="profile-section-block">
+                                            <h5 class="profile-section-title">รางวัลที่ได้รับ</h5>
+                                            <ul class="clean-list">
+                                                <li>รางวัลนวัตกรรมดีเด่น ประจำปี 2021 จากชมรมศัลยแพทย์ข้อสะโพกและข้อเข่าแห่งประเทศไทย (Thai Hip and Knee Society - THKS)</li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>

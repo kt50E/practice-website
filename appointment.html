@@ -17,7 +17,7 @@
                 --bg-white: #ffffff;        
                 --bg-light-blue: #f4f9fc;
                 --text-dark: #333333;       
-                --brand-green: #32c48d;
+                --brand-green: #32c48d;  /* THIS IS YOUR GREEN COLOR */
                 --brand-green-dark: #28a375; 
                 --brand-blue: #0099cc;
                 --brand-blue-dark: #007399;
@@ -82,8 +82,9 @@
                 background-color: #fff; 
             }
 
+            /* --- BUTTON STYLE (Already defined as Green here) --- */
             .btn-submit {
-                background-color: var(--brand-green);
+                background-color: var(--brand-green); /* Green Background */
                 color: white;
                 padding: 15px 40px;
                 border-radius: 50px;
@@ -95,7 +96,7 @@
                 margin-top: 20px;
             }
             .btn-submit:hover {
-                background-color: var(--brand-green-dark);
+                background-color: var(--brand-green-dark); /* Darker Green on Hover */
                 transform: translateY(-2px);
                 box-shadow: 0 10px 20px rgba(50, 196, 141, 0.3);
             }
@@ -223,7 +224,7 @@
                                             <label>เบอร์โทรศัพท์ <span class="text-danger">*</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <select class="custom-select" style="border-top-right-radius: 0; border-bottom-right-radius: 0; min-width: 140px;">
+                                                    <select class="custom-select" id="countryCodeSelect" style="border-top-right-radius: 0; border-bottom-right-radius: 0; min-width: 140px;">
                                                         <option value="+66" selected>Thailand (+66)</option> 
                                                         <option value="+855">Cambodia (+855)</option>
                                                         <option value="+86">China (+86)</option>
@@ -274,7 +275,7 @@
                                         </div>
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary-brand btn-block btn-lg" style="border-radius: 50px;">
+                                    <button type="submit" class="btn btn-submit shadow">
                                         ส่งข้อมูลขอนัดหมาย
                                     </button>
                                     
@@ -370,20 +371,48 @@
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
         <script>
-            // 1. Define your Holidays
+            // 1. Sort Country Codes (A-Z)
+            function sortSelectOptions(selectElementId) {
+                var select = document.getElementById(selectElementId);
+                var options = Array.from(select.options);
+                
+                // Keep "Thailand" (value +66) at the top
+                var topOption = options.find(opt => opt.value === "+66");
+                var otherOptions = options.filter(opt => opt.value !== "+66");
+
+                // Sort others alphabetically by text
+                otherOptions.sort((a, b) => a.text.localeCompare(b.text));
+
+                // Re-append
+                select.innerHTML = "";
+                select.appendChild(topOption);
+                otherOptions.forEach(opt => select.appendChild(opt));
+            }
+            // Run sort on load
+            sortSelectOptions("countryCodeSelect");
+
+
+            // 2. Define Holidays
             var holidayDates = [
                 "13-04-2026", "14-04-2026", "31-12-2026", "01-01-2027"
             ];
 
-            // 2. Initialize Calendar
+            // 3. Initialize Calendar
             flatpickr("#appointmentDate", {
                 dateFormat: "d-m-Y",
                 minDate: "today",
                 disable: [
                     // Block Mondays (Day 1)
                     function(date) { return (date.getDay() === 1); },
-                    // Block Holidays
-                    ...holidayDates 
+                    // Block Holidays (String comparison)
+                    function(date) {
+                        // Helper to format date to d-m-Y for comparison
+                        let d = date.getDate().toString().padStart(2, '0');
+                        let m = (date.getMonth() + 1).toString().padStart(2, '0');
+                        let y = date.getFullYear();
+                        let dateString = `${d}-${m}-${y}`;
+                        return holidayDates.includes(dateString);
+                    }
                 ],
                 locale: { firstDayOfWeek: 0 },
 
@@ -416,7 +445,7 @@
                 }
             });
 
-            // 3. HANDLE FORM SUBMISSION (Success Message)
+            // 4. HANDLE FORM SUBMISSION (Success Message)
             $(document).ready(function() {
                 $("#appointmentForm").on("submit", function(e) {
                     e.preventDefault(); // Stop page refresh

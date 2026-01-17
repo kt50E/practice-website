@@ -117,7 +117,7 @@ a<!doctype html>
             /* "right top" forces the browser to align the right edge of the image 
                (where the doctor is) with the right edge of the phone. */
             /* This brings the doctor back into frame on mobile. */
-            background-position: 70% 20%; 
+            background-position: 70% 10%; 
             
             background-size: cover;
             background-repeat: no-repeat;
@@ -126,10 +126,16 @@ a<!doctype html>
         .hero-content {
             background: transparent;
             /* Extra padding at bottom to lift text off the edge */
-            padding: 50px 25px 50px 25px; 
+
+            padding: 50px 25px 20px 25px; 
             width: 100%;
         }
-
+        /* FIX 2: TIGHTEN SPACE ABOVE BUTTON (Targeting the Signature) */
+        /* This overrides the default 'mb-4' class on the doctor's name */
+        .hero-content p.mb-4 {
+            margin-bottom: 10px !important;
+        }
+        
         /* FIX 3: SMALLER TEXT FOR 2 LINES */
         .hero-title { 
             font-size: 1.5rem; /* Smaller font to prevent wrapping */
@@ -155,7 +161,7 @@ a<!doctype html>
             font-size: 1rem;
             width: 100%; 
             text-align: center;
-            margin-top: 5px; /* Space between sig and button */
+            margin-top: 0px; /* Space between sig and button */
         }
       }
       @media (min-width: 769px) {

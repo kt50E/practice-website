@@ -101,26 +101,58 @@
       }
       .nav-link.active { color: var(--brand-blue) !important; }
 
-      /* --- DROPDOWN HOVER ANIMATION --- */
-      .navbar-nav .dropdown:hover > .dropdown-menu {
-        display: block;
+      /* --- DROPDOWN HOVER ANIMATION (Desktop) --- */
+      /* Hide dropdown arrow */
+      .navbar-nav .dropdown-toggle::after {
+        display: none;
       }
-      .navbar-nav .dropdown-menu {
-        margin-top: 0;
-        border: none;
-        border-radius: 8px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-        display: block;
+
+      /* Desktop: hover-based dropdowns */
+      @media (min-width: 992px) {
+        .navbar-nav .dropdown:hover > .dropdown-menu {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+        .navbar-nav .dropdown-menu {
+          margin-top: 0;
+          border: none;
+          border-radius: 8px;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+          display: block;
+        }
       }
-      .navbar-nav .dropdown:hover > .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
+
+      /* Mobile: click-based dropdowns (Bootstrap default behavior) */
+      @media (max-width: 991.98px) {
+        .navbar-nav .dropdown-menu {
+          border: none;
+          background: rgba(0, 0, 0, 0.03);
+          border-radius: 8px;
+          margin: 5px 0;
+          padding: 10px 0;
+        }
+        .navbar-nav .dropdown-menu .dropdown-item {
+          padding: 8px 25px;
+        }
+        /* Show arrow on mobile for tap indication */
+        .navbar-nav .dropdown-toggle::after {
+          display: inline-block;
+          margin-left: 5px;
+          vertical-align: middle;
+          content: "";
+          border-top: 0.3em solid;
+          border-right: 0.3em solid transparent;
+          border-bottom: 0;
+          border-left: 0.3em solid transparent;
+        }
       }
+
       .dropdown-item {
         padding: 10px 20px;
         font-family: 'Sarabun', sans-serif;
@@ -927,12 +959,8 @@
       <div class="footer-bottom">
         <div class="container">
           <div class="row align-items-center">
-            <div class="col-md-6 text-center text-md-left">
+            <div class="col-12 text-center">
               <p>© 2025 Thanaplus Life Center. All rights reserved.</p>
-            </div>
-            <div class="col-md-6 text-center text-md-right">
-              <a href="#" class="mr-3">นโยบายความเป็นส่วนตัว</a>
-              <a href="#">ข้อกำหนดการใช้งาน</a>
             </div>
           </div>
         </div>

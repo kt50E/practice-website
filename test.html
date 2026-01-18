@@ -139,6 +139,25 @@
             direction: rtl;
             text-align: right;
         }
+
+        /* Skip Link for Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -50px;
+            left: 0;
+            background: var(--brand-blue);
+            color: white;
+            padding: 10px 20px;
+            z-index: 10000;
+            transition: top 0.3s;
+            text-decoration: none;
+            border-radius: 0 0 8px 0;
+        }
+        .skip-link:focus {
+            top: 0;
+            color: white;
+            text-decoration: none;
+        }
     </style>
 
     <title>รักษาข้อเสื่อมด้วย Plasma (PRGF) - Thanaplus Life Center</title>
@@ -146,12 +165,14 @@
 
 <body>
 
+    <a href="#main-content" class="skip-link">ข้ามไปยังเนื้อหาหลัก</a>
+
     <div class="top-header py-2">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-8 text-lg-left text-center">
                     <ul class="list-inline mb-0">
-                        <li class="list-inline-item mr-4"><i class="fab fa-line" style="color: var(--brand-green);"></i> <span style="font-family: Arial, sans-serif;">@thana_plus</li>
+                        <li class="list-inline-item mr-4"><i class="fab fa-line" style="color: var(--brand-green);"></i> <span style="font-family: Arial, sans-serif;">@thana_plus</span></li>
                         <li class="list-inline-item"><i class="fas fa-phone" style="color: var(--brand-green);"></i> 098-143-3999</li>
                     </ul>
                 </div>
@@ -243,7 +264,7 @@
         </div>
     </section>
 
-    <section class="py-5">
+    <section class="py-5" id="main-content">
         <div class="container">
             <div class="row">
                 
@@ -1839,7 +1860,7 @@
                             </div>
                         </div>
                     </div>
-                
+
                     <div class="content-para mt-5 pt-4 border-top">
                         <h4 class="text-muted">ເອກະສານອ້າງອິງ</h4>
                         <ol class="small text-muted">
@@ -1850,9 +1871,13 @@
                             <li>Cheeva-Akrapan V, Turajane T. The 36-Month Survival Analysis of Conservative Treatment Using Platelet-Rich Plasma Enhanced With Injectable Platelet-Rich Fibrin in Patients With Knee Osteoarthritis. Cureus 15(3): e35632. DOI 10.7759/cureus.35632</li>
                         </ol>
                         <p class="small text-muted font-italic mt-3">* ພ້ອມນີ້ ຜົນການປິ່ນປົວກັບການບົ່ງມະຕິພະຍາດຂອງໝໍ ແລະ ໄລຍະຄວາມຮຸນແຮງຂອງພະຍາດຕ່າງໆ</p>
-                  </div>
-             </div>
-                 <div class="col-lg-4">
+                    </div>
+
+                </div><!-- end content-lo -->
+
+                </div><!-- end col-lg-8 -->
+
+                <div class="col-lg-4">
                     <div class="sticky-cta">
                         <h4 class="font-weight-bold mb-3" style="color: var(--brand-blue);">ปรึกษาแพทย์</h4>
                         <p class="text-muted">หากคุณมีอาการปวดเข่าเรื้อรัง หรือต้องการคำแนะนำเพิ่มเติมเกี่ยวกับ PRGF</p>
@@ -1892,7 +1917,7 @@
                 <div class="col-lg-4">
                     <h4 class="text-white">ติดต่อเรา</h4>
                     <p><i class="fas fa-phone mr-2" style="color: var(--brand-green);"></i> 098-143-3999</p>
-                    <p><i class="fab fa-line mr-2" style="color: var(--brand-green);"></i> <span style="font-family: Arial, sans-serif;">@thana_plus</p>
+                    <p><i class="fab fa-line mr-2" style="color: var(--brand-green);"></i> <span style="font-family: Arial, sans-serif;">@thana_plus</span></p>
                 </div>
             </div>
             <div class="row pt-4 border-top border-secondary text-center">

@@ -4,6 +4,17 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="ทำความรู้จัก Thanaplus Life Center และ พล.ต.ท.นพ.ธนา ธุระเจน แพทย์ผู้เชี่ยวชาญด้านกระดูกและข้อ ผู้บุกเบิกการรักษาด้วย Regenerative Medicine">
+        <meta name="keywords" content="พล.ต.ท.นพ.ธนา ธุระเจน, Thanaplus, แพทย์กระดูกและข้อ, Orthopedic, Regenerative Medicine">
+        <meta name="author" content="Thanaplus Life Center">
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://thanapluslifecenter.com/about.html">
+        <meta property="og:title" content="เกี่ยวกับเรา - Thanaplus Life Center">
+        <meta property="og:description" content="ทำความรู้จักทีมแพทย์และคลินิก Thanaplus Life Center">
+
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         
@@ -193,12 +204,32 @@
             .footer-area h4 { color: #ffffff; margin-bottom: 25px; font-family: 'Playfair Display', serif; }
             .footer-area a { color: #acb7b9; transition: 0.3s; }
             .footer-area a:hover { color: var(--brand-green); text-decoration: none; }
+
+            /* Skip to content link for accessibility */
+            .skip-link {
+                position: absolute;
+                top: -50px;
+                left: 0;
+                background: var(--brand-blue);
+                color: white;
+                padding: 10px 20px;
+                z-index: 10000;
+                transition: top 0.3s;
+                text-decoration: none;
+                border-radius: 0 0 8px 0;
+            }
+            .skip-link:focus {
+                top: 0;
+                color: white;
+                text-decoration: none;
+            }
         </style>
 
         <title>เกี่ยวกับเรา - Thanaplus Life Center</title>
     </head>
 
     <body>
+        <a href="#main-content" class="skip-link">ข้ามไปยังเนื้อหาหลัก</a>
 
         <div class="top-header py-2">
             <div class="container">
@@ -239,7 +270,7 @@
             </div>
         </div>
 
-        <section class="page-header">
+        <section class="page-header" id="main-content">
             <div class="container">
                 <h1 class="font-weight-bold">เกี่ยวกับเรา</h1>
                 <p class="lead mb-0">ทำความรู้จัก Thanaplus Life Center และทีมแพทย์ของเรา</p>
@@ -264,7 +295,7 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="about-image-box shadow-lg">
-                            <img src="intro1.png" alt="Clinic Interior" class="img-fluid">
+                            <img src="intro1.png" alt="Clinic Interior" class="img-fluid" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -286,7 +317,7 @@
                                 
                                 <div class="col-lg-4">
                                     <div class="profile-sidebar">
-                                        <img src="thana2.png" alt="พล.ต.ท. นพ.ธนา ธุระเจน" class="profile-img">
+                                        <img src="thana2.png" alt="พล.ต.ท. นพ.ธนา ธุระเจน" class="profile-img" loading="lazy">
                                         <h3 class="doctor-name">พล.ต.ท. นพ.ธนา ธุระเจน</h3>
                                         <p class="doctor-role">บริหารงานโดย</p>
                                     </div>

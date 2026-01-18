@@ -4,6 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="บริการรักษาข้อเข่าเสื่อม ปวดข้อศอก ปวดไหล่ ข้อสะโพกเสื่อม ด้วย Plasma 1 (PRGF) นวัตกรรมการรักษาโดยไม่ต้องผ่าตัด">
+    <meta name="keywords" content="ข้อเข่าเสื่อม, ปวดข้อศอก, ปวดไหล่, ข้อสะโพกเสื่อม, PRGF, Plasma, รักษาโดยไม่ผ่าตัด">
+    <meta name="author" content="Thanaplus Life Center">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thanapluslifecenter.com/services.html">
+    <meta property="og:title" content="บริการของเรา - Thanaplus Life Center">
+    <meta property="og:description" content="นวัตกรรมการรักษาข้อเสื่อมโดยไม่ต้องผ่าตัด ด้วย Plasma 1 (PRGF)">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
@@ -230,7 +241,28 @@
       }
       .mobile-cta .btn{ width: 100%; }
       @media (max-width: 991.98px){
-        .mobile-cta{ display:block; } body{ padding-bottom: 78px; }
+        .mobile-cta{ display:block; }
+        body{ padding-bottom: 90px; }
+        .footer-area { padding-bottom: 80px; }
+      }
+
+      /* Skip to content link for accessibility */
+      .skip-link {
+        position: absolute;
+        top: -50px;
+        left: 0;
+        background: var(--brand-blue);
+        color: white;
+        padding: 10px 20px;
+        z-index: 10000;
+        transition: top 0.3s;
+        text-decoration: none;
+        border-radius: 0 0 8px 0;
+      }
+      .skip-link:focus {
+        top: 0;
+        color: white;
+        text-decoration: none;
       }
     </style>
 
@@ -238,6 +270,7 @@
   </head>
 
   <body>
+    <a href="#main-content" class="skip-link">ข้ามไปยังเนื้อหาหลัก</a>
 
     <div class="top-header py-2">
         <div class="container">
@@ -278,7 +311,7 @@
         </div>
     </div>
 
-    <section class="page-header">
+    <section class="page-header" id="main-content">
       <div class="container">
         <h1 class="font-weight-bold">บริการของเรา</h1>
         <p class="lead mb-0">นวัตกรรมการรักษาโดยไม่ต้องผ่าตัด</p>
@@ -316,7 +349,7 @@
               
               <div class="col-lg-5 d-none d-lg-block">
                 <div class="feature-media-container">
-                    <img src="freepik_plateletai.png" alt="Signature Service Image">
+                    <img src="freepik_plateletai.png" alt="Signature Service Image" loading="lazy">
                 </div>
               </div>
             </div>
@@ -339,7 +372,7 @@
         <div class="row">
           <div class="col-lg-3 col-md-6 mb-4">
             <div class="condition-card">
-              <img src="kneepain2.png" class="condition-img">
+              <img src="kneepain2.png" alt="ข้อเข่าเสื่อม - Knee Osteoarthritis" class="condition-img" loading="lazy">
               <div class="condition-body">
                   <h5>ข้อเข่าเสื่อม</h5>
                   <p class="mb-0 small-note">
@@ -351,7 +384,7 @@
 
           <div class="col-lg-3 col-md-6 mb-4">
             <div class="condition-card">
-              <img src="elbowpain.png" alt="Elbow Pain" class="condition-img">
+              <img src="elbowpain.png" alt="Elbow Pain" class="condition-img" loading="lazy">
               <div class="condition-body">
                   <h5>ปวดข้อศอก</h5>
                   <p class="mb-0 small-note">
@@ -363,7 +396,7 @@
 
           <div class="col-lg-3 col-md-6 mb-4">
             <div class="condition-card">
-              <img src="shoulderpain.png" alt="Shoulder Pain" class="condition-img">
+              <img src="shoulderpain.png" alt="Shoulder Pain" class="condition-img" loading="lazy">
               <div class="condition-body">
                   <h5>ปวดไหล่/เอ็นไหล่อักเสบ</h5>
                   <p class="mb-0 small-note">
@@ -375,7 +408,7 @@
 
           <div class="col-lg-3 col-md-6 mb-4">
             <div class="condition-card">
-              <img src="hippain.png" alt="Hip Pain" class="condition-img">
+              <img src="hippain.png" alt="Hip Pain" class="condition-img" loading="lazy">
               <div class="condition-body">
                   <h5>ข้อสะโพกเสื่อม/ปวดสะโพก</h5>
                   <p class="mb-0 small-note">
@@ -487,7 +520,7 @@
                     <div class="mr-3"><i class="fab fa-line" style="font-size:18px;"></i></div>
                     <div>
                       <div class="font-weight-bold">LINE</div>
-                      <div style="opacity:.92;"> <span style="font-family: Arial, sans-serif;">@thana_plus</div>
+                      <div style="opacity:.92;"><span style="font-family: Arial, sans-serif;">@thana_plus</span></div>
                     </div>
                   </div>
                 </div>

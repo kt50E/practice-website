@@ -1,558 +1,459 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plasma Rich in Growth Factors - Multilingual Tabs</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&family=Noto+Sans+Thai&family=Noto+Sans+Khmer&family=Noto+Sans+Lao&family=Noto+Sans+Arabic&family=Noto+Sans+JP&family=Noto+Sans+SC&family=Noto+Sans+Myanmar&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: 'Sarabun', sans-serif;
-            background-color: #f8f9fa;
-        }
-        
-        /* Language Specific Fonts */
-        .lang-thai { font-family: 'Sarabun', 'Noto Sans Thai', sans-serif; }
-        .lang-khmer { font-family: 'Noto Sans Khmer', sans-serif; }
-        .lang-lao { font-family: 'Noto Sans Lao', sans-serif; }
-        .lang-arabic { font-family: 'Noto Sans Arabic', sans-serif; }
-        .lang-jp { font-family: 'Noto Sans JP', sans-serif; }
-        .lang-cn { font-family: 'Noto Sans SC', sans-serif; }
-        .lang-my { font-family: 'Noto Sans Myanmar', sans-serif; }
+<!doctype html>
+<html lang="th">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        /* Tab Styling */
-        .nav-tabs .nav-link {
-            color: #495057;
-            font-weight: bold;
-            border-top: 3px solid transparent;
-        }
-        .nav-tabs .nav-link.active {
-            color: #007bff;
-            border-top: 3px solid #007bff;
-        }
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         
-        /* Content Styling */
-        .page-header {
-            background-color: #e9ecef;
-            padding: 60px 0;
-            margin-bottom: 30px;
-        }
-        .content-para h3 {
-            color: #2c3e50;
-            border-left: 5px solid #28a745; /* Green bar header */
-            padding-left: 15px;
-            margin-bottom: 20px;
-            margin-top: 30px;
-        }
-        .custom-table th {
-            background-color: #e9ecef;
-        }
-        .alert-info {
-            background-color: #d1ecf1;
-            border-color: #bee5eb;
-            color: #0c5460;
-        }
-        /* RTL Support for Arabic */
-        [dir="rtl"] .content-para h3 {
-            border-left: none;
-            border-right: 5px solid #28a745;
-            padding-left: 0;
-            padding-right: 15px;
-        }
-        [dir="rtl"] .text-left {
-            text-align: right !important;
-        }
-        [dir="rtl"] .mr-2 {
-            margin-right: 0 !important;
-            margin-left: 0.5rem !important;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container mt-5">
-    <ul class="nav nav-tabs" id="languageTabs" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="tab-thai" data-toggle="tab" href="#content-thai" role="tab">ภาษาไทย</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="tab-english" data-toggle="tab" href="#content-english" role="tab">English</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="tab-khmer" data-toggle="tab" href="#content-khmer" role="tab">ខ្មែរ</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="tab-arabic" data-toggle="tab" href="#content-arabic" role="tab">العربية</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="tab-burmese" data-toggle="tab" href="#content-burmese" role="tab">မြန်မာ</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="tab-lao" data-toggle="tab" href="#content-lao" role="tab">ລາວ</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="tab-chinese" data-toggle="tab" href="#content-chinese" role="tab">中文</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="tab-japanese" data-toggle="tab" href="#content-japanese" role="tab">日本語</a>
-        </li>
-    </ul>
-
-    <div class="tab-content" id="languageTabsContent">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
         
-        <div class="tab-pane fade show active lang-thai" id="content-thai" role="tabpanel">
-            <section class="page-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-10 mx-auto text-center">
-                            <h1 class="font-weight-bold">พลาสมาเข้มข้น (Plasma Rich in Growth Factors)</h1>
-                            <h2 class="h4 mb-3" style="font-family: 'Sarabun', sans-serif;">ทางเลือกใหม่ของข้อเสื่อม</h2>
-                            <p class="author-name">เรียบเรียงโดย นพ.วรศิลป์ ชีวอัครพันธุ์, นพ.ธนา ธุระเจน</p>
-                        </div>
+        <style>
+            /* --- SHARED STYLES --- */
+            :root {
+                --bg-white: #ffffff;       
+                --bg-light-blue: #f4f9fc;
+                --text-dark: #333333;      
+                --brand-green: #32c48d;
+                --brand-green-dark: #28a375; 
+                --brand-blue: #0099cc;
+                --brand-blue-dark: #007399;
+            }
+            body { font-family: 'Sarabun', sans-serif; background-color: var(--bg-white); color: var(--text-dark); line-height: 1.8; }
+            h1, h2, h3, h4, .navbar-brand { font-family: 'Playfair Display', serif; color: var(--text-dark); }
+            
+            /* --- NAVBAR --- */
+            .top-header { background-color: #f8f9fa; font-size: 14px; border-bottom: 1px solid #eee; color: #666; }
+            .navbar-area { background: #fff; box-shadow: 0 4px 20px rgba(0, 153, 204, 0.1); }
+            .nav-link { font-weight: 500; color: #555 !important; font-family: 'Sarabun', sans-serif; }
+            .nav-link.active { color: var(--brand-blue) !important; }
+
+            /* --- PAGE HEADER --- */
+            .page-header {
+                background: linear-gradient(135deg, rgba(0, 153, 204, 0.9) 0%, rgba(50, 196, 141, 0.8) 100%), url('doctor-chart.png');
+                background-size: cover;
+                background-position: center;
+                padding: 80px 0;
+                color: white;
+            }
+            .page-header h1 { color: white; margin-bottom: 10px; }
+            .author-name { opacity: 0.9; font-style: italic; font-size: 0.9rem; }
+
+            /* --- CONTENT STYLING --- */
+            .content-para { margin-bottom: 40px; }
+            .content-para h3 { 
+                color: var(--brand-blue); 
+                border-left: 5px solid var(--brand-green);
+                padding-left: 15px;
+                margin-bottom: 20px;
+                font-weight: 600;
+            }
+            .content-para ul, .content-para ol { padding-left: 20px; }
+            .content-para li { margin-bottom: 10px; }
+            
+            /* Table Styling */
+            .custom-table { width: 100%; margin-bottom: 1rem; background-color: transparent; }
+            .custom-table th, .custom-table td { padding: 1rem; vertical-align: top; border-top: 1px solid #dee2e6; }
+            .custom-table thead th { vertical-align: bottom; border-bottom: 2px solid #dee2e6; background-color: var(--bg-light-blue); color: var(--brand-blue); }
+            
+            /* Sidebar Call to Action */
+            .sticky-cta {
+                position: sticky;
+                top: 100px;
+                background: var(--bg-light-blue);
+                padding: 30px;
+                border-radius: 15px;
+                border: 1px solid #e3f2fd;
+            }
+
+            /* --- FOOTER --- */
+            .footer-area { background-color: #2c3e50; color: #d0d0d0; padding-top: 60px; }
+            .footer-area h4 { color: #ffffff; margin-bottom: 25px; font-family: 'Playfair Display', serif; }
+            .footer-area a { color: #acb7b9; transition: 0.3s; }
+            .footer-area a:hover { color: var(--brand-green); text-decoration: none; }
+        </style>
+
+        <title>รักษาข้อเสื่อมด้วย Plasma (PRGF) - Thanaplus Life Center</title>
+    </head>
+
+    <body>
+
+        <div class="top-header py-2">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 text-lg-left text-center">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item mr-4"><i class="fab fa-line" style="color: var(--brand-green);"></i> <span style="font-family: Arial, sans-serif;">@thana_plus</li>
+                            <li class="list-inline-item"><i class="fas fa-phone" style="color: var(--brand-green);"></i> 098-143-3999</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 text-lg-right text-center d-none d-lg-block">
+                        <span style="color: #777;"><i class="far fa-clock"></i> อ.-ศ. 15:30-17:30 น. | ส.-อา. 11:30-15:00 น.</span>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
 
-            <section class="py-5">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto">
+        <div class="navbar-area sticky-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="TP-logo.png" alt="Thanaplus Clinic" style="height: 60px; width: auto;">
+                    </a> 
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="mainNav">
+                        <ul class="navbar-nav ml-auto"> 
+                            <li class="nav-item"><a href="index.html" class="nav-link">หน้าแรก</a></li>
+                            <li class="nav-item"><a href="about.html" class="nav-link">เกี่ยวกับเรา</a></li>
+                            <li class="nav-item"><a href="services.html" class="nav-link active">บริการของเรา</a></li>
+                            <li class="nav-item"><a href="education.html" class="nav-link">สาระน่ารู้</a></li>
+                            <li class="nav-item"><a href="contactus.html" class="nav-link" style="color: var(--brand-blue) !important;"><i class="fas fa-phone"></i> ติดต่อเรา</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <section class="page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto text-center">
+                        <h1 class="font-weight-bold">พลาสมาเข้มข้น (Plasma Rich in Growth Factors)</h1>
+                        <h2 class="h4 mb-3" style="font-family: 'Sarabun', sans-serif;">ทางเลือกใหม่ของข้อเสื่อม</h2>
+                        <p class="author-name">เรียบเรียงโดย นพ.วรศิลป์ ชีวอัครพันธุ์, นพ.ธนา ธุระเจน</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-lg-8">
+                        
+                        <div class="content-para">
+                            <h3>ข้อเสื่อม: โรคที่ควรรู้และป้องกัน</h3> 
+                            <p>ข้อเสื่อมเป็นโรคที่พบได้บ่อยและมีอุบัติการณ์เพิ่มขึ้นตามอายุขัย ปัจจุบันถือว่าเป็นโรคที่มีความสำคัญโดยเฉพาะในประเทศไทยที่กำลังก้าวเข้าสู่สังคมผู้สูงอายุอย่างเต็มรูปแบบ โรคข้อเสื่อมมีผลกระทบต่อคุณภาพชีวิตอย่างเห็นได้ชัดเจน ทั้งทางด้านร่างกายและสภาพจิตใจ</p> 
+                            <p>สาเหตุของข้อเสื่อมมีทั้งส่วนที่ทราบสาเหตุ เช่น ข้อเสื่อมที่เกิดขึ้นภายหลังจากการได้รับอุบัติเหตุ ข้อเสื่อมที่พบร่วมกับโรคของการอักเสบหรือเยื่อหุ้มข้ออักเสบ และส่วนที่ไม่ทราบสาเหตุซึ่งพบในกลุ่มที่มีการใช้งานมากตามอายุที่เพิ่มขึ้น ผลกระทบตามมาจากข้อเสื่อมได้แก่ กล้ามเนื้อที่ไม่แข็งแรงทำให้มีอาการอ่อนแรง การอักเสบในข้อทำให้มีอาการปวด น้ำเลี้ยงข้อเสียสภาพตามธรรมชาติ และการทำลายกระดูกอ่อนอย่างต่อเนื่อง ทำให้มีอาการปวดเวลาเดินทั้งทางราบและการเดินขึ้นลงบันได รวมทั้งเกิดการผิดรูปของข้อเข่า</p>
+                        </div>
+
+                        <div class="content-para">
+                            <h3>การรักษาโรคข้อเสื่อมในปัจจุบัน</h3> 
+                            <p>การรักษาในปัจจุบัน ได้แก่ การรับประทานยา การทำกายภาพบำบัด การฉีดยาเสตียรอยด์ และการฉีดยาน้ำเลี้ยงข้อเทียม ซึ่งมีทั้งแบบฉีดหนึ่งเข็ม สามเข็ม หรือห้าเข็ม โดยฉีดสัปดาห์ละ 1 ครั้ง ซึ่งต้องฉีดทุกๆ 6 เดือน หากการรักษาด้วยวิธีดังกล่าวไม่ได้ผล ผู้ป่วยจำเป็นต้องเข้ารับการผ่าตัดเปลี่ยนข้อเข่าเทียม ซึ่งมีทั้งแบบครึ่งข้อ (Unicompartmental Knee Arthroplasty: UKA) หรือแบบเต็มข้อ (Total Knee Arthroplasty: TKA) ขึ้นกับการวินิจฉัยและดุลพินิจของแพทย์ ซึ่งให้ผลการรักษาที่ดีและถือเป็นมาตรฐานการรักษาในปัจจุบัน</p>
+                            <p>อย่างไรก็ตาม ความคาดหวังของผู้ป่วยโรคข้อเสื่อมมีการเปลี่ยนแปลงไปเนื่องจากประชากรในปัจจุบันมีอายุยืนยาวขึ้น มีความต้องการออกกำลังกายมากขึ้น ความต้องการรับประทานยาแก้อักเสบน้อยลง ไม่ต้องการฉีดยาเข้าข้อบ่อยครั้ง ต้องการยาที่ออกฤทธิ์ได้นานมากกว่า 6 เดือน และที่สำคัญคือ ต้องการผ่าตัดในกรณีที่จำเป็นและถึงเวลาอันเหมาะสมเท่านั้น</p>
+                        </div>
+
+                        <div class="content-para">
+                            <h3>มุมมองแห่งอนาคตในการรักษาด้วยเทคโนโลยีชีวภาพ</h3> 
+                            <p>ในโลกปัจจุบันเป็นโลกของการรักษาด้วยเทคโนโลยีชีวภาพชั้นสูง (Advanced biotechnology) การแพทย์มาตรฐานในปัจจุบัน (Conventional medicine) มีแนวโน้มที่จะเปลี่ยนไปเป็นการรักษาสภาพเดิมของร่างกายให้ดีที่สุดและนานที่สุดด้วยการหายตามธรรมชาติ (Regenerative medicine)</p>
+                            <p>การรักษาข้อเสื่อมโดยวิธีธรรมชาติที่ปลอดภัย ได้ผลดี มีประสิทธิภาพ จึงถูกพัฒนาขี้นตามลำดับตั้งแต่ พ.ศ. 2556 เป็นต้นมาในประเทศไทย เพื่อศึกษาความสัมพันธ์ของประสิทธิภาพการรักษาด้วยเซลล์ต้นกำเนิด เกล็ดเลือดเข้มข้นและการกระตุ้นตามธรรมชาติที่เหมาะสม</p>
+                            <p>ตั้งแต่ปี พ.ศ. 2553 การใช้เกล็ดเลือดเข้มข้นเพื่อใช้ในการรักษาโรคข้อเสื่อมได้รับการยอมรับจากองค์การอาหารและยา (FDA) ของประเทศสหรัฐอเมริกา อย่างไรก็ตาม ข้อบ่งชี้ของการรักษาด้วยวิธีนี้ มักใช้ในการรักษาข้อเสื่อมระยะต้นซึ่งมักพบในนักกีฬาและผู้ที่มีอายุน้อยกว่า 55 ปี มีการฉีด 2-4 ครั้ง โดยฉีดทุก 4-6 เดือน หากเป็นข้อเสื่อมระยะกลางและระยะปลาย ผู้ป่วยมักจะได้รับคำแนะนำให้เข้ารับการผ่าตัดข้อเทียมแบบครึ่งข้อ (UKA) หรือแบบเต็มข้อ (TKA) สำหรับปัญหาในประเทศไทย คือ ผู้ป่วยส่วนใหญ่มีลักษณะที่เป็นผู้ป่วยที่อายุมาก ผู้ป่วยมักมาพบแพทย์เมื่อมีข้อเสื่อมในระยะกลางถึงปลาย จึงส่งผลให้มีอัตราการผ่าตัดที่เพิ่มสูงขึ้นในผู้ป่วยกลุ่มดังกล่าว</p> 
+                        </div>
+
+                        <div class="content-para">
+                            <h3>พลาสมาเข้มข้นที่อุดมไปด้วยสารกระตุ้นการเจริญเติบโต (Plasma Rich in Growth Factors: PRGF)</h3> 
+                            <p>การวิจัยและพัฒนามาอย่างต่อเนื่องตั้งแต่ปี พ.ศ. 2557 จนถึงปัจจุบัน ทำให้ทีมแพทย์สามารถใช้เกล็ดเลือดเข้มข้นชนิดปั่นสามครั้ง (Plasma Rich in Growth Factors) ซึ่งมีจำนวนเกล็ดเลือดที่เข้มข้นมากขึ้น มีปัจจัยที่เพิ่มประสิทธิภาพในการรักษาโรคข้อเสื่อมได้ในทุกระยะ และใช้ได้ในคนที่อายุมากขึ้น โดยที่ยังไม่มีความจำเป็นที่จะต้องได้รับการผ่าตัด</p>
+                            <div class="alert alert-light border border-info p-4 mb-4 rounded">
+                                <strong>องค์ประกอบสำคัญ 3 ประการ:</strong>
+                                <ol class="mt-2 mb-0">
+                                    <li><strong>เกล็ดเลือด:</strong> เป็นองค์ประกอบหลักของการให้สารกระตุ้นการเจริญเติบโต (Growth Factors) โดยความเข้มข้นของเกล็ดเลือดในการรักษาควรมีความเข้มข้นมากกว่าปกติ 5 เท่า</li>
+                                    <li><strong>เม็ดเลือดขาวชนิด Monocyte:</strong> ช่วยลดการอักเสบตามธรรมชาติ ซึ่งในการวิจัยพบว่ามีสารกระตุ้นการเจริญเติบโต (Growth factors) ในเม็ดเลือดขาวชนิดดังกล่าว</li>
+                                    <li><strong>โปรตีนในเลือด:</strong> ทำหน้าที่เป็นที่อยู่ของสารที่กระตุ้นการเจริญเติบโต (Growth factors) ทำให้เกล็ดเลือดเข้มข้นอยู่ในข้อและออกฤทธิ์ได้นานขึ้น มีส่วนช่วยในการซ่อมแซมและผลิตน้ำเลี้ยงข้อตามธรรมชาติ</li>
+                                </ol>
+                            </div>
+                            <p>ผลการวิจัยดังกล่าวได้รับการตีพิมพ์ลงในวารสารนานาชาติ จำนวน 4 ฉบับ ในช่วง พ.ศ. 2561- 2565 ได้รับอนุสิทธิบัตรจำนวน 3 ฉบับ ในปี พ.ศ. 2562 และรางวัลนวัตกรรมจากสมาคมข้อเข่าข้อสะโพกแห่งประเทศไทย (Innovation award, the Thai Hip & Knee Society) ใน พ.ศ. 2564</p>
+                        </div>
+
+                        <div class="content-para">
+                            <h3>ข้อบ่งชี้ในการรักษา (PRGF-triple spin technique)</h3> 
+                            <ul class="list-group list-group-flush mb-4">
+                                <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> ฉีดยาสเตียรอยด์แล้วอาการไม่ดีขึ้น</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> ฉีดยาน้ำเลี้ยงข้อเทียมแล้วอาการไม่ดีขึ้น</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> ข้อเข่าเสื่อมระยะที่ 1,2,3 และ ระยะที่ 4 ที่ไม่สามารถรับการผ่าตัดได้</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> รับประทานยาหรือทำกายภาพบำบัดแล้วอาการไม่ดีขึ้น</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> ไม่สามารถรับประทานยาได้เนื่องจากมีภาวะแทรกซ้อนจากยา</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> มีโรคที่รับประทานยาแก้อักเสบไม่ได้ เช่น โรคหัวใจ โรคไต โรคกระเพาะ</li>
+                            </ul>
+                        </div> 
+
+                        <div class="content-para">
+                            <h3>ข้อควรหลีกเลี่ยง</h3> 
+                            <p>ผู้ที่มีภาวะติดเชื้อ, โรคของเกล็ดเลือดต่างๆ, อายุต่ำกว่า 16 ปี, ภาวะตั้งครรภ์, ผู้ป่วยโรคมะเร็งที่อยู่ระหว่างการให้ยาเคมีบำบัด, ข้อเข่าเสื่อมที่ไม่ทราบสาเหตุ, หรือมีพยาธิสภาพของหมอนรองกระดูกฉีกขาดทั้งหมด เส้นเอ็นไขว้เข่าขาดทั้งหมด เศษกระดูกในเข่า</p>
+                        </div>
+                        
+                        <div class="content-para">
+                            <h3>คำแนะนำหลังการรักษา (PRGF-triple spin)</h3>
+                            <ul class="list-group list-group-flush mb-4">
+                                <li class="list-group-item">
+                                    <strong>1-2 วันหลังฉีด:</strong> ผู้ป่วยอาจมีอาการปวดเข่า แนะนำให้รับประทานยาแก้ปวดตามคำสั่งของแพทย์ และสามารถประคบเย็นทุกๆ 15 นาที เพื่อลดอาการบวมและตึงเข่า
+                                </li>
+                                <li class="list-group-item">
+                                    หลังฉีดสามารถเดินหรือทำกิจวัตรประจำวันได้ตามปกติ
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>วันที่ 3 หลังฉีด:</strong> ให้เริ่มบริหารข้อเข่าและกล้ามเนื้อขาตามคำแนะนำของทีมแพทย์และพยาบาลอย่างสม่ำเสมอและต่อเนื่อง
+                                </li>
+                                <li class="list-group-item">
+                                    ควรเว้นการออกกำลังกาย 5-7 วัน
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="content-para">
+                            <h3>ท่าบริหารข้อเข่าและกล้ามเนื้อขา</h3> 
+                            <ol>
+                                <li>นั่งตัวตรง นั่งเก้าอี้ประมาณครึ่งเบาะ (เพื่อให้สามารถเหยียดขาได้ตรงในแนวทำมุม 45 องศา)</li>
+                                <li>ยกขาทีละข้าง โดยให้เข่าเหยียดตรง ไม่ต้องกระดกปลายเท้า</li>
+                                <li>เกร็งขาค้างไว้จนครบ 100 วินาที แล้วนำขาลง</li> 
+                                <li>เหยียดเข่าอีกข้างขึ้น เกร็งค้างไว้จนครบ 100 วินาที</li> 
+                                <li>ทำครบ 2 ข้าง นับเป็นหนึ่งรอบ</li> 
+                                <li>ทำเช่นนี้วันละ 3-5 รอบ</li>  
+                            </ol> 
+                            <div style="text-align: center;" class="my-4">
+                                <img src="plasma1_chair.png" alt="ท่าบริหารข้อเข่า" class="img-fluid rounded shadow-sm">
+                            </div>
+                        </div> 
+
+                        <div class="content-para">
+                            <h3>ข้อแตกต่างระหว่าง Plasma Rich in Growth Factors และ Platelet-rich Plasma</h3> 
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover custom-table">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th width="30%">หัวข้อเปรียบเทียบ</th>
+                                            <th width="35%">Plasma Rich in Growth Factors</th>
+                                            <th width="35%">Platelet-Rich Plasma</th> 
+                                        </tr>   
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>ความถี่ในการรักษา</strong></td>
+                                            <td>1-2 ครั้ง ในระยะเวลา 6-12 เดือน</td>
+                                            <td>สัปดาห์ละ 1 ครั้ง ติดต่อกัน 3 - 5 ครั้ง ในระยะเวลา 4-6 เดือน</td> 
+                                        </tr>
+                                        <tr>
+                                            <td><strong>ความเสื่อมของข้อเข่าที่รับการรักษาได้</strong></td>
+                                            <td>ข้อเข่าเสื่อมทุกระยะ*</td>
+                                            <td>ข้อเข่าเสื่อมระยะเริ่มต้นเท่านั้น</td> 
+                                        </tr>
+                                        <tr>
+                                            <td><strong>องค์ประกอบ</strong></td>
+                                            <td>เกล็ดเลือด เม็ดเลือดขาว โปรตีน</td>
+                                            <td>เกล็ดเลือด</td> 
+                                        </tr> 
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="small text-muted">*ผลการรักษาขึ้นกับ อายุ ความรุนแรงของโรค จำนวนครั้งการฉีด steroid  การบริหารกล้ามเนื้อสม่ำเสมอ</p>
+                        </div>
+
+                        <div class="content-para">
+                            <h3>คำถามที่พบบ่อย (FAQ)</h3> 
+                            <div class="accordion" id="faqAccordion">
+                                <div class="card mb-2 border-0 shadow-sm">
+                                    <div class="card-header bg-white" id="headingOne">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left text-dark font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseOne">
+                                                1. การเตรียมตัวก่อนการรักษา
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseOne" class="collapse show" data-parent="#faqAccordion">
+                                        <div class="card-body text-muted">
+                                            <ul>
+                                                <li>พักผ่อนให้เพียงพอ</li>
+                                                <li>งดอาหารทอดและอาหารมันก่อนการเจาะเลือด</li>
+                                                <li>ในผู้ป่วยที่มีการรับประทานยาต้านเกล็ดเลือด หรือยาป้องกันการแข็งตัวของเลือด ควรปรึกษาแพทย์ประจำตัว เพื่องดยาดังกล่าวก่อนการเจาะเลือด 3-5 วัน</li>
+                                                <li>ในผู้ป่วยที่กำลังมีประจำเดือนควรงดการเจาะเลือด</li>
+                                                <li>ควรเว้นการเจาะเลือด 2 สัปดาห์หลังจากมีการบริจาคเลือดหรือส่วนประกอบของเลือด</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card mb-2 border-0 shadow-sm">
+                                    <div class="card-header bg-white" id="headingFreq">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#collapseFreq">
+                                                2. ความถี่ของการรักษา
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseFreq" class="collapse" data-parent="#faqAccordion">
+                                        <div class="card-body text-muted">
+                                            ฉีด 1-2 ครั้ง ในระยะ 6-12 เดือน ทั้งนี้ขึ้นอยู่กับความเสื่อมของข้อเข่า และการใช้งาน
+                                        </div>
+                                    </div>
+                                </div>
                             
-                            <div class="content-para">
-                                <h3>ข้อเสื่อม: โรคที่ควรรู้และป้องกัน</h3>
-                                <p>ข้อเสื่อมเป็นโรคที่พบได้บ่อยและมีอุบัติการณ์เพิ่มขึ้นตามอายุขัย ปัจจุบันถือว่าเป็นโรคที่มีความสำคัญโดยเฉพาะในประเทศไทยที่กำลังก้าวเข้าสู่สังคมผู้สูงอายุอย่างเต็มรูปแบบ โรคข้อเสื่อมมีผลกระทบต่อคุณภาพชีวิตอย่างเห็นได้ชัดเจน ทั้งทางด้านร่างกายและสภาพจิตใจ</p>
-                                <p>สาเหตุของข้อเสื่อมมีทั้งส่วนที่ทราบสาเหตุ เช่น ข้อเสื่อมที่เกิดขึ้นภายหลังจากการได้รับอุบัติเหตุ ข้อเสื่อมที่พบร่วมกับโรคของการอักเสบหรือเยื่อหุ้มข้ออักเสบ และส่วนที่ไม่ทราบสาเหตุซึ่งพบในกลุ่มที่มีการใช้งานมากตามอายุที่เพิ่มขึ้น ผลกระทบตามมาจากข้อเสื่อมได้แก่ กล้ามเนื้อที่ไม่แข็งแรงทำให้มีอาการอ่อนแรง การอักเสบในข้อทำให้มีอาการปวด น้ำเลี้ยงข้อเสียสภาพตามธรรมชาติ และการทำลายกระดูกอ่อนอย่างต่อเนื่อง ทำให้มีอาการปวดเวลาเดินทั้งทางราบและการเดินขึ้นลงบันได รวมทั้งเกิดการผิดรูปของข้อเข่า</p>
-                            </div>
-
-                            <div class="content-para">
-                                <h3>การรักษาโรคข้อเสื่อมในปัจจุบัน</h3>
-                                <p>การรักษาในปัจจุบัน ได้แก่ การรับประทานยา การทำกายภาพบำบัด การฉีดยาเสตียรอยด์ และการฉีดยาน้ำเลี้ยงข้อเทียม ซึ่งมีทั้งแบบฉีดหนึ่งเข็ม สามเข็ม หรือห้าเข็ม โดยฉีดสัปดาห์ละ 1 ครั้ง ซึ่งต้องฉีดทุกๆ 6 เดือน หากการรักษาด้วยวิธีดังกล่าวไม่ได้ผล ผู้ป่วยจำเป็นต้องเข้ารับการผ่าตัดเปลี่ยนข้อเข่าเทียม ซึ่งมีทั้งแบบครึ่งข้อ (Unicompartmental Knee Arthroplasty: UKA) หรือแบบเต็มข้อ (Total Knee Arthroplasty: TKA) ขึ้นกับการวินิจฉัยและดุลพินิจของแพทย์ ซึ่งให้ผลการรักษาที่ดีและถือเป็นมาตรฐานการรักษาในปัจจุบัน</p>
-                                <p>อย่างไรก็ตาม ความคาดหวังของผู้ป่วยโรคข้อเสื่อมมีการเปลี่ยนแปลงไปเนื่องจากประชากรในปัจจุบันมีอายุยืนยาวขึ้น มีความต้องการออกกำลังกายมากขึ้น ความต้องการรับประทานยาแก้อักเสบน้อยลง ไม่ต้องการฉีดยาเข้าข้อบ่อยครั้ง ต้องการยาที่ออกฤทธิ์ได้นานมากกว่า 6 เดือน และที่สำคัญคือ ต้องการผ่าตัดในกรณีที่จำเป็นและถึงเวลาอันเหมาะสมเท่านั้น</p>
-                            </div>
-
-                            <div class="content-para">
-                                <h3>มุมมองแห่งอนาคตในการรักษาด้วยเทคโนโลยีชีวภาพ</h3>
-                                <p>ในโลกปัจจุบันเป็นโลกของการรักษาด้วยเทคโนโลยีชีวภาพชั้นสูง (Advanced biotechnology) การแพทย์มาตรฐานในปัจจุบัน (Conventional medicine) มีแนวโน้มที่จะเปลี่ยนไปเป็นการรักษาสภาพเดิมของร่างกายให้ดีที่สุดและนานที่สุดด้วยการหายตามธรรมชาติ (Regenerative medicine)</p>
-                                <p>การรักษาข้อเสื่อมโดยวิธีธรรมชาติที่ปลอดภัย ได้ผลดี มีประสิทธิภาพ จึงถูกพัฒนาขี้นตามลำดับตั้งแต่ พ.ศ. 2556 เป็นต้นมาในประเทศไทย เพื่อศึกษาความสัมพันธ์ของประสิทธิภาพการรักษาด้วยเซลล์ต้นกำเนิด เกล็ดเลือดเข้มข้นและการกระตุ้นตามธรรมชาติที่เหมาะสม</p>
-                                <p>ตั้งแต่ปี พ.ศ. 2553 การใช้เกล็ดเลือดเข้มข้นเพื่อใช้ในการรักษาโรคข้อเสื่อมได้รับการยอมรับจากองค์การอาหารและยา (FDA) ของประเทศสหรัฐอเมริกา อย่างไรก็ตาม ข้อบ่งชี้ของการรักษาด้วยวิธีนี้ มักใช้ในการรักษาข้อเสื่อมระยะต้นซึ่งมักพบในนักกีฬาและผู้ที่มีอายุน้อยกว่า 55 ปี มีการฉีด 2-4 ครั้ง โดยฉีดทุก 4-6 เดือน หากเป็นข้อเสื่อมระยะกลางและระยะปลาย ผู้ป่วยมักจะได้รับคำแนะนำให้เข้ารับการผ่าตัดข้อเทียมแบบครึ่งข้อ (UKA) หรือแบบเต็มข้อ (TKA) สำหรับปัญหาในประเทศไทย คือ ผู้ป่วยส่วนใหญ่มีลักษณะที่เป็นผู้ป่วยที่อายุมาก ผู้ป่วยมักมาพบแพทย์เมื่อมีข้อเสื่อมในระยะกลางถึงปลาย จึงส่งผลให้มีอัตราการผ่าตัดที่เพิ่มสูงขึ้นในผู้ป่วยกลุ่มดังกล่าว</p>
-                            </div>
-
-                            <div class="content-para">
-                                <h3>พลาสมาเข้มข้นที่อุดมไปด้วยสารกระตุ้นการเจริญเติบโต (Plasma Rich in Growth Factors: PRGF)</h3>
-                                <p>การวิจัยและพัฒนามาอย่างต่อเนื่องตั้งแต่ปี พ.ศ. 2557 จนถึงปัจจุบัน ทำให้ทีมแพทย์สามารถใช้เกล็ดเลือดเข้มข้นชนิดปั่นสามครั้ง (Plasma Rich in Growth Factors) ซึ่งมีจำนวนเกล็ดเลือดที่เข้มข้นมากขึ้น มีปัจจัยที่เพิ่มประสิทธิภาพในการรักษาโรคข้อเสื่อมได้ในทุกระยะ และใช้ได้ในคนที่อายุมากขึ้น โดยที่ยังไม่มีความจำเป็นที่จะต้องได้รับการผ่าตัด</p>
-                                <div class="alert alert-light border border-info p-4 mb-4 rounded">
-                                    <strong>องค์ประกอบสำคัญ 3 ประการ:</strong>
-                                    <ol class="mt-2 mb-0">
-                                        <li><strong>เกล็ดเลือด:</strong> เป็นองค์ประกอบหลักของการให้สารกระตุ้นการเจริญเติบโต (Growth Factors) โดยความเข้มข้นของเกล็ดเลือดในการรักษาควรมีความเข้มข้นมากกว่าปกติ 5 เท่า</li>
-                                        <li><strong>เม็ดเลือดขาวชนิด Monocyte:</strong> ช่วยลดการอักเสบตามธรรมชาติ ซึ่งในการวิจัยพบว่ามีสารกระตุ้นการเจริญเติบโต (Growth factors) ในเม็ดเลือดขาวชนิดดังกล่าว</li>
-                                        <li><strong>โปรตีนในเลือด:</strong> ทำหน้าที่เป็นที่อยู่ของสารที่กระตุ้นการเจริญเติบโต (Growth factors) ทำให้เกล็ดเลือดเข้มข้นอยู่ในข้อและออกฤทธิ์ได้นานขึ้น มีส่วนช่วยในการซ่อมแซมและผลิตน้ำเลี้ยงข้อตามธรรมชาติ</li>
-                                    </ol>
+                                <div class="card mb-2 border-0 shadow-sm">
+                                    <div class="card-header bg-white" id="headingBoth">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#collapseBoth">
+                                                3. สามารถรักษาเข่าทั้งสองข้างพร้อมกันได้หรือไม่
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseBoth" class="collapse" data-parent="#faqAccordion">
+                                        <div class="card-body text-muted">
+                                            สามารถรักษาเข่าทั้งสองข้างพร้อมกันได้ หากมีอาการปวดใกล้เคียงกันในเข่าทั้งสองข้าง
+                                        </div>
+                                    </div>
                                 </div>
-                                <p>ผลการวิจัยดังกล่าวได้รับการตีพิมพ์ลงในวารสารนานาชาติ จำนวน 4 ฉบับ ในช่วง พ.ศ. 2561- 2565 ได้รับอนุสิทธิบัตรจำนวน 3 ฉบับ ในปี พ.ศ. 2562 และรางวัลนวัตกรรมจากสมาคมข้อเข่าข้อสะโพกแห่งประเทศไทย (Innovation award, the Thai Hip & Knee Society) ใน พ.ศ. 2564</p>
-                            </div>
-
-                            <div class="content-para">
-                                <h3>ข้อบ่งชี้ในการรักษา (PRGF-triple spin technique)</h3>
-                                <ul class="list-group list-group-flush mb-4">
-                                    <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> ฉีดยาสเตียรอยด์แล้วอาการไม่ดีขึ้น</li>
-                                    <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> ฉีดยาน้ำเลี้ยงข้อเทียมแล้วอาการไม่ดีขึ้น</li>
-                                    <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> ข้อเข่าเสื่อมระยะที่ 1,2,3 และ ระยะที่ 4 ที่ไม่สามารถรับการผ่าตัดได้</li>
-                                    <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> รับประทานยาหรือทำกายภาพบำบัดแล้วอาการไม่ดีขึ้น</li>
-                                    <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> ไม่สามารถรับประทานยาได้เนื่องจากมีภาวะแทรกซ้อนจากยา</li>
-                                    <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> มีโรคที่รับประทานยาแก้อักเสบไม่ได้ เช่น โรคหัวใจ โรคไต โรคกระเพาะ</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-para">
-                                <h3>ข้อควรหลีกเลี่ยง</h3>
-                                <p>ผู้ที่มีภาวะติดเชื้อ, โรคของเกล็ดเลือดต่างๆ, อายุต่ำกว่า 16 ปี, ภาวะตั้งครรภ์, ผู้ป่วยโรคมะเร็งที่อยู่ระหว่างการให้ยาเคมีบำบัด, ข้อเข่าเสื่อมที่ไม่ทราบสาเหตุ, หรือมีพยาธิสภาพของหมอนรองกระดูกฉีกขาดทั้งหมด เส้นเอ็นไขว้เข่าขาดทั้งหมด เศษกระดูกในเข่า</p>
-                            </div>
                             
-                            <div class="content-para">
-                                <h3>คำแนะนำหลังการรักษา (PRGF-triple spin)</h3>
-                                <ul class="list-group list-group-flush mb-4">
-                                    <li class="list-group-item">
-                                        <strong>1-2 วันหลังฉีด:</strong> ผู้ป่วยอาจมีอาการปวดเข่า แนะนำให้รับประทานยาแก้ปวดตามคำสั่งของแพทย์ และสามารถประคบเย็นทุกๆ 15 นาที เพื่อลดอาการบวมและตึงเข่า
-                                    </li>
-                                    <li class="list-group-item">
-                                        หลังฉีดสามารถเดินหรือทำกิจวัตรประจำวันได้ตามปกติ
-                                    </li>
-                                    <li class="list-group-item">
-                                        <strong>วันที่ 3 หลังฉีด:</strong> ให้เริ่มบริหารข้อเข่าและกล้ามเนื้อขาตามคำแนะนำของทีมแพทย์และพยาบาลอย่างสม่ำเสมอและต่อเนื่อง
-                                    </li>
-                                    <li class="list-group-item">
-                                        ควรเว้นการออกกำลังกาย 5-7 วัน
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="content-para">
-                                <h3>ท่าบริหารข้อเข่าและกล้ามเนื้อขา</h3>
-                                <ol>
-                                    <li>นั่งตัวตรง นั่งเก้าอี้ประมาณครึ่งเบาะ (เพื่อให้สามารถเหยียดขาได้ตรงในแนวทำมุม 45 องศา)</li>
-                                    <li>ยกขาทีละข้าง โดยให้เข่าเหยียดตรง ไม่ต้องกระดกปลายเท้า</li>
-                                    <li>เกร็งขาค้างไว้จนครบ 100 วินาที แล้วนำขาลง</li>
-                                    <li>เหยียดเข่าอีกข้างขึ้น เกร็งค้างไว้จนครบ 100 วินาที</li>
-                                    <li>ทำครบ 2 ข้าง นับเป็นหนึ่งรอบ</li>
-                                    <li>ทำเช่นนี้วันละ 3-5 รอบ</li>
-                                </ol>
-                                <div style="text-align: center;" class="my-4">
-                                    <img src="plasma1_chair.png" alt="ท่าบริหารข้อเข่า" class="img-fluid rounded shadow-sm">
-                                </div>
-                            </div>
-
-                            <div class="content-para">
-                                <h3>ข้อแตกต่างระหว่าง Plasma Rich in Growth Factors และ Platelet-rich Plasma</h3>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover custom-table">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th width="30%">หัวข้อเปรียบเทียบ</th>
-                                                <th width="35%">Plasma Rich in Growth Factors</th>
-                                                <th width="35%">Platelet-Rich Plasma</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><strong>ความถี่ในการรักษา</strong></td>
-                                                <td>1-2 ครั้ง ในระยะเวลา 6-12 เดือน</td>
-                                                <td>สัปดาห์ละ 1 ครั้ง ติดต่อกัน 3 - 5 ครั้ง ในระยะเวลา 4-6 เดือน</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>ความเสื่อมของข้อเข่าที่รับการรักษาได้</strong></td>
-                                                <td>ข้อเข่าเสื่อมทุกระยะ*</td>
-                                                <td>ข้อเข่าเสื่อมระยะเริ่มต้นเท่านั้น</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>องค์ประกอบ</strong></td>
-                                                <td>เกล็ดเลือด เม็ดเลือดขาว โปรตีน</td>
-                                                <td>เกล็ดเลือด</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <p class="small text-muted">*ผลการรักษาขึ้นกับ อายุ ความรุนแรงของโรค จำนวนครั้งการฉีด steroid  การบริหารกล้ามเนื้อสม่ำเสมอ</p>
-                            </div>
-
-                            <div class="content-para">
-                                <h3>คำถามที่พบบ่อย (FAQ)</h3>
-                                <div class="accordion" id="faqAccordion">
-                                    <div class="card mb-2 border-0 shadow-sm">
-                                        <div class="card-header bg-white" id="headingOne">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link btn-block text-left text-dark font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseOne">
-                                                    1. การเตรียมตัวก่อนการรักษา
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseOne" class="collapse show" data-parent="#faqAccordion">
-                                            <div class="card-body text-muted">
-                                                <ul>
-                                                    <li>พักผ่อนให้เพียงพอ</li>
-                                                    <li>งดอาหารทอดและอาหารมันก่อนการเจาะเลือด</li>
-                                                    <li>ในผู้ป่วยที่มีการรับประทานยาต้านเกล็ดเลือด หรือยาป้องกันการแข็งตัวของเลือด ควรปรึกษาแพทย์ประจำตัว เพื่องดยาดังกล่าวก่อนการเจาะเลือด 3-5 วัน</li>
-                                                    <li>ในผู้ป่วยที่กำลังมีประจำเดือนควรงดการเจาะเลือด</li>
-                                                    <li>ควรเว้นการเจาะเลือด 2 สัปดาห์หลังจากมีการบริจาคเลือดหรือส่วนประกอบของเลือด</li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                <div class="card mb-2 border-0 shadow-sm">
+                                    <div class="card-header bg-white" id="headingPost">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#collapsePost">
+                                                4. การปฏิบัติตัวหลังจากการรักษา
+                                            </button>
+                                        </h5>
                                     </div>
-                                    
-                                    <div class="card mb-2 border-0 shadow-sm">
-                                        <div class="card-header bg-white" id="headingFreq">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#collapseFreq">
-                                                    2. ความถี่ของการรักษา
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseFreq" class="collapse" data-parent="#faqAccordion">
-                                            <div class="card-body text-muted">
-                                                ฉีด 1-2 ครั้ง ในระยะ 6-12 เดือน ทั้งนี้ขึ้นอยู่กับความเสื่อมของข้อเข่า และการใช้งาน
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card mb-2 border-0 shadow-sm">
-                                        <div class="card-header bg-white" id="headingBoth">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#collapseBoth">
-                                                    3. สามารถรักษาเข่าทั้งสองข้างพร้อมกันได้หรือไม่
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseBoth" class="collapse" data-parent="#faqAccordion">
-                                            <div class="card-body text-muted">
-                                                สามารถรักษาเข่าทั้งสองข้างพร้อมกันได้ หากมีอาการปวดใกล้เคียงกันในเข่าทั้งสองข้าง
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card mb-2 border-0 shadow-sm">
-                                        <div class="card-header bg-white" id="headingPost">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#collapsePost">
-                                                    4. การปฏิบัติตัวหลังจากการรักษา
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapsePost" class="collapse" data-parent="#faqAccordion">
-                                            <div class="card-body text-muted">
-                                                <ul>
-                                                    <li>หลีกเลี่ยงกิจกรรมที่มีการใช้เข่า เช่น การเดินระยะไกล 2-3 วัน</li>
-                                                    <li>หลีกเลี่ยงการออกกำลังกาย 5-7 วัน</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card mb-2 border-0 shadow-sm">
-                                        <div class="card-header bg-white" id="headingTwo">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo">
-                                                    5. ระยะเวลาการเห็นผล
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseTwo" class="collapse" data-parent="#faqAccordion">
-                                            <div class="card-body text-muted">
-                                                อาการปวดควรลดลงภายในระยะเวลา 3 วัน ถึง 3 สัปดาห์
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card mb-2 border-0 shadow-sm">
-                                        <div class="card-header bg-white" id="headingPrepTime">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#collapsePrepTime">
-                                                    6. ระยะเวลาในการเตรียมเกล็ดเลือด
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapsePrepTime" class="collapse" data-parent="#faqAccordion">
-                                            <div class="card-body text-muted">
-                                                การเตรียมเกล็ดเลือดใช้ระยะเวลาประมาณ 1 ชั่วโมง
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card mb-2 border-0 shadow-sm">
-                                        <div class="card-header bg-white" id="headingDrive">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#collapseDrive">
-                                                    7. สามารถขับรถหลังจากรับการรักษาได้หรือไม่
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseDrive" class="collapse" data-parent="#faqAccordion">
-                                            <div class="card-body text-muted">
-                                                สามารถขับรถได้ในระยะทางใกล้ๆ ทั้งนี้แนะนำให้มีผู้ร่วมเดินทางด้วย
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card mb-2 border-0 shadow-sm">
-                                        <div class="card-header bg-white" id="headingPain">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#collapsePain">
-                                                    8. อาการเจ็บปวดหลังการรักษา
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapsePain" class="collapse" data-parent="#faqAccordion">
-                                            <div class="card-body text-muted">
-                                                <ul>
-                                                    <li>หากมีอาการปวดเพียงเล็กน้อยสามารถรับประทานยาที่ได้รับไปและประคบเย็นทุกๆ 15 นาที</li>
-                                                    <li>หากมีอาการปวดนานเกินกว่า 2 สัปดาห์ควรปรึกษาแพทย์</li>
-                                                </ul>
-                                            </div>
+                                    <div id="collapsePost" class="collapse" data-parent="#faqAccordion">
+                                        <div class="card-body text-muted">
+                                            <ul>
+                                                <li>หลีกเลี่ยงกิจกรรมที่มีการใช้เข่า เช่น การเดินระยะไกล 2-3 วัน</li>
+                                                <li>หลีกเลี่ยงการออกกำลังกาย 5-7 วัน</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="content-para mt-5">
-                                <h4 class="text-muted">เอกสารอ้างอิง</h4>
-                                <ol class="small text-muted">
-                                    <li>Turajane T, Cheeva-Akrapan V, Saengsirinavin P, Lappaiwong W. Composition of Platelet-Rich Plasma Prepared From Knee Osteoarthritic Patients: Platelets, Leukocytes, and Subtypes of Leukocyte. Cureus 15(3): e36399. DOI 10.7759/cureus.36399</li>
-                                    <li>Turajane T, Sriratanavudhi C, Saengsirinavin P, Chaweewannakorn U, Lappaiwong W, Aojanepong J. Safety and clinical efficacy of platelet rich growth factors (prgf) in managing knee osteoarthritis after failed conservative treatment: evidence from real practices. J Southeast Asian Med Res. 2019, 3:1.</li>
-                                    <li>Turajane T, Saengsirinavin P, Sriratanavudhi C, Larpaiwong W, Aojanepong J. A prospective, randomized, controlled trial comparing clinical outcomes of intraarticular platelet plasma concentrate and growth factors versus corticosteroid injections in the treatment of knee osteoarthritis. Bank Med J 2021; 17.</li>
-                                    <li>Turjane T, Saengsirinavin P, Sriratanavudhi C, Cheeva-akrapan V, Larpaiwong W, Aojanepong J. Outcome of using platelet, plasma and growth factors as an orthobiologic derivative to avoid invasive surgical procedures for treating knee osteoarthritis among elderly patients. J Southeast Asian Med Res 2022, 6</li>
-                                    <li>Cheeva-Akrapan V, Turajane T. The 36-Month Survival Analysis of Conservative Treatment Using Platelet-Rich Plasma Enhanced With Injectable Platelet-Rich Fibrin in Patients With Knee Osteoarthritis. Cureus 15(3): e35632. DOI 10.7759/cureus.35632</li>
-                                </ol>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <div class="tab-pane fade" id="content-english" role="tabpanel">
-            <section class="page-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-10 mx-auto text-center">
-                            <h1 class="font-weight-bold">Plasma Rich in Growth Factors</h1>
-                            <h2 class="h4 mb-3">The Next-Generation PRP in Osteoarthritis</h2>
-                            <p class="author-name">Thana Turajane, M.D.(Hons.), Vorasilp Cheeva-akrapan M.D.(Hons.)</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="py-5">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto">
-                            <div class="content-para">
-                                <h3>Understanding Osteoarthritis</h3>
-                                <p>Osteoarthritis becomes more common as we age and can significantly affect both physical and mental health. Symptoms vary but typically include weakened thigh muscles, joint inflammation, diminished joint fluid quality, and the breakdown of cartilage. These changes can lead to discomfort and, in some cases, joint deformity, dramatically impacting quality of life.</p>
-                                <p>While osteoarthritis can affect many joints, it most frequently targets the knees, hips, and shoulders.</p>
-                            </div>
-                            <div class="content-para">
-                                <h3>Current Treatment Options</h3>
-                                <p>Osteoarthritis management includes a spectrum of treatments, ranging from oral medications and physical therapy to joint injections with steroids or hyaluronic acid (available in a single weekly injection for 5 consecutive weeks in every 6 months). In cases where these treatments don't provide sufficient relief, arthroplasty (joint replacement surgery) may be considered, usually during advanced stages of the condition.</p>
-                                <p>However, due to longer life expectancies and a growing interest in active lifestyles, surgical interventions are best timed to optimize outcomes and reduce the reliance on medications.</p>
-                            </div>
-                            <div class="content-para">
-                                <h3>Biotechnology's Role in Osteoarthritis Treatment</h3>
-                                <p>Biotechnology is revolutionizing treatment through regenerative medicine, which aims to maintain natural tissues and organs as long as possible. Since 2010, the US FDA has approved platelet-rich plasma (PRP) for osteoarthritis treatment. In Thailand, osteoarthritis biotechnology has been advancing since 2013, focusing on cells, platelets, and growth factors.</p>
-                                <p>Initially, PRP was used for early-stage osteoarthritis, requiring weekly injections for 3-5 weeks and follow-up treatments every 4-6 months. More advanced stages still required surgical solutions. Orthobiologics are now pivotal in cartilage regeneration, reducing inflammation naturally, and promoting joint lubrication. PRP has gained traction for its safety, efficiency, and reduced injection frequency, offering promising long-term outcomes.</p>
-                            </div>
-                            <div class="content-para">
-                                <h3>Plasma Rich in Growth Factors (PRGF)</h3>
-                                <p>With ongoing research since 2013, PRGF has become viable for treating moderate to severe osteoarthritis, helping to avoid unnecessary surgery. Derived from a patient's own blood, it undergoes a sophisticated triple spinning process, yielding a plasma teeming with growth factors.</p>
-                                <div class="alert alert-light border border-info p-4 mb-4 rounded">
-                                    <strong>Key Components:</strong>
-                                    <ol class="mt-2 mb-0">
-                                        <li><strong>Platelets:</strong> Concentration is significantly enhanced (by 3 to 4 times) to provide growth factors.</li>
-                                        <li><strong>Monocytes:</strong> White blood cells should be monocyte-predominant to reduce inflammation.</li>
-                                        <li><strong>Protein/Fibrin:</strong> Serves as the protein component, anchoring growth factors for an extended duration of efficacy.</li>
-                                    </ol>
+                            
+                                <div class="card mb-2 border-0 shadow-sm">
+                                    <div class="card-header bg-white" id="headingTwo">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo">
+                                                5. ระยะเวลาการเห็นผล
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" data-parent="#faqAccordion">
+                                        <div class="card-body text-muted">
+                                            อาการปวดควรลดลงภายในระยะเวลา 3 วัน ถึง 3 สัปดาห์
+                                        </div>
+                                    </div>
                                 </div>
-                                <p>Typically, the benefits of each injection persist for nine to twelve months. Studies have verified its safety and effectiveness, showing it surpasses steroid therapy from two months onward and can help reduce the necessity for surgery by 76% to 87.5% over two years.</p>
-                            </div>
-                            <div class="content-para">
-                                <h3>Indications for Treatment</h3>
-                                <ul class="list-group list-group-flush mb-4">
-                                    <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> For patients unresponsive to intra-articular steroid injections.</li>
-                                    <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> For patients unresponsive to intra-articular hyaluronic acid injections.</li>
-                                    <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> Suitable for patients with osteoarthritis grades 1-4 who are not candidates for surgery.</li>
-                                    <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> For patients who have not seen improvement with oral medication or physical rehabilitation.</li>
-                                    <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> For patients who cannot take oral medications due to adverse treatment interactions.</li>
-                                    <li class="list-group-item"><i class="fas fa-check text-success mr-2"></i> For patients contraindicated for NSAIDs due to conditions like heart, kidney, or gastric diseases.</li>
-                                </ul>
-                            </div>
-                            <div class="content-para">
-                                <h3>Contraindications</h3>
-                                <p>Current infections, disorders affecting platelets, patients below the age of 16, pregnant individuals, cancer patients actively undergoing chemotherapy, arthritis without a determined cause, or presence of complete meniscal/cruciate ligament tears or loose bodies within the joint.</p>
-                            </div>
-                            <div class="content-para">
-                                <h3>Post-Treatment Recommendations</h3>
-                                <ul class="list-group list-group-flush mb-4">
-                                    <li class="list-group-item"><strong>1-2 days post-treatment:</strong> Joint discomfort may occur; manage with prescribed medication and apply cold compress for 15 minutes as needed.</li>
-                                    <li class="list-group-item">Resume normal daily activities immediately.</li>
-                                    <li class="list-group-item"><strong>After 48 hours:</strong> Begin fixed arc quadriceps exercises.</li>
-                                    <li class="list-group-item">Refrain from strenuous activities for at least 5-7 days post-treatment.</li>
-                                </ul>
-                            </div>
-                            <div class="content-para">
-                                <h3>Fixed Arc Quadriceps Exercise</h3>
-                                <ol>
-                                    <li>Sit with your knee at the chair's edge.</li>
-                                    <li>Extend your leg forward (without bending the ankle joint).</li>
-                                    <li>Hold for 100 seconds, then switch legs.</li>
-                                    <li>Perform this 3-5 times daily.</li>
-                                </ol>
-                                <div style="text-align: center;" class="my-4">
-                                    <img src="plasma1_chair.png" alt="Exercise" class="img-fluid rounded shadow-sm">
+                            
+                                <div class="card mb-2 border-0 shadow-sm">
+                                    <div class="card-header bg-white" id="headingPrepTime">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#collapsePrepTime">
+                                                6. ระยะเวลาในการเตรียมเกล็ดเลือด
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapsePrepTime" class="collapse" data-parent="#faqAccordion">
+                                        <div class="card-body text-muted">
+                                            การเตรียมเกล็ดเลือดใช้ระยะเวลาประมาณ 1 ชั่วโมง
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="content-para">
-                                <h3>Distinguishing PRGF from PRP</h3>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover custom-table">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th width="30%">Comparison</th>
-                                                <th width="35%">Plasma Rich in Growth Factors</th>
-                                                <th width="35%">Platelet-Rich Plasma</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><strong>Treatment frequency</strong></td>
-                                                <td>1-2 injections, with 6-12 months between each cycle.</td>
-                                                <td>3-5 weekly injections with 4-6 months between each cycle.</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Eligible patients</strong></td>
-                                                <td>For all joint severity levels, ranging from grade 1 to grade 4.</td>
-                                                <td>Only for patients with grade 1 or 2 osteoarthritis.</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Components</strong></td>
-                                                <td>Platelet, Growth Factors, and Protein network.</td>
-                                                <td>Only platelets.</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            
+                                <div class="card mb-2 border-0 shadow-sm">
+                                    <div class="card-header bg-white" id="headingDrive">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#collapseDrive">
+                                                7. สามารถขับรถหลังจากรับการรักษาได้หรือไม่
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseDrive" class="collapse" data-parent="#faqAccordion">
+                                        <div class="card-body text-muted">
+                                            สามารถขับรถได้ในระยะทางใกล้ๆ ทั้งนี้แนะนำให้มีผู้ร่วมเดินทางด้วย
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="content-para">
-                                <h3>FAQs</h3>
-                                <div class="accordion" id="faqAccordionEng">
-                                    <div class="card mb-2 border-0 shadow-sm"><div class="card-header bg-white"><h5 class="mb-0"><button class="btn btn-link btn-block text-left text-dark font-weight-bold" type="button" data-toggle="collapse" data-target="#faqEng1">1. Pre-Treatment Guidelines</button></h5></div><div id="faqEng1" class="collapse show" data-parent="#faqAccordionEng"><div class="card-body text-muted"><ul><li>Ensure adequate rest.</li><li>Skip high-fat meals before blood draw.</li><li>Discuss blood thinners with your doctor (stop 3-5 days prior).</li><li>Postpone if menstruating.</li><li>Wait 2 weeks post-blood donation.</li></ul></div></div></div>
-                                    <div class="card mb-2 border-0 shadow-sm"><div class="card-header bg-white"><h5 class="mb-0"><button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faqEng2">2. Treatment Frequency</button></h5></div><div id="faqEng2" class="collapse" data-parent="#faqAccordionEng"><div class="card-body text-muted">Typically, 1-2 injections per cycle (6-12 months).</div></div></div>
-                                    <div class="card mb-2 border-0 shadow-sm"><div class="card-header bg-white"><h5 class="mb-0"><button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faqEng3">3. Treating Both Knees</button></h5></div><div id="faqEng3" class="collapse" data-parent="#faqAccordionEng"><div class="card-body text-muted">Simultaneous treatment is possible if discomfort is equal.</div></div></div>
-                                    <div class="card mb-2 border-0 shadow-sm"><div class="card-header bg-white"><h5 class="mb-0"><button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faqEng4">4. Post-Treatment Care</button></h5></div><div id="faqEng4" class="collapse" data-parent="#faqAccordionEng"><div class="card-body text-muted">Refrain from high-intensity activities for 2-3 days; avoid exercise for 5-7 days.</div></div></div>
-                                    <div class="card mb-2 border-0 shadow-sm"><div class="card-header bg-white"><h5 class="mb-0"><button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faqEng5">5. Expected Results Timeline</button></h5></div><div id="faqEng5" class="collapse" data-parent="#faqAccordionEng"><div class="card-body text-muted">Pain reduction typically occurs from 3 days to 3 weeks.</div></div></div>
-                                    <div class="card mb-2 border-0 shadow-sm"><div class="card-header bg-white"><h5 class="mb-0"><button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faqEng6">6. Treatment Duration</button></h5></div><div id="faqEng6" class="collapse" data-parent="#faqAccordionEng"><div class="card-body text-muted">Preparation takes about 1 hour.</div></div></div>
-                                    <div class="card mb-2 border-0 shadow-sm"><div class="card-header bg-white"><h5 class="mb-0"><button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faqEng7">7. Driving</button></h5></div><div id="faqEng7" class="collapse" data-parent="#faqAccordionEng"><div class="card-body text-muted">Permissible, but accompaniment is advisable.</div></div></div>
-                                    <div class="card mb-2 border-0 shadow-sm"><div class="card-header bg-white"><h5 class="mb-0"><button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faqEng8">8. Post-Treatment Pain</button></h5></div><div id="faqEng8" class="collapse" data-parent="#faqAccordionEng"><div class="card-body text-muted">Mild discomfort is expected; use prescribed meds and cold compress. Consult doctor if pain persists > 2 weeks.</div></div></div>
+                            
+                                <div class="card mb-2 border-0 shadow-sm">
+                                    <div class="card-header bg-white" id="headingPain">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left text-dark font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#collapsePain">
+                                                8. อาการเจ็บปวดหลังการรักษา
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapsePain" class="collapse" data-parent="#faqAccordion">
+                                        <div class="card-body text-muted">
+                                            <ul>
+                                                <li>หากมีอาการปวดเพียงเล็กน้อยสามารถรับประทานยาที่ได้รับไปและประคบเย็นทุกๆ 15 นาที</li>
+                                                <li>หากมีอาการปวดนานเกินกว่า 2 สัปดาห์ควรปรึกษาแพทย์</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-        </div>
 
-        <div class="tab-pane fade lang-khmer" id="content-khmer" role="tabpanel">
-            <section class="page-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-10 mx-auto text-center">
-                            <h1 class="font-weight-bold">ផ្លាស្មាខាប់ (Plasma Rich in Growth Factors)</h1>
-                            <h2 class="h4 mb-3">ជម្រើសថ្មីនៃការខ្សោយសន្លាក់</h2>
-                            <p class="author-name">រៀបរៀងដោយ វេជ្ជ.វរសិល្ប៍ ឆវីអគ្គរផាន់,វេជ្ជ.ថាណា ធុរៈចេន</p>
+                        <div class="content-para mt-5">
+                            <h4 class="text-muted">เอกสารอ้างอิง</h4> 
+                            <ol class="small text-muted">
+                                <li>Turajane T, Cheeva-Akrapan V, Saengsirinavin P, Lappaiwong W. Composition of Platelet-Rich Plasma Prepared From Knee Osteoarthritic Patients: Platelets, Leukocytes, and Subtypes of Leukocyte. Cureus 15(3): e36399. DOI 10.7759/cureus.36399</li>
+                                <li>Turajane T, Sriratanavudhi C, Saengsirinavin P, Chaweewannakorn U, Lappaiwong W, Aojanepong J. Safety and clinical efficacy of platelet rich growth factors (prgf) in managing knee osteoarthritis after failed conservative treatment: evidence from real practices. J Southeast Asian Med Res. 2019, 3:1.</li>
+                                <li>Turajane T, Saengsirinavin P, Sriratanavudhi C, Larpaiwong W, Aojanepong J. A prospective, randomized, controlled trial comparing clinical outcomes of intraarticular platelet plasma concentrate and growth factors versus corticosteroid injections in the treatment of knee osteoarthritis. Bank Med J 2021; 17.</li> 
+                                <li>Turjane T, Saengsirinavin P, Sriratanavudhi C, Cheeva-akrapan V, Larpaiwong W, Aojanepong J. Outcome of using platelet, plasma and growth factors as an orthobiologic derivative to avoid invasive surgical procedures for treating knee osteoarthritis among elderly patients. J Southeast Asian Med Res 2022, 6</li> 
+                                <li>Cheeva-Akrapan V, Turajane T. The 36-Month Survival Analysis of Conservative Treatment Using Platelet-Rich Plasma Enhanced With Injectable Platelet-Rich Fibrin in Patients With Knee Osteoarthritis. Cureus 15(3): e35632. DOI 10.7759/cureus.35632</li>  
+                            </ol> 
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="sticky-cta">
+                            <h4 class="font-weight-bold mb-3" style="color: var(--brand-blue);">ปรึกษาแพทย์</h4>
+                            <p class="text-muted">หากคุณมีอาการปวดเข่าเรื้อรัง หรือต้องการคำแนะนำเพิ่มเติมเกี่ยวกับ PRGF</p>
+                            <a href="appointment.html" class="btn btn-block text-white font-weight-bold mb-3" style="background-color: var(--brand-green); padding: 12px; border-radius: 50px;">
+                                <i class="fas fa-calendar-check mr-2"></i> นัดหมายแพทย์
+                            </a>
+                            <a href="https://line.me/R/ti/p/%40132dekpm" class="btn btn-block btn-outline-secondary font-weight-bold mb-3" style="padding: 12px; border-radius: 50px;">
+                                <i class="fab fa-line mr-2"></i> สอบถามผ่าน LINE
+                            </a>
+                            <div class="mt-4 pt-4 border-top">
+                                <h6 class="font-weight-bold"><i class="fas fa-clock mr-2 text-warning"></i> เวลาทำการ</h6>
+                                <p class="text-muted mb-0">อังคาร - ศุกร์: 15:30 - 17:30 น.</p>
+                                <p class="text-muted">เสาร์ - อาทิตย์: 11:30 - 15:00 น.</p>
+                            </div>
                         </div>
                     </div>
+
                 </div>
-            </section>
-            <section class="py-5">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto">
-                            <div class="content-para">
-                                <h3>ការខ្សោយសន្លាក់ : ជំងឺដែលគួរដឹងនិងការពារ</h3>
-                                <p>ការខ្សោយសន្លាក់ជាជំងឺដែលជួបប្រទះជាញឹកញាប់និងមានការកើតឡើងកាន់តែច្រើនតាមអាយុ។បច្ចុប្បន្នចាត់ទុកថាជាជំងឺមានសារៈសំខាន់ជាពិសេសក្នុងប្រទេសថៃដែលកំពុងឈានចូលកាន់សង្គមមនុស្សចាស់យ៉ាងពេញលេញ។ ជំងឺខ្សោយសន្លាក់ប៉ះពាល់ដល់ជីវភាពរស់នៅយ៉ាងជាក់ស្ដែងទាំងផ្នែករាងកាយនិងសភាពផ្លូវចិត្ត។</p>
-                                <p>មូលហេតុនៃការខ្សោយសន្លាក់មានទាំងផ្នែកដែលដឹងពីមូលហេតុ ដូចជា ការខ្សោយសន្លាក់ដែលកើតឡើងក្រោយបានទទួលគ្រោះថ្នាក់ ការខ្សោយសន្លាក់ដែលជួបប្រទះរួមជាមួយជំងឺការរលាកឬរលាកស្រោមសន្លាក់និងផ្នែកដែលមិនដឹងពីមូលហេតុដែលជួបប្រទះលើក្រុមដែលមានការប្រើប្រាស់ច្រើនតាមអាយុដែលកើនឡើង។</p>
-                            </div>
-                            </div>
+            </div>
+        </section>
+
+        <footer class="footer-area">
+            <div class="container">
+                <div class="row pb-5">
+                    <div class="col-lg-4 mb-4">
+                        <h4 class="text-white">Thanaplus</h4>
+                        <p>คลินิกเฉพาะทางด้านกระดูกและข้อ มุ่งเน้นการรักษาที่มีประสิทธิภาพและปลอดภัย</p>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <h4 class="text-white">ลิงก์ด่วน</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html">หน้าแรก</a></li>
+                            <li><a href="about.html">เกี่ยวกับเรา</a></li>
+                            <li><a href="services.html">บริการของเรา</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h4 class="text-white">ติดต่อเรา</h4>
+                        <p><i class="fas fa-phone mr-2" style="color: var(--brand-green);"></i> 098-143-3999</p>
+                        <p><i class="fab fa-line mr-2" style="color: var(--brand-green);"></i> <span style="font-family: Arial, sans-serif;">@thana_plus</p>
                     </div>
                 </div>
-            </section>
-        </div>
+                <div class="row pt-4 border-top border-secondary text-center">
+                    <div class="col-12">
+                        <p class="small">© 2024 Thana Plus Life Center. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
-        </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>

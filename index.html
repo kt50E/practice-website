@@ -605,6 +605,40 @@
         color: white;
         text-decoration: none;
       }
+
+      /* Back to Top Button */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--brand-blue);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background 0.3s ease;
+        z-index: 9999;
+        box-shadow: 0 4px 15px rgba(0, 153, 204, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .back-to-top:hover {
+        background: var(--brand-blue-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 153, 204, 0.5);
+      }
     </style>
 
     <title>Thanaplus Life Center</title>
@@ -905,7 +939,36 @@
       </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="กลับไปด้านบน">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Back to Top Script -->
+    <script>
+      (function() {
+        var backToTop = document.getElementById('backToTop');
+
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 300) {
+            backToTop.classList.add('show');
+          } else {
+            backToTop.classList.remove('show');
+          }
+        });
+
+        // Smooth scroll to top when clicked
+        backToTop.addEventListener('click', function() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      })();
+    </script>
   </body>
 </html>

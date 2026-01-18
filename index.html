@@ -76,8 +76,64 @@
         font-weight: 500;
         color: #555 !important;
         font-family: 'Sarabun', sans-serif;
+        position: relative;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        padding: 8px 15px;
+        border-radius: 4px;
+      }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: var(--brand-blue-dark);
+        transition: width 0.3s ease, left 0.3s ease;
+      }
+      .nav-link:hover {
+        color: var(--brand-blue) !important;
+        background-color: rgba(0, 153, 204, 0.08);
+      }
+      .nav-link:hover::after {
+        width: 70%;
+        left: 15%;
       }
       .nav-link.active { color: var(--brand-blue) !important; }
+
+      /* --- DROPDOWN HOVER ANIMATION --- */
+      .navbar-nav .dropdown:hover > .dropdown-menu {
+        display: block;
+      }
+      .navbar-nav .dropdown-menu {
+        margin-top: 0;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+        display: block;
+      }
+      .navbar-nav .dropdown:hover > .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .dropdown-item {
+        padding: 10px 20px;
+        font-family: 'Sarabun', sans-serif;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+      .dropdown-item:hover {
+        background-color: rgba(0, 153, 204, 0.1);
+        color: var(--brand-blue);
+      }
+      .dropdown-item.active {
+        background-color: var(--brand-blue);
+        color: #fff;
+      }
 
       /* --- NEW STATIC HERO SECTION --- */
       .hero-static {
@@ -486,7 +542,13 @@
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="index.html" class="nav-link">หน้าแรก</a></li>
                 <li class="nav-item"><a href="about.html" class="nav-link">เกี่ยวกับเรา</a></li>
-                <li class="nav-item"><a href="services.html" class="nav-link">บริการของเรา</a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="services.html" id="servicesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">บริการของเรา</a>
+                  <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+                    <a class="dropdown-item" href="services.html">บริการทั้งหมด</a>
+                    <a class="dropdown-item" href="service-plasma.html">Plasma 1</a>
+                  </div>
+                </li>
                 <li class="nav-item"><a href="education.html" class="nav-link">สาระน่ารู้</a></li>
                 <li class="nav-item"><a href="contactus.html" class="nav-link" style="color: var(--brand-blue) !important;"><i class="fas fa-phone"></i> ติดต่อเรา</a></li>
                 <li class="nav-item dropdown">
@@ -494,8 +556,8 @@
                     <i class="fas fa-globe"></i> TH
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="langDropdown">
-                    <a class="dropdown-item active" href="#">ไทย (TH)</a>
-                    <a class="dropdown-item" href="#">English (EN)</a>
+                    <a class="dropdown-item active" href="#">TH - ไทย</a>
+                    <a class="dropdown-item" href="#">EN - English</a>
                   </div>
                 </li>
               </ul>

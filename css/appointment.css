@@ -9,7 +9,7 @@
     --bg-white: #ffffff;
     --bg-warm-white: #fef9f3;
     --text-dark: #333333;
-    --text-muted: #6b7785; /* Updated for WCAG AA compliance (was #5b6773) */
+    --text-muted: #007399; /* Darker for better contrast */
     --brand-blue: #0099cc;
     --brand-blue-dark: #007399;
     --brand-green: #32c48d;
@@ -375,14 +375,17 @@ input[readonly].form-control {
 .btn-submit, .btn-next {
     background-color: var(--form-primary);
     color: white;
-    padding: 14px 35px;
-    border-radius: 8px;
+    padding: 10px 24px;
+    border-radius: 6px;
     font-weight: 600;
     border: none;
     transition: all 0.2s ease;
-    width: 100%;
+    width: auto;
     font-size: 1rem;
     margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 .btn-submit:hover, .btn-next:hover {
     background-color: var(--form-primary-dark);
@@ -393,14 +396,17 @@ input[readonly].form-control {
 .btn-back {
     background-color: #fff;
     color: var(--text-dark);
-    padding: 14px 35px;
-    border-radius: 8px;
+    padding: 10px 24px;
+    border-radius: 6px;
     font-weight: 600;
     border: 1px solid var(--border-light);
     transition: all 0.2s ease;
-    width: 100%;
+    width: auto;
     font-size: 1rem;
     margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 .btn-back:hover {
     background-color: #f7f8fa;

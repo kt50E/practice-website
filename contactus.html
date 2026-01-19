@@ -231,34 +231,92 @@
                 border: 2px dashed #ccc;
             }
 
-            /* --- APPOINTMENT CARD --- */
+            /* --- APPOINTMENT CARD (Simplified - White with Blue Accent) --- */
             .appointment-cta-card {
-                background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
-                color: white;
+                background: #ffffff;
+                color: var(--text-dark);
                 border-radius: 20px;
                 padding: 40px;
                 text-align: center;
-                box-shadow: 0 15px 40px rgba(50, 196, 141, 0.3);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.08);
                 height: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                border: 1px solid #f0f0f0;
+                position: relative;
+                overflow: hidden;
             }
-            .btn-white {
-                background-color: white;
-                color: var(--brand-green);
+            .appointment-cta-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 4px;
+                background: linear-gradient(90deg, var(--brand-blue), var(--brand-green));
+            }
+            .appointment-cta-card .cta-icon {
+                width: 80px;
+                height: 80px;
+                background: linear-gradient(135deg, rgba(0,153,204,0.1), rgba(50,196,141,0.1));
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            .appointment-cta-card .cta-icon i {
+                font-size: 2rem;
+                color: var(--brand-blue);
+            }
+            .btn-appointment {
+                background-color: var(--brand-blue);
+                color: white;
                 padding: 15px 40px;
                 border-radius: 50px;
                 font-weight: bold;
                 transition: 0.3s;
                 margin-top: 20px;
-            }
-            .btn-white:hover {
-                background-color: #f0f0f0;
-                color: var(--brand-green-dark);
                 text-decoration: none;
-                transform: scale(1.05);
+                display: inline-block;
+            }
+            .btn-appointment:hover {
+                background-color: var(--brand-blue-dark);
+                color: white;
+                text-decoration: none;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(0, 153, 204, 0.3);
+            }
+
+            /* --- DIRECTIONS BUTTON --- */
+            .btn-directions {
+                background-color: var(--brand-blue);
+                color: white;
+                padding: 12px 30px;
+                border-radius: 50px;
+                font-weight: 600;
+                transition: 0.3s;
+                text-decoration: none;
+                display: inline-block;
+            }
+            .btn-directions:hover {
+                background-color: var(--brand-blue-dark);
+                color: white;
+                text-decoration: none;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 15px rgba(0, 153, 204, 0.3);
+            }
+
+            /* --- YOUTUBE BUTTON --- */
+            .btn-youtube {
+                background-color: #FF0000;
+                border: 1px solid #FF0000;
+            }
+            .btn-youtube:hover {
+                background-color: #cc0000;
+                color: white;
             }
 
             /* --- FOOTER --- */
@@ -521,7 +579,7 @@
                         <div class="contact-info-card h-100">
                             <div class="contact-icon"><i class="fas fa-phone"></i></div>
                             <h5 class="font-weight-bold">เบอร์โทรศัพท์</h5>
-                            <p class="text-muted mb-0">+66-98-143-3999</p>
+                            <p class="mb-0"><a href="tel:+66981433999" style="color: var(--brand-blue); font-weight: 600; text-decoration: none;">+66-98-143-3999</a></p>
                             <p class="text-muted small">(ติดต่อในเวลาทำการ)</p>
                         </div>
                     </div>
@@ -554,8 +612,11 @@
                                             <i class="fab fa-instagram mr-2"></i> Instagram
                                         </a>
                                         <a href="https://page.line.me/132dekpm?openQrModal=true" target="_blank" class="btn btn-social btn-line shadow-sm">
-                                            <i class="fab fa-instagram mr-2"></i> Official LINE account
-                                        </a>                                    
+                                            <i class="fab fa-line mr-2"></i> Official LINE account
+                                        </a>
+                                        <a href="https://www.youtube.com/@ThanaplusLifeCenter" target="_blank" class="btn btn-social btn-youtube shadow-sm">
+                                            <i class="fab fa-youtube mr-2"></i> YouTube Channel
+                                        </a>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="border rounded p-3 bg-light text-center h-100 d-flex flex-column justify-content-center align-items-center">
@@ -570,13 +631,15 @@
 
                     <div class="col-lg-6 mb-4">
                         <div class="appointment-cta-card h-100">
-                            <i class="fas fa-calendar-check fa-4x mb-4" style="color: rgba(255,255,255,0.8);"></i>
+                            <div class="cta-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
                             <h2 class="font-weight-bold mb-3">ต้องการพบแพทย์?</h2>
-                            <p class="lead mb-4" style="opacity: 0.9;">
-                                ลงทะเบียนนัดหมายแพทย์ล่วงหน้า <br>
+                            <p class="text-muted mb-2">
+                                ลงทะเบียนนัดหมายแพทย์ล่วงหน้า<br>
                                 ผ่านระบบออนไลน์ได้ทันที
                             </p>
-                            <a href="appointment.html" class="btn btn-white shadow">
+                            <a href="appointment.html" class="btn-appointment">
                                 <i class="fas fa-edit mr-2"></i> ลงทะเบียนนัดหมาย
                             </a>
                         </div>
@@ -588,6 +651,11 @@
                     <div class="col-12">
                         <div class="card shadow-sm border-0 overflow-hidden">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.389875043815!2d100.5264847!3d13.7553466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29946bb1f1769%3A0x481279a872a91728!2sThanaplus%20Life%20Center!5e0!3m2!1sen!2sus!4v1768389620254!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="https://maps.app.goo.gl/69iFu2qRgAJA8LbP7" target="_blank" class="btn btn-directions">
+                                <i class="fas fa-directions mr-2"></i> ดูเส้นทางใน Google Maps
+                            </a>
                         </div>
                     </div>
                 </div>

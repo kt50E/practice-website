@@ -7,7 +7,7 @@
 :root {
     /* Main site colors (blue theme from other pages) */
     --bg-white: #ffffff;
-    --bg-warm-white: #f9f9f7;
+    --bg-warm-white: #fef9f3;
     --text-dark: #333333;
     --text-muted: #6b7785; /* Updated for WCAG AA compliance (was #5b6773) */
     --brand-blue: #0099cc;

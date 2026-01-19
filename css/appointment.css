@@ -296,13 +296,13 @@ input[readonly].form-control {
     border-color: #ddd;
 }
 .gender-toggle .btn.active {
-    background: var(--form-primary);
+    background: var(--brand-blue);
     color: white;
-    border-color: var(--form-primary);
+    border-color: var(--brand-blue);
 }
 /* Focus styles for keyboard navigation */
 .gender-toggle .btn:focus {
-    outline: 2px solid var(--form-primary);
+    outline: 2px solid var(--brand-blue);
     outline-offset: 2px;
 }
 
@@ -441,10 +441,10 @@ input[readonly].form-control {
 }
 .review-section-title {
     font-weight: 600;
-    color: var(--form-primary);
+    color: #000000;
     margin: 20px 0 10px;
     padding-bottom: 10px;
-    border-bottom: 2px solid var(--form-primary);
+    border-bottom: 2px solid var(--brand-blue);
     font-size: 1rem;
 }
 
@@ -520,7 +520,7 @@ input[readonly].form-control {
     font-size: 1.1rem;
 }
 .section-title-accent {
-    color: var(--form-primary);
+    color: #000000;
 }
 
 /* --- FOOTER --- */
@@ -757,21 +757,21 @@ input.flatpickr-input + input.form-control {
     font-family: 'Sarabun', sans-serif;
 }
 .flatpickr-day.selected {
-    background: var(--form-primary) !important;
-    border-color: var(--form-primary) !important;
+    background: var(--brand-blue) !important;
+    border-color: var(--brand-blue) !important;
 }
 .flatpickr-day:hover {
-    background: rgba(90, 154, 168, 0.15) !important;
+    background: rgba(0, 153, 204, 0.15) !important;
 }
 .flatpickr-day.today {
-    border-color: var(--form-primary) !important;
+    border-color: var(--brand-blue) !important;
 }
 .flatpickr-months .flatpickr-month {
-    background: var(--form-primary);
+    background: var(--brand-blue);
     color: white;
 }
 .flatpickr-current-month .flatpickr-monthDropdown-months {
-    background: var(--form-primary);
+    background: var(--brand-blue);
     color: white;
 }
 .flatpickr-current-month input.cur-year {

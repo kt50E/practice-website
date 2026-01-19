@@ -2292,25 +2292,40 @@
 
         // Handle anchor scroll on page load (for links from other pages)
         (function() {
-            if (window.location.hash) {
-                // Wait for page to fully load
-                window.addEventListener('load', function() {
+            function scrollToHash() {
+                if (window.location.hash) {
                     var target = document.querySelector(window.location.hash);
                     if (target) {
                         // Get navbar height for offset
                         var navbar = document.querySelector('.navbar-area');
-                        var navbarHeight = navbar ? navbar.offsetHeight : 0;
+                        var navbarHeight = navbar ? navbar.offsetHeight : 80;
 
-                        // Small delay to ensure everything is rendered
-                        setTimeout(function() {
-                            var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
-                            window.scrollTo({
-                                top: targetPosition,
-                                behavior: 'smooth'
-                            });
-                        }, 100);
+                        // Calculate position and scroll
+                        var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
                     }
-                });
+                }
+            }
+
+            // Try multiple times to ensure it works
+            if (window.location.hash) {
+                // Prevent browser's default scroll
+                if ('scrollRestoration' in history) {
+                    history.scrollRestoration = 'manual';
+                }
+                window.scrollTo(0, 0);
+
+                // Scroll after DOM ready
+                if (document.readyState === 'complete') {
+                    setTimeout(scrollToHash, 300);
+                } else {
+                    window.addEventListener('load', function() {
+                        setTimeout(scrollToHash, 300);
+                    });
+                }
             }
         })();
     </script>

@@ -23,7 +23,7 @@
     --form-accent-dark: #6aa898;
     --border-light: #e8e8e8;
 }
-body { font-family: 'Sarabun', sans-serif; background-color: var(--bg-warm-white); color: var(--text-dark); }
+body { font-family: 'Sarabun', sans-serif; background-color: var(--bg-white); color: var(--text-dark); }
 h1, h2, h3, h4, .navbar-brand { font-family: 'Playfair Display', serif; color: var(--text-dark); }
 
 /* --- NAVBAR (Blue theme) --- */

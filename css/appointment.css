@@ -1,0 +1,769 @@
+/* ============================================
+   APPOINTMENT PAGE STYLES
+   Thanaplus Life Center
+   ============================================ */
+
+/* --- SHARED STYLES --- */
+:root {
+    /* Main site colors (blue theme from other pages) */
+    --bg-white: #ffffff;
+    --bg-warm-white: #f9f9f7;
+    --text-dark: #333333;
+    --text-muted: #6b7785; /* Updated for WCAG AA compliance (was #5b6773) */
+    --brand-blue: #0099cc;
+    --brand-blue-dark: #007399;
+    --brand-green: #32c48d;
+    --brand-green-dark: #28a375;
+
+    /* Form-specific softer colors */
+    --form-bg: #fafafa;
+    --form-primary: #5a9aa8;
+    --form-primary-dark: #4a8a98;
+    --form-accent: #7db8a8;
+    --form-accent-dark: #6aa898;
+    --border-light: #e8e8e8;
+}
+body { font-family: 'Sarabun', sans-serif; background-color: var(--bg-warm-white); color: var(--text-dark); }
+h1, h2, h3, h4, .navbar-brand { font-family: 'Playfair Display', serif; color: var(--text-dark); }
+
+/* --- NAVBAR (Blue theme) --- */
+.navbar-area {
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0, 153, 204, 0.1);
+}
+.nav-link {
+    font-weight: 500;
+    color: #555 !important;
+    font-family: 'Sarabun', sans-serif;
+    position: relative;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+.nav-link:not(.dropdown-toggle)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--brand-blue-dark);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+.nav-link:hover {
+    color: var(--brand-blue) !important;
+    background-color: rgba(0, 153, 204, 0.08);
+}
+.nav-link:not(.dropdown-toggle):hover::after {
+    width: 70%;
+    left: 15%;
+}
+.nav-link.active { color: var(--brand-blue) !important; }
+
+/* --- DROPDOWN HOVER ANIMATION (Desktop) --- */
+.navbar-nav .dropdown-toggle::after {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .navbar-nav .dropdown:hover > .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .navbar-nav .dropdown-menu {
+        margin-top: 0;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+        display: block;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar-nav .dropdown-menu {
+        border: none;
+        background: rgba(0, 0, 0, 0.03);
+        border-radius: 8px;
+        margin: 5px 0;
+        padding: 10px 0;
+    }
+    .navbar-nav .dropdown-menu .dropdown-item {
+        padding: 8px 25px;
+    }
+    .navbar-nav .dropdown-toggle::after {
+        display: inline-block;
+        margin-left: 5px;
+        vertical-align: middle;
+        content: "";
+        border-top: 0.3em solid;
+        border-right: 0.3em solid transparent;
+        border-bottom: 0;
+        border-left: 0.3em solid transparent;
+    }
+}
+
+.dropdown-item {
+    padding: 10px 20px;
+    font-family: 'Sarabun', sans-serif;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.dropdown-item:hover {
+    background-color: rgba(0, 153, 204, 0.08);
+    color: var(--brand-blue);
+}
+.dropdown-item.active {
+    background-color: var(--brand-blue);
+    color: #fff;
+}
+
+/* --- PAGE HEADER (Blue theme - matching other pages) --- */
+.page-header {
+    background: linear-gradient(135deg, rgba(0, 153, 204, 0.85) 0%, rgba(50, 196, 141, 0.75) 100%), url('../calendar.webp');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    min-height: 220px;
+    text-align: center;
+    color: white;
+}
+.page-header h1 { color: white; margin-bottom: 10px; }
+.page-header p { opacity: 0.95; }
+
+/* --- PHONE CALL BANNER (Blue theme) --- */
+.phone-banner {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 18px 25px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.phone-banner-icon {
+    width: 45px;
+    height: 45px;
+    background: rgba(0, 153, 204, 0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brand-blue);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+.phone-banner-text {
+    text-align: center;
+}
+.phone-banner-text p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+.phone-banner-text a {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--brand-blue);
+    text-decoration: none;
+}
+.phone-banner-text a:hover {
+    color: var(--brand-blue-dark);
+    text-decoration: underline;
+}
+
+/* --- PROGRESS INDICATOR (Form softer colors) --- */
+.progress-steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 0;
+}
+.progress-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.step-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #f7f8fa;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 2px solid var(--border-light);
+}
+.step-circle.active {
+    background: var(--form-primary);
+    color: white;
+    border-color: var(--form-primary);
+}
+.step-circle.completed {
+    background: var(--form-accent);
+    color: white;
+    border-color: var(--form-accent);
+}
+.step-label {
+    font-weight: 500;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+.step-label.active {
+    color: var(--form-primary);
+}
+.step-connector {
+    width: 50px;
+    height: 2px;
+    background: var(--border-light);
+    margin: 0 12px;
+}
+.step-connector.completed {
+    background: var(--form-accent);
+}
+
+/* --- FORM STYLES (Softer form-specific colors) --- */
+.appointment-form-box {
+    background: #fff;
+    padding: 35px 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    border-top: 3px solid var(--form-primary);
+}
+.form-control, .custom-select {
+    border-radius: 8px;
+    padding: 12px 15px;
+    border: 1px solid var(--border-light);
+    background-color: #fff;
+    height: 48px !important;
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+select.form-control {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23999' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 8px 10px;
+}
+.form-control:focus, .custom-select:focus {
+    border-color: var(--form-primary);
+    box-shadow: 0 0 0 3px rgba(90, 154, 168, 0.1);
+    background-color: #fff;
+}
+label {
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+input[readonly].form-control {
+    background-color: #fff;
+}
+
+/* --- GENDER TOGGLE (Softer form colors) --- */
+.gender-toggle {
+    display: flex;
+    gap: 10px;
+}
+.gender-toggle .btn {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    background: #fff;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+.gender-toggle .btn:hover {
+    background: #f7f8fa;
+    border-color: #ddd;
+}
+.gender-toggle .btn.active {
+    background: var(--form-primary);
+    color: white;
+    border-color: var(--form-primary);
+}
+/* Focus styles for keyboard navigation */
+.gender-toggle .btn:focus {
+    outline: 2px solid var(--form-primary);
+    outline-offset: 2px;
+}
+
+/* --- PHONE INPUT WITH FLAG --- */
+.phone-input-wrapper {
+    display: flex;
+    gap: 10px;
+}
+.country-select-wrapper {
+    position: relative;
+    flex-shrink: 0;
+}
+.country-select-wrapper select {
+    min-width: 180px;
+    padding-right: 30px;
+}
+.phone-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f7f8fa;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 0 15px;
+    height: 48px;
+    min-width: 130px;
+    font-size: 0.95rem;
+}
+.phone-display .flag {
+    font-size: 1.3rem;
+    line-height: 1;
+}
+.phone-display .code {
+    font-weight: 500;
+    color: var(--text-dark);
+}
+/* Mobile: Stack phone inputs vertically */
+@media (max-width: 576px) {
+    .phone-input-wrapper {
+        flex-direction: column;
+    }
+    .country-select-wrapper select {
+        width: 100%;
+        min-width: unset;
+    }
+    .phone-input-wrapper input[type="tel"] {
+        width: 100%;
+    }
+}
+
+/* --- CLINIC HOURS INFO --- */
+.clinic-hours-info {
+    background: #f7f8fa;
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: none;
+}
+.clinic-hours-info.show {
+    display: block;
+}
+.clinic-hours-info i {
+    color: var(--form-primary);
+    margin-right: 6px;
+}
+
+/* --- BUTTON STYLES (Form softer colors) --- */
+.btn-submit, .btn-next {
+    background-color: var(--form-primary);
+    color: white;
+    padding: 14px 35px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    transition: all 0.2s ease;
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+.btn-submit:hover, .btn-next:hover {
+    background-color: var(--form-primary-dark);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(90, 154, 168, 0.25);
+}
+.btn-back {
+    background-color: #fff;
+    color: var(--text-dark);
+    padding: 14px 35px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: 1px solid var(--border-light);
+    transition: all 0.2s ease;
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+.btn-back:hover {
+    background-color: #f7f8fa;
+    color: var(--text-dark);
+}
+
+/* --- REVIEW SCREEN --- */
+#reviewScreen {
+    display: none;
+}
+.review-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid #f7f8fa;
+}
+.review-item:last-child {
+    border-bottom: none;
+}
+.review-label {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+.review-value {
+    color: var(--text-dark);
+    font-weight: 600;
+    text-align: right;
+}
+.review-section-title {
+    font-weight: 600;
+    color: var(--form-primary);
+    margin: 20px 0 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--form-primary);
+    font-size: 1rem;
+}
+
+/* --- CONSENT CHECKBOX --- */
+.consent-wrapper {
+    background: #f7f8fa;
+    border-radius: 8px;
+    padding: 18px;
+    margin-top: 20px;
+}
+.consent-wrapper .custom-control-label {
+    font-weight: 500;
+    color: var(--text-dark);
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+.consent-wrapper .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: var(--form-primary);
+    border-color: var(--form-primary);
+}
+
+/* --- SUCCESS MESSAGE STYLE (Softer form colors) --- */
+#successMessage {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    background: #f7f8fa;
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+}
+.success-icon {
+    font-size: 50px;
+    color: var(--form-accent);
+    margin-bottom: 20px;
+}
+.success-details {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: left;
+    border: 1px solid var(--border-light);
+}
+.success-details .review-item {
+    padding: 10px 0;
+}
+
+/* --- FORM VALIDATION STYLES --- */
+.form-control.is-invalid {
+    border-color: #e57373;
+    background-image: none;
+}
+.form-control.is-valid {
+    border-color: var(--form-accent);
+    background-image: none;
+}
+.invalid-feedback {
+    display: none;
+    color: #d32f2f; /* Updated for better contrast */
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+.form-control.is-invalid ~ .invalid-feedback,
+.is-invalid ~ .invalid-feedback {
+    display: block;
+}
+
+/* --- SECTION TITLE --- */
+.section-title {
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+.section-title-accent {
+    color: var(--form-primary);
+}
+
+/* --- FOOTER --- */
+.footer-area {
+    background-color: #2d3e4a;
+    color: #b0bec5;
+    padding-top: 60px;
+}
+.footer-area h5 {
+    color: #ffffff;
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 12px;
+}
+.footer-area h5::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 35px;
+    height: 2px;
+    background: var(--brand-blue);
+}
+.footer-area p {
+    color: #9aabb7; /* Updated for better contrast */
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+.footer-area a {
+    color: #b0bec5;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+.footer-area a:hover {
+    color: var(--brand-green);
+    text-decoration: none;
+    padding-left: 5px;
+}
+.footer-logo {
+    max-height: 50px;
+    margin-bottom: 15px;
+}
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-links li {
+    margin-bottom: 10px;
+}
+.footer-links a {
+    font-size: 0.9rem;
+}
+.footer-links a::before {
+    content: '>';
+    margin-right: 8px;
+    color: var(--brand-blue);
+    transition: margin-right 0.3s ease;
+}
+.footer-links a:hover::before {
+    margin-right: 12px;
+}
+.footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+.footer-contact-item i {
+    color: var(--brand-green);
+    margin-right: 12px;
+    margin-top: 4px;
+    font-size: 0.9rem;
+    width: 16px;
+    text-align: center;
+}
+.footer-contact-item span {
+    font-size: 0.9rem;
+    color: #b0bec5;
+    line-height: 1.5;
+}
+.footer-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+.footer-social a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    padding-left: 0;
+}
+.footer-social a:hover {
+    transform: translateY(-2px);
+    padding-left: 0;
+}
+.footer-social a.line-icon:hover { background: #06C755; }
+.footer-social a.facebook-icon:hover { background: #1877F2; }
+.footer-social a.instagram-icon:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.footer-social a.youtube-icon:hover { background: #FF0000; }
+.footer-hours {
+    margin-top: 20px;
+}
+.footer-hours p {
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+}
+.footer-bottom {
+    background: rgba(0,0,0,0.15);
+    padding: 18px 0;
+    margin-top: 40px;
+}
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #7d8d99; /* Updated for better contrast */
+}
+.footer-bottom a {
+    color: #9aabb7; /* Updated for better contrast */
+    padding-left: 0;
+}
+.footer-bottom a:hover {
+    color: var(--brand-green);
+    padding-left: 0;
+}
+.footer-col-2 {
+    padding-left: 60px;
+}
+@media (max-width: 991.98px) {
+    .footer-col-2 {
+        padding-left: 15px;
+    }
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background: var(--brand-blue);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background 0.3s ease;
+    z-index: 9999;
+    box-shadow: 0 3px 12px rgba(0, 153, 204, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.back-to-top:hover {
+    background: var(--brand-blue-dark);
+    transform: translateY(-2px);
+}
+
+/* Skip to content link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    background: var(--brand-blue);
+    color: white;
+    padding: 10px 20px;
+    z-index: 10000;
+    transition: top 0.3s;
+    text-decoration: none;
+    border-radius: 0 0 8px 0;
+}
+.skip-link:focus {
+    top: 0;
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 576px) {
+    .progress-steps {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .step-connector {
+        width: 2px;
+        height: 25px;
+        margin: 0;
+    }
+    .phone-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+    .appointment-form-box {
+        padding: 25px 20px;
+    }
+}
+
+/* Flatpickr altInput styling */
+.flatpickr-input.form-control[readonly] {
+    background-color: #fff;
+    cursor: pointer;
+}
+input.flatpickr-input + input.form-control {
+    background-color: #fff;
+}
+/* Ensure flatpickr calendar is properly visible on mobile */
+.flatpickr-calendar {
+    font-family: 'Sarabun', sans-serif;
+}
+.flatpickr-day.selected {
+    background: var(--form-primary) !important;
+    border-color: var(--form-primary) !important;
+}
+.flatpickr-day:hover {
+    background: rgba(90, 154, 168, 0.15) !important;
+}
+.flatpickr-day.today {
+    border-color: var(--form-primary) !important;
+}
+.flatpickr-months .flatpickr-month {
+    background: var(--form-primary);
+    color: white;
+}
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+    background: var(--form-primary);
+    color: white;
+}
+.flatpickr-current-month input.cur-year {
+    color: white;
+}
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month {
+    color: white;
+    fill: white;
+}
+.flatpickr-months .flatpickr-prev-month:hover svg,
+.flatpickr-months .flatpickr-next-month:hover svg {
+    fill: white;
+}

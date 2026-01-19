@@ -142,16 +142,17 @@
                 color: #fff;
             }
 
-            /* --- PAGE HEADER (Blue theme) --- */
+            /* --- PAGE HEADER (Blue theme - matching other pages) --- */
             .page-header {
-                background: linear-gradient(135deg, rgba(0, 153, 204, 0.9) 0%, rgba(0, 115, 153, 0.85) 100%), url('calendar.webp');
+                background: linear-gradient(135deg, rgba(0, 153, 204, 0.85) 0%, rgba(50, 196, 141, 0.75) 100%), url('calendar.webp');
                 background-size: cover;
                 background-position: center;
                 padding: 100px 0;
+                min-height: 220px;
                 text-align: center;
                 color: white;
             }
-            .page-header h1 { color: white; margin-bottom: 10px; font-weight: 600; }
+            .page-header h1 { color: white; margin-bottom: 10px; }
             .page-header p { opacity: 0.95; }
 
             /* --- PHONE CALL BANNER (Blue theme) --- */
@@ -827,7 +828,7 @@
 
         <section class="page-header" id="main-content">
             <div class="container">
-                <h1>นัดหมายแพทย์</h1>
+                <h1 class="font-weight-bold">นัดหมายแพทย์</h1>
                 <p class="lead mb-0">กรุณากรอกข้อมูลเบื้องต้นเพื่อให้เจ้าหน้าที่ติดต่อกลับยืนยันการนัดหมาย</p>
             </div>
         </section>
@@ -844,7 +845,7 @@
                                 <i class="fas fa-phone-alt"></i>
                             </div>
                             <div class="phone-banner-text">
-                                <p>หากต้องการนัดหมายทางโทรศัพท์ กรุณาโทร <a href="tel:+66981433999">+66-98-143-3999</a></p>
+                                <p>หากต้องการนัดหมายทางโทรศัพท์<br>กรุณาโทร <a href="tel:+66981433999">+66-98-143-3999</a></p>
                             </div>
                         </div>
 
@@ -1243,22 +1244,22 @@
             // 5. Initialize Date Pickers
             // Birth Date Picker - with Thai month name display
             flatpickr("#birthDate", {
-                dateFormat: "d M Y",
+                dateFormat: "j F Y",
                 altInput: true,
-                altFormat: "d F Y",
+                altFormat: "j F Y",
                 maxDate: "today",
                 defaultDate: null,
                 locale: thaiLocale,
-                disableMobile: false
+                disableMobile: true
             });
 
             // Appointment Date Picker - with Thai month name display
             flatpickr("#appointmentDate", {
-                dateFormat: "d M Y",
+                dateFormat: "j F Y",
                 altInput: true,
-                altFormat: "D d F Y",
+                altFormat: "l j F Y",
                 minDate: "today",
-                disableMobile: false,
+                disableMobile: true,
                 disable: [
                     // Block Mondays (Day 1) - Clinic closed
                     function(date) { return (date.getDay() === 1); },

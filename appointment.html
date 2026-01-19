@@ -23,30 +23,37 @@
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
 
         <style>
-            /* --- SHARED STYLES (Softer, more elegant palette) --- */
+            /* --- SHARED STYLES --- */
             :root {
+                /* Main site colors (blue theme from other pages) */
                 --bg-white: #ffffff;
-                --bg-warm: #fafafa;
-                --bg-light: #f7f8fa;
-                --text-dark: #4a4a4a;
-                --text-muted: #777777;
-                --brand-primary: #5a9aa8;
-                --brand-primary-dark: #4a8a98;
-                --brand-accent: #7db8a8;
-                --brand-accent-dark: #6aa898;
+                --bg-warm-white: #f9f9f7;
+                --text-dark: #333333;
+                --text-muted: #5b6773;
+                --brand-blue: #0099cc;
+                --brand-blue-dark: #007399;
+                --brand-green: #32c48d;
+                --brand-green-dark: #28a375;
+
+                /* Form-specific softer colors */
+                --form-bg: #fafafa;
+                --form-primary: #5a9aa8;
+                --form-primary-dark: #4a8a98;
+                --form-accent: #7db8a8;
+                --form-accent-dark: #6aa898;
                 --border-light: #e8e8e8;
             }
-            body { font-family: 'Sarabun', sans-serif; background-color: var(--bg-warm); color: var(--text-dark); }
+            body { font-family: 'Sarabun', sans-serif; background-color: var(--bg-warm-white); color: var(--text-dark); }
             h1, h2, h3, h4, .navbar-brand { font-family: 'Playfair Display', serif; color: var(--text-dark); }
 
-            /* --- NAVBAR --- */
+            /* --- NAVBAR (Blue theme) --- */
             .navbar-area {
                 background: #fff;
-                box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+                box-shadow: 0 4px 20px rgba(0, 153, 204, 0.1);
             }
             .nav-link {
                 font-weight: 500;
-                color: #666 !important;
+                color: #555 !important;
                 font-family: 'Sarabun', sans-serif;
                 position: relative;
                 transition: color 0.3s ease, background-color 0.3s ease;
@@ -60,18 +67,18 @@
                 left: 50%;
                 width: 0;
                 height: 2px;
-                background-color: var(--brand-primary);
+                background-color: var(--brand-blue-dark);
                 transition: width 0.3s ease, left 0.3s ease;
             }
             .nav-link:hover {
-                color: var(--brand-primary) !important;
-                background-color: rgba(90, 154, 168, 0.06);
+                color: var(--brand-blue) !important;
+                background-color: rgba(0, 153, 204, 0.08);
             }
             .nav-link:not(.dropdown-toggle):hover::after {
                 width: 70%;
                 left: 15%;
             }
-            .nav-link.active { color: var(--brand-primary) !important; }
+            .nav-link.active { color: var(--brand-blue) !important; }
 
             /* --- DROPDOWN HOVER ANIMATION (Desktop) --- */
             .navbar-nav .dropdown-toggle::after {
@@ -89,7 +96,7 @@
                     margin-top: 0;
                     border: none;
                     border-radius: 8px;
-                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
                     opacity: 0;
                     visibility: hidden;
                     transform: translateY(-10px);
@@ -101,7 +108,7 @@
             @media (max-width: 991.98px) {
                 .navbar-nav .dropdown-menu {
                     border: none;
-                    background: rgba(0, 0, 0, 0.02);
+                    background: rgba(0, 0, 0, 0.03);
                     border-radius: 8px;
                     margin: 5px 0;
                     padding: 10px 0;
@@ -127,17 +134,17 @@
                 transition: background-color 0.2s ease, color 0.2s ease;
             }
             .dropdown-item:hover {
-                background-color: rgba(90, 154, 168, 0.08);
-                color: var(--brand-primary);
+                background-color: rgba(0, 153, 204, 0.08);
+                color: var(--brand-blue);
             }
             .dropdown-item.active {
-                background-color: var(--brand-primary);
+                background-color: var(--brand-blue);
                 color: #fff;
             }
 
-            /* --- PAGE HEADER (Softer gradient) --- */
+            /* --- PAGE HEADER (Blue theme) --- */
             .page-header {
-                background: linear-gradient(135deg, rgba(90, 154, 168, 0.85) 0%, rgba(125, 184, 168, 0.8) 100%), url('calendar.webp');
+                background: linear-gradient(135deg, rgba(0, 153, 204, 0.9) 0%, rgba(0, 115, 153, 0.85) 100%), url('calendar.webp');
                 background-size: cover;
                 background-position: center;
                 padding: 70px 0;
@@ -147,7 +154,7 @@
             .page-header h1 { color: white; margin-bottom: 10px; font-weight: 600; }
             .page-header p { opacity: 0.95; }
 
-            /* --- PHONE CALL BANNER (Subtle) --- */
+            /* --- PHONE CALL BANNER (Blue theme) --- */
             .phone-banner {
                 background: #fff;
                 border: 1px solid var(--border-light);
@@ -163,12 +170,12 @@
             .phone-banner-icon {
                 width: 45px;
                 height: 45px;
-                background: var(--bg-light);
+                background: rgba(0, 153, 204, 0.08);
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color: var(--brand-primary);
+                color: var(--brand-blue);
                 font-size: 1.1rem;
                 flex-shrink: 0;
             }
@@ -183,15 +190,15 @@
             .phone-banner-text a {
                 font-size: 1.25rem;
                 font-weight: 600;
-                color: var(--brand-primary);
+                color: var(--brand-blue);
                 text-decoration: none;
             }
             .phone-banner-text a:hover {
-                color: var(--brand-primary-dark);
+                color: var(--brand-blue-dark);
                 text-decoration: underline;
             }
 
-            /* --- PROGRESS INDICATOR (Softer) --- */
+            /* --- PROGRESS INDICATOR (Form softer colors) --- */
             .progress-steps {
                 display: flex;
                 justify-content: center;
@@ -208,7 +215,7 @@
                 width: 34px;
                 height: 34px;
                 border-radius: 50%;
-                background: var(--bg-light);
+                background: #f7f8fa;
                 color: var(--text-muted);
                 display: flex;
                 align-items: center;
@@ -219,14 +226,14 @@
                 border: 2px solid var(--border-light);
             }
             .step-circle.active {
-                background: var(--brand-primary);
+                background: var(--form-primary);
                 color: white;
-                border-color: var(--brand-primary);
+                border-color: var(--form-primary);
             }
             .step-circle.completed {
-                background: var(--brand-accent);
+                background: var(--form-accent);
                 color: white;
-                border-color: var(--brand-accent);
+                border-color: var(--form-accent);
             }
             .step-label {
                 font-weight: 500;
@@ -234,7 +241,7 @@
                 font-size: 0.9rem;
             }
             .step-label.active {
-                color: var(--brand-primary);
+                color: var(--form-primary);
             }
             .step-connector {
                 width: 50px;
@@ -243,16 +250,16 @@
                 margin: 0 12px;
             }
             .step-connector.completed {
-                background: var(--brand-accent);
+                background: var(--form-accent);
             }
 
-            /* --- FORM STYLES (Cleaner) --- */
+            /* --- FORM STYLES (Softer form-specific colors) --- */
             .appointment-form-box {
                 background: #fff;
                 padding: 35px 40px;
                 border-radius: 16px;
                 box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-                border-top: 3px solid var(--brand-primary);
+                border-top: 3px solid var(--form-primary);
             }
             .form-control, .custom-select {
                 border-radius: 8px;
@@ -273,7 +280,7 @@
                 background-size: 8px 10px;
             }
             .form-control:focus, .custom-select:focus {
-                border-color: var(--brand-primary);
+                border-color: var(--form-primary);
                 box-shadow: 0 0 0 3px rgba(90, 154, 168, 0.1);
                 background-color: #fff;
             }
@@ -287,7 +294,7 @@
                 background-color: #fff;
             }
 
-            /* --- GENDER TOGGLE (No emoji, cleaner) --- */
+            /* --- GENDER TOGGLE (Softer form colors) --- */
             .gender-toggle {
                 display: flex;
                 gap: 10px;
@@ -303,13 +310,13 @@
                 transition: all 0.2s ease;
             }
             .gender-toggle .btn:hover {
-                background: var(--bg-light);
+                background: #f7f8fa;
                 border-color: #ddd;
             }
             .gender-toggle .btn.active {
-                background: var(--brand-primary);
+                background: var(--form-primary);
                 color: white;
-                border-color: var(--brand-primary);
+                border-color: var(--form-primary);
             }
 
             /* --- PHONE INPUT WITH FLAG --- */
@@ -329,7 +336,7 @@
                 display: flex;
                 align-items: center;
                 gap: 8px;
-                background: var(--bg-light);
+                background: #f7f8fa;
                 border: 1px solid var(--border-light);
                 border-radius: 8px;
                 padding: 0 15px;
@@ -345,10 +352,23 @@
                 font-weight: 500;
                 color: var(--text-dark);
             }
+            /* Mobile: Stack phone inputs vertically */
+            @media (max-width: 576px) {
+                .phone-input-wrapper {
+                    flex-direction: column;
+                }
+                .country-select-wrapper select {
+                    width: 100%;
+                    min-width: unset;
+                }
+                .phone-input-wrapper input[type="tel"] {
+                    width: 100%;
+                }
+            }
 
             /* --- CLINIC HOURS INFO --- */
             .clinic-hours-info {
-                background: var(--bg-light);
+                background: #f7f8fa;
                 border-radius: 6px;
                 padding: 10px 12px;
                 margin-top: 8px;
@@ -360,13 +380,13 @@
                 display: block;
             }
             .clinic-hours-info i {
-                color: var(--brand-primary);
+                color: var(--form-primary);
                 margin-right: 6px;
             }
 
-            /* --- BUTTON STYLES (Softer) --- */
+            /* --- BUTTON STYLES (Form softer colors) --- */
             .btn-submit, .btn-next {
-                background-color: var(--brand-primary);
+                background-color: var(--form-primary);
                 color: white;
                 padding: 14px 35px;
                 border-radius: 8px;
@@ -378,7 +398,7 @@
                 margin-top: 20px;
             }
             .btn-submit:hover, .btn-next:hover {
-                background-color: var(--brand-primary-dark);
+                background-color: var(--form-primary-dark);
                 color: white;
                 transform: translateY(-1px);
                 box-shadow: 0 4px 12px rgba(90, 154, 168, 0.25);
@@ -396,7 +416,7 @@
                 margin-top: 10px;
             }
             .btn-back:hover {
-                background-color: var(--bg-light);
+                background-color: #f7f8fa;
                 color: var(--text-dark);
             }
 
@@ -408,7 +428,7 @@
                 display: flex;
                 justify-content: space-between;
                 padding: 14px 0;
-                border-bottom: 1px solid var(--bg-light);
+                border-bottom: 1px solid #f7f8fa;
             }
             .review-item:last-child {
                 border-bottom: none;
@@ -424,16 +444,16 @@
             }
             .review-section-title {
                 font-weight: 600;
-                color: var(--brand-primary);
+                color: var(--form-primary);
                 margin: 20px 0 10px;
                 padding-bottom: 10px;
-                border-bottom: 2px solid var(--brand-primary);
+                border-bottom: 2px solid var(--form-primary);
                 font-size: 1rem;
             }
 
             /* --- CONSENT CHECKBOX --- */
             .consent-wrapper {
-                background: var(--bg-light);
+                background: #f7f8fa;
                 border-radius: 8px;
                 padding: 18px;
                 margin-top: 20px;
@@ -445,22 +465,22 @@
                 font-size: 0.95rem;
             }
             .consent-wrapper .custom-control-input:checked ~ .custom-control-label::before {
-                background-color: var(--brand-primary);
-                border-color: var(--brand-primary);
+                background-color: var(--form-primary);
+                border-color: var(--form-primary);
             }
 
-            /* --- SUCCESS MESSAGE STYLE (Softer) --- */
+            /* --- SUCCESS MESSAGE STYLE (Softer form colors) --- */
             #successMessage {
                 display: none;
                 text-align: center;
                 padding: 40px;
-                background: var(--bg-light);
+                background: #f7f8fa;
                 border-radius: 16px;
                 border: 1px solid var(--border-light);
             }
             .success-icon {
                 font-size: 50px;
-                color: var(--brand-accent);
+                color: var(--form-accent);
                 margin-bottom: 20px;
             }
             .success-details {
@@ -481,7 +501,7 @@
                 background-image: none;
             }
             .form-control.is-valid {
-                border-color: var(--brand-accent);
+                border-color: var(--form-accent);
                 background-image: none;
             }
             .invalid-feedback {
@@ -503,7 +523,7 @@
                 font-size: 1.1rem;
             }
             .section-title-accent {
-                color: var(--brand-primary);
+                color: var(--form-primary);
             }
 
             /* --- FOOTER --- */
@@ -528,7 +548,7 @@
                 left: 0;
                 width: 35px;
                 height: 2px;
-                background: var(--brand-primary);
+                background: var(--brand-blue);
             }
             .footer-area p {
                 color: #8a9aa5;
@@ -542,7 +562,7 @@
                 display: inline-block;
             }
             .footer-area a:hover {
-                color: var(--brand-accent);
+                color: var(--brand-green);
                 text-decoration: none;
                 padding-left: 5px;
             }
@@ -564,7 +584,7 @@
             .footer-links a::before {
                 content: '>';
                 margin-right: 8px;
-                color: var(--brand-primary);
+                color: var(--brand-blue);
                 transition: margin-right 0.3s ease;
             }
             .footer-links a:hover::before {
@@ -576,7 +596,7 @@
                 margin-bottom: 15px;
             }
             .footer-contact-item i {
-                color: var(--brand-accent);
+                color: var(--brand-green);
                 margin-right: 12px;
                 margin-top: 4px;
                 font-size: 0.9rem;
@@ -636,7 +656,7 @@
                 padding-left: 0;
             }
             .footer-bottom a:hover {
-                color: var(--brand-accent);
+                color: var(--brand-green);
                 padding-left: 0;
             }
             .footer-col-2 {
@@ -654,7 +674,7 @@
                 right: 30px;
                 width: 45px;
                 height: 45px;
-                background: var(--brand-primary);
+                background: var(--brand-blue);
                 color: #fff;
                 border: none;
                 border-radius: 50%;
@@ -665,7 +685,7 @@
                 transform: translateY(20px);
                 transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background 0.3s ease;
                 z-index: 9999;
-                box-shadow: 0 3px 12px rgba(90, 154, 168, 0.3);
+                box-shadow: 0 3px 12px rgba(0, 153, 204, 0.3);
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -676,7 +696,7 @@
                 transform: translateY(0);
             }
             .back-to-top:hover {
-                background: var(--brand-primary-dark);
+                background: var(--brand-blue-dark);
                 transform: translateY(-2px);
             }
 
@@ -685,7 +705,7 @@
                 position: absolute;
                 top: -50px;
                 left: 0;
-                background: var(--brand-primary);
+                background: var(--brand-blue);
                 color: white;
                 padding: 10px 20px;
                 z-index: 10000;
@@ -716,6 +736,49 @@
                 .appointment-form-box {
                     padding: 25px 20px;
                 }
+            }
+
+            /* Flatpickr altInput styling */
+            .flatpickr-input.form-control[readonly] {
+                background-color: #fff;
+                cursor: pointer;
+            }
+            input.flatpickr-input + input.form-control {
+                background-color: #fff;
+            }
+            /* Ensure flatpickr calendar is properly visible on mobile */
+            .flatpickr-calendar {
+                font-family: 'Sarabun', sans-serif;
+            }
+            .flatpickr-day.selected {
+                background: var(--form-primary) !important;
+                border-color: var(--form-primary) !important;
+            }
+            .flatpickr-day:hover {
+                background: rgba(90, 154, 168, 0.15) !important;
+            }
+            .flatpickr-day.today {
+                border-color: var(--form-primary) !important;
+            }
+            .flatpickr-months .flatpickr-month {
+                background: var(--form-primary);
+                color: white;
+            }
+            .flatpickr-current-month .flatpickr-monthDropdown-months {
+                background: var(--form-primary);
+                color: white;
+            }
+            .flatpickr-current-month input.cur-year {
+                color: white;
+            }
+            .flatpickr-months .flatpickr-prev-month,
+            .flatpickr-months .flatpickr-next-month {
+                color: white;
+                fill: white;
+            }
+            .flatpickr-months .flatpickr-prev-month:hover svg,
+            .flatpickr-months .flatpickr-next-month:hover svg {
+                fill: white;
             }
         </style>
 
@@ -791,7 +854,7 @@
                             <!-- Success Message -->
                             <div id="successMessage">
                                 <div class="success-icon"><i class="fas fa-check-circle"></i></div>
-                                <h3 class="font-weight-bold" style="color: var(--brand-primary);">ขอบคุณสำหรับคำขอนัดหมาย</h3>
+                                <h3 class="font-weight-bold" style="color: var(--form-primary);">ขอบคุณสำหรับคำขอนัดหมาย</h3>
                                 <p class="mt-3" style="color: var(--text-dark); font-size: 1.1rem;">เจ้าหน้าที่จะติดต่อกลับเพื่อยืนยันวันและเวลาอีกครั้งค่ะ</p>
 
                                 <div class="success-details" id="successDetails">
@@ -1179,18 +1242,24 @@
             };
 
             // 5. Initialize Date Pickers
-            // Birth Date Picker
+            // Birth Date Picker - with Thai month name display
             flatpickr("#birthDate", {
-                dateFormat: "d-m-Y",
+                dateFormat: "d M Y",
+                altInput: true,
+                altFormat: "d F Y",
                 maxDate: "today",
                 defaultDate: null,
-                locale: thaiLocale
+                locale: thaiLocale,
+                disableMobile: false
             });
 
-            // Appointment Date Picker
+            // Appointment Date Picker - with Thai month name display
             flatpickr("#appointmentDate", {
-                dateFormat: "d-m-Y",
+                dateFormat: "d M Y",
+                altInput: true,
+                altFormat: "D d F Y",
                 minDate: "today",
+                disableMobile: false,
                 disable: [
                     // Block Mondays (Day 1) - Clinic closed
                     function(date) { return (date.getDay() === 1); },

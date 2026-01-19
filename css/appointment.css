@@ -165,8 +165,9 @@ h1, h2, h3, h4, .navbar-brand { font-family: 'Playfair Display', serif; color: v
 }
 .phone-banner-text p {
     margin: 0;
-    color: var(--text-muted);
-    font-size: 0.9rem;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 .phone-banner-text a {
     font-size: 1.25rem;

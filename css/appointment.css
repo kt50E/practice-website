@@ -21,7 +21,7 @@
     --form-primary-dark: #4a8a98;
     --form-accent: #7db8a8;
     --form-accent-dark: #6aa898;
-    --border-light: #e8e8e8;
+    --border-light: #cccccc;
 }
 body { font-family: 'Sarabun', sans-serif; background-color: var(--bg-white); color: var(--text-dark); }
 h1, h2, h3, h4, .navbar-brand { font-family: 'Playfair Display', serif; color: var(--text-dark); }
@@ -208,22 +208,22 @@ h1, h2, h3, h4, .navbar-brand { font-family: 'Playfair Display', serif; color: v
     border: 2px solid var(--border-light);
 }
 .step-circle.active {
-    background: var(--form-primary);
+    background: var(--brand-blue);
     color: white;
-    border-color: var(--form-primary);
+    border-color: var(--brand-blue);
 }
 .step-circle.completed {
-    background: var(--form-accent);
+    background: var(--brand-green);
     color: white;
-    border-color: var(--form-accent);
+    border-color: var(--brand-green);
 }
 .step-label {
     font-weight: 500;
-    color: var(--text-muted);
+    color: #6b7785;
     font-size: 0.9rem;
 }
 .step-label.active {
-    color: var(--form-primary);
+    color: var(--brand-blue);
 }
 .step-connector {
     width: 50px;
@@ -232,7 +232,7 @@ h1, h2, h3, h4, .navbar-brand { font-family: 'Playfair Display', serif; color: v
     margin: 0 12px;
 }
 .step-connector.completed {
-    background: var(--form-accent);
+    background: var(--brand-green);
 }
 
 /* --- FORM STYLES (Softer form-specific colors) --- */
@@ -372,45 +372,49 @@ input[readonly].form-control {
 }
 
 /* --- BUTTON STYLES (Form softer colors) --- */
+.form-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+}
 .btn-submit, .btn-next {
-    background-color: var(--form-primary);
+    background-color: var(--brand-blue);
     color: white;
     padding: 10px 24px;
     border-radius: 6px;
     font-weight: 600;
     border: none;
     transition: all 0.2s ease;
-    width: auto;
     font-size: 1rem;
-    margin-top: 20px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
 .btn-submit:hover, .btn-next:hover {
-    background-color: var(--form-primary-dark);
+    background-color: var(--brand-blue-dark);
     color: white;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(90, 154, 168, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 153, 204, 0.3);
 }
 .btn-back {
-    background-color: #fff;
-    color: var(--text-dark);
+    background-color: transparent;
+    color: var(--brand-blue);
     padding: 10px 24px;
     border-radius: 6px;
     font-weight: 600;
-    border: 1px solid var(--border-light);
+    border: 2px solid var(--brand-blue);
     transition: all 0.2s ease;
-    width: auto;
     font-size: 1rem;
-    margin-top: 10px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
 .btn-back:hover {
-    background-color: #f7f8fa;
-    color: var(--text-dark);
+    background-color: rgba(0, 153, 204, 0.08);
+    color: var(--brand-blue-dark);
+    border-color: var(--brand-blue-dark);
 }
 
 /* --- REVIEW SCREEN --- */
@@ -729,6 +733,14 @@ input[readonly].form-control {
     }
     .appointment-form-box {
         padding: 25px 20px;
+    }
+    /* Mobile: Full-width buttons for better tap targets */
+    .form-buttons {
+        width: 100%;
+    }
+    .btn-submit, .btn-next, .btn-back {
+        width: 100%;
+        padding: 12px 24px;
     }
 }
 
